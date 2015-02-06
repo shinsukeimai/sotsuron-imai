@@ -24,6 +24,7 @@ do
 		done
 			platex sotsuron.tex && dvipdfmx sotsuron.dvi && git add -A && git commit -m "$meg" && git push 
 			echo "end tex push-----"
+			break
 	else
 		echo "wrong select-----"
 	fi
