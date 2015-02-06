@@ -2,12 +2,12 @@
 \usepackage[dvipdfmx]{graphicx}
 
 
-\title{Tag Cloud$B$rMQ$$$?%G!<%?2D;k2=J,@O%7%9%F%`$N3+H/(B}
-\author{$B:#0f(B $BZo2p(B}
-\professor{$B>.;3ED(B $B9LFs(B $B65<x(B}
-\course{$B5~ETBg3X9)3XIt(B}
-\department{$BEE5$EE;R9)3X2J(B $BEE5$9)3X@l96(B}
-\date{$BJ?@.(B27$BG/(B2$B7n(B13$BF|(B}
+\title{Tag Cloudを用いたデータ可視化分析システムの開発}
+\author{今井 晨介}
+\professor{小山田 耕二 教授}
+\course{京都大学工学部}
+\department{電気電子工学科 電気工学専攻}
+\date{平成27年2月13日}
 
 
 \begin{document}
@@ -22,90 +22,90 @@
 
 This paper describes about a database Visual Analytics system that uses a Tag Cloud on the basis of a degree of semantic similarity and a coefficient of determination. The system makes data discovery easy by deciding tag size according the degree of semantic similarity. The system also supports data analysis by assigning a color to the tag according the coefficient of determination.
 
-Recently, the amount of data is increasing. And, opportunity to get new knowledge by utilizing data is increasing. So, data utilization is getting important. Data discovery is first step of data utilization.  Several techniques have been made on data discovery, and one of the techniques is semantic similarity search technique. Semantic similarity search technique make data discovery easy. But these search technique cannot detecting data perfectly. So, displaying the data clearly which is semantic similar with a search keyword is efficient for detecting data. Displaying the data clearly is important. 
-Data analysis is second step of data utilization. Single regression analysis is a basic part of the data analysis. This reveals the relationship of two data. But this relation is not always true. In order to reveal appropriateness of single regression analysis, coefficient of determination is used. So emphasis high coefficient of determination$B!G(Bs data makes data analysis efficient.
+Recently, the amount of data is increasing. And, opportunity to get new knowledge by utilizing data is increasing. So, data utilization is getting important. Data discovery is first step of data utilization.  Several techniques have been made on data discovery, and one of the techniques is semantic similarity search technique. Semantic similarity search technique make data discovery easy. But these search technique cannot detecting data perfectly. So, displaying the data clearly which is semantic similar with a search keyword is efficient for detecting data. Displaying the data clearly is important.
+Data analysis is second step of data utilization. Single regression analysis is a basic part of the data analysis. This reveals the relationship of two data. But this relation is not always true. In order to reveal appropriateness of single regression analysis, coefficient of determination is used. So emphasis high coefficient of determination’s data makes data analysis efficient.
 
 This research conducts a comparative experiment with a spreadsheet program which has many function of data utilization to verify the effectiveness about data utilization. The content of comparative experiment is to do hypothesis testing from one database. Also, an operability of the system is tested by NEM (Novice Expert ratio Method). These tests suggest that the system has high operability and make data utilization easy.
 
 
-\maketitle			% $BI=Bj$r=PNO(B
-\tableofcontents		% $BL\<!$r=PNO(B
+\maketitle			% 表題を出力
+\tableofcontents		% 目次を出力
 
 
 %======================================================================
-%		1$B>O(B
+%		1章
 %======================================================================
-\chapter{$B=xO@(B}
+\chapter{序論}
 
-$B2f$,9q$G$O!"2J3X5;=Q@/:v$H2J3X5;=Q$K4XO"$9$k%$%N%Y!<%7%g%s$N$?$a$N@/:v$r?d?J$9$k!V2J3X5;=Q%$%N%Y!<%7%g%s@/:v$N0lBNE*E83+!W$r7G$2$F$$$k(B\cite{1-1}$B!#(B
-$B2J3X5;=Q$H<R2q$H$N4X78$,?<2=$9$kCf!"2J3X5;=Q%$%N%Y!<%7%g%s@/:v$r!V<R2q5Z$S8x6&$N$?$a$N@/:v!W$N0l4D$H$7$F!"9qL1$NI}9-$$;22h$rF@$D$D!"(B
-$BM}2r$H?.Mj$rF@$J$,$i?J$a$F$$$/$?$a$K$O!"2J3XE*J}K!$K4p$E$-@/:v$N4k2hN)0F5Z$S?d?JEy$r9T$$!"@/:v7A@.%W%m%;%9$r$h$j9gM}E*$J$b$N$K$9$k$H$H$b$K!"(B
-$B9qL1$KBP$7$F$h$j0lAX$N@bL@@UG$$r2L$?$7$F$$$/$3$H$,I,MW$H$J$k!#(B
+我が国では、科学技術政策と科学技術に関連するイノベーションのための政策を推進する「科学技術イノベーション政策の一体的展開」を掲げている\cite{1-1}。
+科学技術と社会との関係が深化する中、科学技術イノベーション政策を「社会及び公共のための政策」の一環として、国民の幅広い参画を得つつ、
+理解と信頼を得ながら進めていくためには、科学的方法に基づき政策の企画立案及び推進等を行い、政策形成プロセスをより合理的なものにするとともに、
+国民に対してより一層の説明責任を果たしていくことが必要となる。
 
-$B$3$N2J3XE*J}K!$rMx3hMQ$9$k:](B ,$B=EMW$JLr3d$r2L$?$9$b$N$,(B $B2>@b8!>ZK!$G$"$k(B\cite{1-2}. 
-$B2>@b8!>ZK!$G$O!"LdBj$KBP$7$F!"2>@b$r9=C[$7!"%G!<%?$rMQ$$$F8!>Z$,2DG=$H$J$k$h$&$K0x2L4X78$rDj<02=!J35G0A`:n2=!K$9$k!#(B
-$B$3$NDj<02=$5$l$?0x2L4X78$H$7$FI=8=$5$l$?2>@b$r%G!<%?$rMQ$$$F8!>Z$9$k$3$H$G2J3XE*J}K!$K4p$E$$$?@/:v:vDj$,2DG=$K$J$k!#(B
-$B$3$N>l9g!"0x2L4X78$r9=@.$9$k860x$H7k2L$KBP1~$9$k%G!<%?$r4Q;!$dD4::$J$I$rDL$7$F<}=8$9$k$3$H$K$J$k$,!"(B
-$B@/I\E}7W%G!<%?Ey$G4{$K<}=8$5$l$F$$$k>l9g$K$O!"%G!<%?$KIUM?$5$l$?%?%0$r<j3]$+$j$K8!:w$9$k$3$H$H$J$k!#$3$3$G!"%?%0$H$O!"%G!<%?%Y!<%9$NNsL>$r$"$i$o$9!#(B
+この科学的方法を利活用する際 ,重要な役割を果たすものが 仮説検証法である\cite{1-2}.
+仮説検証法では、問題に対して、仮説を構築し、データを用いて検証が可能となるように因果関係を定式化（概念操作化）する。
+この定式化された因果関係として表現された仮説をデータを用いて検証することで科学的方法に基づいた政策策定が可能になる。
+この場合、因果関係を構成する原因と結果に対応するデータを観察や調査などを通して収集することになるが、
+政府統計データ等で既に収集されている場合には、データに付与されたタグを手掛かりに検索することとなる。ここで、タグとは、データベースの列名をあらわす。
 
-$B6aG/!"@/I\E}7W%G!<%?$J$I%*!<%W%s%G!<%?$NMx3hMQ$G$-$k4D6-$,@0Hw$5$l$D$D$"$k$,!"2>@b8!>Z$H$$$&4QE@$G$O$^$@$^$@;H$$$d$9$$$H$O8@$($J$$!#(B
-$B2>@b$r9=@.$9$k860x$H7k2L$KBP$7$F!"35G0A`:n2=$r9T$C$?$H$7$F$b(B,$B$=$l$i$KBP1~$9$k$9$k%?%0$r8zN($h$/8+$D$1$k$3$H$O:$Fq$G$"$k!#(B
-$B$?$H$($P!"ET;T2=$,?J$`$HHH:aN($,9b$^$k$H$$$&2>@b$r8!>Z$9$k$&$($G!"ETF;I\8)JL$NHH:aN(%G!<%?$rD4$Y$k$?$a$K!"(B
-$B!VHH:aN(!W$H$$$&%-!<%o!<%I$G@/I\E}7W%G!<%?%Y!<%9$r8!:w$7$F$bBP1~$9$k%?%0$O8+$D$+$i$J$$!#!VHH:aN(!W$HEy2A$J%G!<%?$O!"(B
-$B!V7:K!G'CN7o?t!W$H$$$&%?%0$GEPO?$5$l$F$$$k$+$i$G$"$k!#2>@b8!>Z$r8z2LE*$K?J$a$k$?$a$K$O!"%*!<%W%s%G!<%?%7%9%F%`$G$O!"(B
-$BEPO?$5$l$F$$$k%G!<%?$N%?%0$,J,$+$j$d$9$/PmbWI=<($5$l$k$N$,$h$$!#BgNL$N%?%0$,F1$8$h$&$KI=<($5$l$F$$$F$b5$$E$-$K$D$J$,$i$J$$2DG=@-$,9b$$$N$G!"(B
-$B8!:w$7$?$$%G!<%?$N%?%0$N0[2;F15A8l$KBP$9$k0UL#N`;wEY$rB0@-$K$7$FI=<($5$l$k;EAH$_$,K>$^$7$$!#(B
+近年、政府統計データなどオープンデータの利活用できる環境が整備されつつあるが、仮説検証という観点ではまだまだ使いやすいとは言えない。
+仮説を構成する原因と結果に対して、概念操作化を行ったとしても,それらに対応するするタグを効率よく見つけることは困難である。
+たとえば、都市化が進むと犯罪率が高まるという仮説を検証するうえで、都道府県別の犯罪率データを調べるために、
+「犯罪率」というキーワードで政府統計データベースを検索しても対応するタグは見つからない。「犯罪率」と等価なデータは、
+「刑法認知件数」というタグで登録されているからである。仮説検証を効果的に進めるためには、オープンデータシステムでは、
+登録されているデータのタグが分かりやすく俯瞰表示されるのがよい。大量のタグが同じように表示されていても気づきにつながらない可能性が高いので、
+検索したいデータのタグの異音同義語に対する意味類似度を属性にして表示される仕組みが望ましい。
 
-$B>e=R$N$h$&$K(B, $B%G!<%?$N4X78@-$KCeL\$7$F$=$N7k2L$rMxMQ<T$K$o$+$j$d$9$/Ds<($9$k$3$H$O(B, $B2>@b8!>Z$NBg$-$J<j=u$1$K$J$k(B. 
-$BK\O@J8$G$O(B, $B$=$NL\E*$N$?$a$K(B, Tag Cloud$B$H8F$P$l$k2D;k2=<jK!$KCeL\$7$?(B. 
-Tag Cloud$B$H$OJ8=q$d(BWeb Site$B$N2D;k2=<jK!$G(B, $BJ8=q$NC18l$K=EMWEY$r$D$1(B, 
-$B$=$l$r4p$K(BTag Cloud$BFb$N%?%0$N%U%)%s%H%5%$%:$d%?%0$N?'$J$I$rJQ$($?J#?t$N8l$rJB$Y$FI=<($9$k<jK!$G$"$k!%(B
-Tag Cloud$B$O(B, $B%U%)%s%H%5%$%:$d%?%0$N?'$NB0@-$r;}$?$;(B, $B$=$l$i$rE,@Z$K@_Dj$9$k$3$H$GC18l$N=EMWEY$K1~$8$?8z2LE*$JI=8=$r$9$k$3$H$,2DG=$G$"$k(B.
+上述のように, データの関係性に着目してその結果を利用者にわかりやすく提示することは, 仮説検証の大きな手助けになる.
+本論文では, その目的のために, Tag Cloudと呼ばれる可視化手法に着目した.
+Tag Cloudとは文書やWeb Siteの可視化手法で, 文書の単語に重要度をつけ,
+それを基にTag Cloud内のタグのフォントサイズやタグの色などを変えた複数の語を並べて表示する手法である．
+Tag Cloudは, フォントサイズやタグの色の属性を持たせ, それらを適切に設定することで単語の重要度に応じた効果的な表現をすることが可能である.
 
-$BK\O@J8$G$O(B, 47$BETF;I\8)JL$NE}7W%G!<%?$rBP>]$H$9$k(B, 
-$B8!:w%-!<%o!<%I$H$NN`;wEY$*$h$SA*Br%G!<%?$H$N7hDj78?t$K4p$E$-(BTag Cloud$B2D;k2=5;=Q$rMQ$$$?2D;k2=J,@O%7%9%F%`$rDs0F$9$k(B. 
-$B$3$N%7%9%F%`$G$O(BTag Cloud$B$rMQ$$$F%?%0$rI=<($9$k!#%?%0$N%U%)%s%H%5%$%:$r8!:w%-!<%o!<%I$H$N0UL#E*N`;wEY$K4p$E$-I=<($9$k$3$H$G!"(B
-$B8!:w$7$?$$%G!<%?$N%?%0$rH/8+$70W$/$7$?!#$5$i$K(B, $BFs$D$N%?%0$rA*Br$9$k$3$H$G!"%?%0$N;}$D%G!<%?$r;6I[?^(B, $B2s5"D>@~$GI=<($9$k!#(B
-$B2>@b8!>Z$G$O!"2>@b9=C[$+$i%G!<%?<}=8!"J,@O!"8!>Z$HJ#?t$N<j=g$rMW$9$k$,!"$=$N$&$A$N%G!<%?<}=8$HJ,@O$rF1;~$K9T$&$3$H$G!"2>@b8!>Z$N8zN(2=$r?^$C$?(B. 
-$B$^$?!"%?%0$N?'$K$D$$$F$O7hDj78?t$K1~$8$F7hDj$9$k!#2s5"D>@~$N38A3@-$r<($97hDj78?t$r%?%0$NB0@-$K$7$FI=<($9$k$3$H$G!"(B
-$B4XO"$N9b$$%G!<%?$rC5$7$d$9$/$7!"%G!<%?4X78$NJ,@O$rDL$7$F!"4XO"$,9b$$860x(B($B6&DL860x$dHfNc!"0x2L4X78$J$I(B)$B$r?7$?$KH/8+$K$D$J$,$kCNE*4pHW$X$N(B
-$B5!G=3HD%$rL\;X$7$?!#$3$l$i$K$h$jDs0F%7%9%F%`$G$O2>@b8!>Z$N8zN(2=$rL\;X$7$?(B. 
+本論文では, 47都道府県別の統計データを対象とする,
+検索キーワードとの類似度および選択データとの決定係数に基づきTag Cloud可視化技術を用いた可視化分析システムを提案する.
+このシステムではTag Cloudを用いてタグを表示する。タグのフォントサイズを検索キーワードとの意味的類似度に基づき表示することで、
+検索したいデータのタグを発見し易くした。さらに, 二つのタグを選択することで、タグの持つデータを散布図, 回帰直線で表示する。
+仮説検証では、仮説構築からデータ収集、分析、検証と複数の手順を要するが、そのうちのデータ収集と分析を同時に行うことで、仮説検証の効率化を図った.
+また、タグの色については決定係数に応じて決定する。回帰直線の蓋然性を示す決定係数をタグの属性にして表示することで、
+関連の高いデータを探しやすくし、データ関係の分析を通して、関連が高い原因(共通原因や比例、因果関係など)を新たに発見につながる知的基盤への
+機能拡張を目指した。これらにより提案システムでは仮説検証の効率化を目指した.
 
-$BK\%7%9%F%`$NM-8z@-$r8!>Z$9$k$?$a$K(B, $BK\O@J8$G$OHf3S<B83(B, $BA`:n@-G=<B83$r9T$C$?(B. 
-$BA`:n@-G=<B83$K$h$jDs0F%7%9%F%`$NA`:n@-$r8!>Z$7(B, $B2s5"J,@O$J$I%G!<%?J,@O$K$D$$$F$N5!G=$rB?$/;}$DI=7W;;%=%U%H%&%'%"$N(BExcel$B$HHf3S<B83$r9T$&$3$H$G(B, 
-$B2>@b8!>Z$G$NM-8z@-$r8!>Z$7$?(B. $B$^$?MxMQ<T$+$i<B838e$K%7%9%F%`$K$D$$$F%U%#!<%I%P%C%/$r$b$i$&$3$H$GDs0F%7%9%F%`$NITB-$7$F$$$kE@$J$I$K$D$$$F$N0U8+$r$b$i$C$?(B. 
+本システムの有効性を検証するために, 本論文では比較実験, 操作性能実験を行った.
+操作性能実験により提案システムの操作性を検証し, 回帰分析などデータ分析についての機能を多く持つ表計算ソフトウェアのExcelと比較実験を行うことで,
+仮説検証での有効性を検証した. また利用者から実験後にシステムについてフィードバックをもらうことで提案システムの不足している点などについての意見をもらった.
 
-$BK\O@J8$N9=@.$O0J2<$NDL$j$G$"$k(B. $BBh(B1 $B>O$O=xO@$G$"$k(B. $BBh(B2 $B>O$G$O4XO"8&5f$K$D$$$F$^$H$a$k(B. 
-$BBh(B3 $B>O$G$ODs0F%7%9%F%`$K$D$$$F=R$Y$k(B. $BBh(B4 $B>O$G$O(B, $BE,MQNc$H$7$FMxMQ<T$,Ds0F%7%9%F%`$rMxMQ$7$?<B837k2L$r=R$Y(B, $B9M;!$r9T$&(B. 
-$BBh(B5 $B>O$G$O7kO@$*$h$S:#8e$NE8K>$K$D$$$F=R$Y$k(B.
+本論文の構成は以下の通りである. 第1 章は序論である. 第2 章では関連研究についてまとめる.
+第3 章では提案システムについて述べる. 第4 章では, 適用例として利用者が提案システムを利用した実験結果を述べ, 考察を行う.
+第5 章では結論および今後の展望について述べる.
 
 
 %======================================================================
-%		2$B>O(B
+%		2章
 %======================================================================
-\chapter{$B4XO"8&5f(B}
+\chapter{関連研究}
 
-$BK\>O$G$O(B, $BK\O@J8$N4XO"8&5f$r$^$H$a$k(B. 
-2.1$B@a$G$OMxMQ<T$N8!:w$K4p$E$-%G!<%?%Y!<%9$r2D;k2=(B, $BJ,@O$9$k%7%9%F%`$K$D$$$F(B, 2.2$B@a$G$O(BTag Cloud$B$rMQ$$$?%G!<%?%Y!<%9$N2D;k2=$K$D$$$F(B, 
-2.3$B@a$G$O(BTag Cloud $B$KN`;wEY$rMQ$$$?2D;k2=$K$D$$$F@bL@$9$k(B. 
+本章では, 本論文の関連研究をまとめる.
+2.1節では利用者の検索に基づきデータベースを可視化, 分析するシステムについて, 2.2節ではTag Cloudを用いたデータベースの可視化について,
+2.3節ではTag Cloud に類似度を用いた可視化について説明する.
 
 %2.1
-\section{$B8!:w7k2L$N2D;k2=%7%9%F%`(B}
+\section{検索結果の可視化システム}
 
-$B%G!<%?%Y!<%9$rBP>]$H$?8!:w7k2L$N2D;k2=5;=Q$O$3$l$^$G$K$b$$$/$D$+Ds0F$5$l$F$$$k(B. 
-Clarkson$B$i(B
-\cite{2.1-1}$B$OJ8=q%G!<%?%Y!<%9$N8!:w%7%9%F%`(BResultMaps$B$rDs0F$7$?(B. 
-$B$3$N<jK!$G$O(B, $B3,AXE*$J%a%?%G!<%?$r;}$D%G!<%?%Y!<%9$N8!:w7k2LI=<($KBP$7$F%j%9%HI=<($K2C$((B, $B?^(B~\ref{2-1}$B$N$h$&$K(BSquarified Treemaps
-~\cite{2.1-2}$B$H8F$P$l$kJ}K!$rMQ$$$F%D%j!<3,AX$rI=8=$9$k$3$H$G%G!<%?%Y!<%9$NFCD'$rJ,$+$j$d$9$/I=<($7$?(B. 
-$B$3$l$i$N<jK!$G$O(B, $B%D%j!<9=B$$r(BTreempas$B5;=Q$r;H$&$3$H$G(B, $B8!:w7k2L$r8B$i$l$?6u4V$K%G!<%?$r5M$a9~$`$3$H$r<B8=$7$F$$$k$,(B, 
-$BDs0F%7%9%F%`$G07$&%G!<%?$O3,AX9=B$$r;}$?$J$$$N$G$H$$$C$?(BTreempas$B5;=Q$r@8$+$9$3$H$,=PMh$:(B, 
-$B$^$?(B,Treempa$BI=<($G$O(BTagCloud$B$KHf$Y0l$D0l$D$N%G!<%?$KBP$7$FB?$/LL@Q$r<h$k$N$G$h$jB?$/$N%G!<%?$rI=<($9$k$3$H$K$OE,$7$F$$$J$$(B. 
+データベースを対象とた検索結果の可視化技術はこれまでにもいくつか提案されている.
+Clarksonら
+\cite{2.1-1}は文書データベースの検索システムResultMapsを提案した.
+この手法では, 階層的なメタデータを持つデータベースの検索結果表示に対してリスト表示に加え, 図~\ref{2-1}のようにSquarified Treemaps
+~\cite{2.1-2}と呼ばれる方法を用いてツリー階層を表現することでデータベースの特徴を分かりやすく表示した.
+これらの手法では, ツリー構造をTreempas技術を使うことで, 検索結果を限られた空間にデータを詰め込むことを実現しているが,
+提案システムで扱うデータは階層構造を持たないのでといったTreempas技術を生かすことが出来ず,
+また,Treempa表示ではTagCloudに比べ一つ一つのデータに対して多く面積を取るのでより多くのデータを表示することには適していない.
 
-%$B$^$?(B, Paulovich$B$i(B\cite{2.1-3}$B$OB?$/$N%&%'%V8!:w7k2L$,9T$&%i%s%-%s%0I=<($G$O(B, $B=g0L$OJ,$+$k$,%i%s%/I=<($5$l$?9`L\F1;N$N:9$OJ,$+$i$:(B, 
-%$B$3$l$r2~A1$9$k<jK!$H$7$F(BPEx-WEB$B$rDs0F$7$?(B. 
-%PEx-WEB$B$G$O(B, $BJ8=q%G!<%?%Y!<%9$rN`;w@-$K4p$E$-%M%C%H%o!<%/?^$GI=<($7(B, 
-%$B%-!<%o!<%I8!:w$N7k2L$rN`;w@-$+$i7W;;$5$l$?0LCV$rI=8=$9$k(B. $B$3$l$K$h$C$F%G!<%?J,@O$K$+$+$k;~4V$rC;=L$5$;$?(B. 
-%$B$3$N$h$&$J%G!<%?%Y!<%9$N8!:w7k2L$r2D;k2=$9$k%7%9%F%`$OB?$/B8:_$9$k$,(B, $BDs0F%7%9%F%`$G$O8!:w7k2L$r(BTag Cloud$B$GI=<($9$kE@$,0[$J$C$F$$$k(B. 
+%また, Paulovichら\cite{2.1-3}は多くのウェブ検索結果が行うランキング表示では, 順位は分かるがランク表示された項目同士の差は分からず,
+%これを改善する手法としてPEx-WEBを提案した.
+%PEx-WEBでは, 文書データベースを類似性に基づきネットワーク図で表示し,
+%キーワード検索の結果を類似性から計算された位置を表現する. これによってデータ分析にかかる時間を短縮させた.
+%このようなデータベースの検索結果を可視化するシステムは多く存在するが, 提案システムでは検索結果をTag Cloudで表示する点が異なっている.
 
 \begin{figure}
   \begin{center}
@@ -117,39 +117,39 @@ Clarkson$B$i(B
 \end{figure}
 
 %2.2
-\section{Tag Cloud$B$rMQ$$$?%G!<%?%Y!<%9$N2D;k2=(B}
+\section{Tag Cloudを用いたデータベースの可視化}
 
-Tag Cloud$B$H$O(B, $BC18l=89g$KBP$7$F(B, $B=EMWEY$K1~$8$FC18l!J%?%0!K$NBg$-$5$d?'$rD4@0$7(B, $BJ?LL>e$NG$0U$NJDNN0hFb$KC18l$rG[CV$9$k5;=Q$G$"$k(B. 
-Lohmann$B$i(B
-\cite{1-2}$B$O(BTag Cloud$B$K$h$k2D;k2=$O%j%9%HI=<($KHf$Y(B, $B=EMWEY$N9b$$%?%0$NH/8+$rAa$a$k798~$,$"$k$HI>2A$7$F$$$k(B. 
+Tag Cloudとは, 単語集合に対して, 重要度に応じて単語（タグ）の大きさや色を調整し, 平面上の任意の閉領域内に単語を配置する技術である.
+Lohmannら
+\cite{1-2}はTag Cloudによる可視化はリスト表示に比べ, 重要度の高いタグの発見を早める傾向があると評価している.
 
-Tag Cloud$BFb$N%?%0$N%U%)%s%H%5%$%:$rJQ99$9$kNc$H$7$F(BWordle
-\cite{2.2-3}$B$,5s$2$i$l$k(B. 
-Wordle$B$OC18l$NJ8=qFb$G;H$o$l$?2s?t(B($B=P8=IQEY(B)$B$G%U%)%s%H%5%$%:$K=E$_IU$1$r$7(B, $BCf1{$+$i%i%s%@%`$KG[CV$7(B, 
-$BJ8;z$N7d4V$d(B, $B6uF6ItJ,$J$I=E$J$j$5$($7$J$1$l$PG[CV$G$-$k$N$G%?%0$rCf?4IU6a$K=8Ls$7$FI=<($9$k(B
-($B?^(B~\ref{2-2}). 
-Wordle$B$rJ#?t$NJ8=q$KMQ$$$k$3$H$GJ8>O$NFCD'$rL@$i$+$K$7$?(B.  
+Tag Cloud内のタグのフォントサイズを変更する例としてWordle
+\cite{2.2-3}が挙げられる.
+Wordleは単語の文書内で使われた回数(出現頻度)でフォントサイズに重み付けをし, 中央からランダムに配置し,
+文字の隙間や, 空洞部分など重なりさえしなければ配置できるのでタグを中心付近に集約して表示する
+(図~\ref{2-2}).
+Wordleを複数の文書に用いることで文章の特徴を明らかにした.
 
-$B$^$?(B, Tag Cloud$B$G%U%)%s%H%5%$%:(B, $B%?%0$N?'$rJQ99$9$kNc$H$7$F(BChen$B$i(B
-\cite{2.2-2}$B$N1G2h?dA&%7%9%F%`$,5s$2$i$l$k(B. 
-Chen$B$N%7%9%F%`$G$O(B, $B1Q8l$N@bL@J8$rMQ$$$F(BTag Cloud$B$r@8@.$9$k(B. 
-$B$^$:MxMQ<T$,6=L#$N$"$kC18l(B, $B6=L#$N$J$$C18l$rA*Br$9$k(B, $B$=$N8e$K1G2h$N@bL@J8Fb$G%f!<%6$N6=L#$N$"$kC18l$N=P8=2s?t$H6=L#$N$J$$C18l$N=P8=2s?t$rB,Dj$7(B
-$B$=$l$r4p$K%f!<%6$,6=L#$r;}$D$H?dB,$5$l$?1G2h$r?dA&$9$k(B($B?^(B~\ref{2-3}). $B$3$l$K$h$C$F4{B8$N%7%9%F%`$h$jK~B-EY$,9b$$%7%9%F%`$rDs0F$7$?(B. 
+また, Tag Cloudでフォントサイズ, タグの色を変更する例としてChenら
+\cite{2.2-2}の映画推薦システムが挙げられる.
+Chenのシステムでは, 英語の説明文を用いてTag Cloudを生成する.
+まず利用者が興味のある単語, 興味のない単語を選択する, その後に映画の説明文内でユーザの興味のある単語の出現回数と興味のない単語の出現回数を測定し
+それを基にユーザが興味を持つと推測された映画を推薦する(図~\ref{2-3}). これによって既存のシステムより満足度が高いシステムを提案した.
 
-$B?^(B~\ref{2-2}, ~\ref{2-3}$B$N$h$&$K(BTag Cloud$B$NBgItJ,$O(BWeb Site,$BJ8=q$G$NC18l=P8=IQEY$J$I(B, $B%G!<%?$NCf?H$K4p$E$-(BTag Cloud$B$rI=<($7$F$$$k$,(B, 
-$B$3$l$G$OMxMQ<T$NMW5a$r9MN8$KF~$l$F$*$i$:(B, $BMxMQ<T$N5a$a$k>pJs$r<j$KF~$l$K$/$$>l9g$,$"$k(B
-\cite{2.2-4}. 
-$BK\O@J8$G$O%f!<%6$N8!:w$7$?%-!<%o!<%I$H$NN`;wEY$N9b$5$r4p$K%U%)%s%H%5%$%:$r(B, 
-$B5Z$S%f!<%6$NA*Br$7$?%G!<%?$HC12s5"J,@O$r9T$C$?:]$N7hDj78?t$N9b$5$K4p$E$-%U%)%s%H%5%$%:$H%?%0$N?'$r7h$a(B, Tag Cloud$B$GI=<($7$F$$$k(B. 
-$B$3$l$K$h$C$F3F%f!<%6$KE,$7$?(BTag Cloud$BI=<($r9T$C$F$$$k(B
-$B$=$NE@$GK\@a$G$N%7%9%F%`$H$O0[$J$k(B. 
+図~\ref{2-2}, ~\ref{2-3}のようにTag Cloudの大部分はWeb Site,文書での単語出現頻度など, データの中身に基づきTag Cloudを表示しているが,
+これでは利用者の要求を考慮に入れておらず, 利用者の求める情報を手に入れにくい場合がある
+\cite{2.2-4}.
+本論文ではユーザの検索したキーワードとの類似度の高さを基にフォントサイズを,
+及びユーザの選択したデータと単回帰分析を行った際の決定係数の高さに基づきフォントサイズとタグの色を決め, Tag Cloudで表示している.
+これによって各ユーザに適したTag Cloud表示を行っている
+その点で本節でのシステムとは異なる.
 
 \begin{figure}
   \begin{center}
     \unitlength=1mm
    \includegraphics[width=120mm]{fig2-2.eps}
   \end{center}
-  \caption{W. Chen$B$NDs0F%7%9%F%`(B}
+  \caption{W. Chenの提案システム}
   \label{2-2}
 \end{figure}
 
@@ -172,40 +172,40 @@ Chen$B$N%7%9%F%`$G$O(B, $B1Q8l$N@bL@J8$rMQ$$$F(BTag Cloud$B$r@8@.$9$k(B.
 %\end{figure}
 
 %2.3
-\section{Tag Cloud$B$K0UL#E*N`;wEY$rMQ$$$?2D;k2=(B}
+\section{Tag Cloudに意味的類似度を用いた可視化}
 
-$BK\@a$G$O(B, $BC18l4V$N0UL#E*N`;wEY$r4p$K$7$F%U%)%s%H%5%$%:$d%?%0$N?'$r7hDj$9$k(BTag Cloud$B2D;k2=5;=Q$K$D$$$F=R$Y$k(B. 
-$B0UL#E*N`;wEY$H$OC18l4V$N0UL#E*$JN`;w@-$rDjNL2=$7$?$b$N$G$"$j(B, $B0UL#E*N`;wEY$N7W;;J}K!$OJ#?tB8:_$9$k(B. 
-Tessem$B$i(B
-\cite{2.3-1}$B$O8=:_CO$K$D$$$FMxMQ<T$,6=L#$r;}$D>pJs$r2D;k2=$9$k$?$a$K(BAndroid$BMQ%"%W%j%1!<%7%g%s$r3+H/$7$?(B. 
-Tessem$B$i$O%"%W%j%1!<%7%g%s$r;HMQ$9$k>pJsC<Kv$+$i;HMQ;~$N0LCV>pJs$r<hF@$7(B, 
-$B8=:_CO$N>pJs$r(BDBpedia
-\cite{2.3-3}$B$+$i<hF@$7(B, $B$=$NCf$NC18l$r(B, $BJ8Cf$G$N=P8=IQEY$r4p$K%U%)%s%H%5%$%:$r7hDj$7(B, Tag Cloud$BI=<($9$k(B. 
-$B$^$?<!$K%?%0$rA*Br$9$k$HA*Br$5$l$?%?%0$HA4$F$N%?%0$N0UL#N`;wEY$r;;=P$7(B, $B0UL#N`;wEY$H=P8=IQEY$N@Q$G%U%)%s%H%5%$%:$r7hDj$9$k(B. 
-$B$3$N%7%9%F%`$G$O(B, $BJ8Cf$G$NC18l=P8=IQEY$@$1$G$OCOM}E*8l$,B?$/I=<($5$l$k$,(B, 
-$BMxMQ<T$K6=L#$N$"$k%?%0$rA*Br$5$;$k$3$H$GMxMQ<T$K$h$j2ACM$N$"$k(BTag Cloud$B$r@8@.$9$k$3$H$,2DG=$K$J$C$?(B
-($B?^(B~\ref{2-5}).
+本節では, 単語間の意味的類似度を基にしてフォントサイズやタグの色を決定するTag Cloud可視化技術について述べる.
+意味的類似度とは単語間の意味的な類似性を定量化したものであり, 意味的類似度の計算方法は複数存在する.
+Tessemら
+\cite{2.3-1}は現在地について利用者が興味を持つ情報を可視化するためにAndroid用アプリケーションを開発した.
+Tessemらはアプリケーションを使用する情報端末から使用時の位置情報を取得し,
+現在地の情報をDBpedia
+\cite{2.3-3}から取得し, その中の単語を, 文中での出現頻度を基にフォントサイズを決定し, Tag Cloud表示する.
+また次にタグを選択すると選択されたタグと全てのタグの意味類似度を算出し, 意味類似度と出現頻度の積でフォントサイズを決定する.
+このシステムでは, 文中での単語出現頻度だけでは地理的語が多く表示されるが,
+利用者に興味のあるタグを選択させることで利用者により価値のあるTag Cloudを生成することが可能になった
+(図~\ref{2-5}).
 
-$B$^$?(B, Wang,$B$i(B
-\cite{2.3-2}$B$O(BAmazon$BEy$N>&IJ$K=q$+$l$k%l%S%e!<5-;v$NJ,@O$K(BTag Cloud$B$rMQ$$$?(B. 
-$B5-;vFb$KB8:_$9$kC18lF1;N$N0UL#E*N`;wEY$rB,Dj$7(B, $B$=$l$rNO3X%b%G%k$N%P%M78?t$K3d$jEv$F$?(B. 
-$B$3$l$K$h$j(B, $B;w$?0UL#$N8@MU$H$N5wN%$O6a$/$K=8$^$j(B, $B%l%S%e!<5-;v$NFCD'$rG'<1$7$d$9$/$J$C$?(B. 
-$B%U%)%s%H%5%$%:$O%l%S%e!<J8Fb$G$N=P8=IQEY$G(B, $B%?%0$N?'$O%/%i%9%?!<JL$G7hDj$9$k(B
-($B?^(B~\ref{2-6}).
+また, Wang,ら
+\cite{2.3-2}はAmazon等の商品に書かれるレビュー記事の分析にTag Cloudを用いた.
+記事内に存在する単語同士の意味的類似度を測定し, それを力学モデルのバネ係数に割り当てた.
+これにより, 似た意味の言葉との距離は近くに集まり, レビュー記事の特徴を認識しやすくなった.
+フォントサイズはレビュー文内での出現頻度で, タグの色はクラスター別で決定する
+(図~\ref{2-6}).
 
-$B>e5-$N$h$&$K(BTag Cloud$B$K0UL#E*N`;wEY$rMQ$$$k$3$H$GMxMQ<T$K$H$C$F$h$j2ACM$N$"$k>pJs$rI=<($G$-$k(B. 
-$B$7$+$7(B, $BDs0F%7%9%F%`$G$OMxMQ<T$NF~NO%-!<%o!<%I$H$NN`;wEY$rMxMQ$7$F$$$k(B. 
-$B8!:w$rMxMQ$9$k$3$H$G(B, $B8B$i$l$?A*Br;h0J30$NMW5a$r9T$&$3$H$,2DG=$K$J$C$?(B. 
-$B$^$?(BTag Cloud$B$G2D;k2=$9$kBP>]$,B?$/$N<jK!$G$OJ8=q$G$"$k$,(B, $BDs0F<jK!$G$OC18l$r07$C$F$$$kE@$b0[$J$k(B. 
-$BJ8=q$G$OC18l$NJ8=qFb$G$N=P8=IQEY$r;XI8$K$9$k$3$H$,B?$$$,(B, $BDs0F<jK!$G$OC18l$r07$&$N$G=P8=IQEY$r07$&$3$H$O$J$/(B, 
-$BBe$o$j$K8!:w%-!<%o!<%I$HN`;wEY$N9b$5(B, $B5Z$SA*Br%G!<%?$HC12s5"J,@O$r9T$C$?:]$N7hDj78?t$N9b$5$rMQ$$$k(B.  
+上記のようにTag Cloudに意味的類似度を用いることで利用者にとってより価値のある情報を表示できる.
+しかし, 提案システムでは利用者の入力キーワードとの類似度を利用している.
+検索を利用することで, 限られた選択肢以外の要求を行うことが可能になった.
+またTag Cloudで可視化する対象が多くの手法では文書であるが, 提案手法では単語を扱っている点も異なる.
+文書では単語の文書内での出現頻度を指標にすることが多いが, 提案手法では単語を扱うので出現頻度を扱うことはなく,
+代わりに検索キーワードと類似度の高さ, 及び選択データと単回帰分析を行った際の決定係数の高さを用いる.
 
 \begin{figure}
   \begin{center}
     \unitlength=1mm
    \includegraphics[width=120mm]{fig2-5.eps}
   \end{center}
-  \caption{B. Tessem$B$NDs0F%7%9%F%`(B}
+  \caption{B. Tessemの提案システム}
   \label{2-5}
 \end{figure}
 
@@ -214,112 +214,112 @@ Tessem$B$i$O%"%W%j%1!<%7%g%s$r;HMQ$9$k>pJsC<Kv$+$i;HMQ;~$N0LCV>pJs$r<hF@$7(B,
     \unitlength=1mm
    \includegraphics[width=120mm]{fig2-6.eps}
   \end{center}
-  \caption{Ji. Wang$B$NDs0F%7%9%F%`(B}
+  \caption{Ji. Wangの提案システム}
   \label{2-6}
 \end{figure}
 
 %======================================================================
-%		3$B>O(B
+%		3章
 %======================================================================
-\chapter{$BDs0F%7%9%F%`(B}
+\chapter{提案システム}
 
-%$BK\>O$G$O(B, $BK\O@J8$GDs0F$9$k%7%9%F%`$K$D$$$F$N@bL@$r9T$&(B. 
-%$B$^$:(B3.1$B@a$GDs0F%7%9%F%`$NMW7oDj5A$K$D$$$F=R$Y$k(B. 
-%$B<!$K(B3.2$B@a$G$ODs0F%7%9%F%`$N35MW$K$D$$$F=R$Y$k(B. 
+%本章では, 本論文で提案するシステムについての説明を行う.
+%まず3.1節で提案システムの要件定義について述べる.
+%次に3.2節では提案システムの概要について述べる.
 
 %3.1
-\section{$BMW7oDj5A(B}
-\subsection{$B;HMQ;vNc(B}
-$BK\9`$G$O(B, $B2>@b8!>ZJd=u%7%9%F%`$K$D$$$F9M$($&$k;HMQ;vNc$rDL$7$F(B, $B8&5fL\E*$G$"$k2>@b8!>Z$N8zN(2=$KI,MW$G$"$kMW7o$rJ,@O$7$?(B. 
+\section{要件定義}
+\subsection{使用事例}
+本項では, 仮説検証補助システムについて考えうる使用事例を通して, 研究目的である仮説検証の効率化に必要である要件を分析した.
 
-$B$^$:$O(B, 2$B$D$N8=>]$N4X78@-$K$D$$$F$N2>@b$rN)$F$k(B. $B$=$N8e(B, $B%$%s%?!<%M%C%H>e$G8xI=$5$l$F$$$k%G!<%?%Y!<%9$+$i=jK>$N%G!<%?$r8!:w$9$k(B. 
-2$B$D$N8=>]L>$H0lCW$9$k%G!<%?$,<hF@$G$-$J$$>l9g$O(B, 2$B$D$N8=>]L>$r%G!<%?$+$i8!>Z$,2DG=$H$J$j$d$9$$L>A0$K9=@.$7$J$*$9I,MW$,$"$k(B. 
-2$B$D$N8=>]L>$H0lCW$9$k%G!<%?$r<j$KF~$l$?>l9g(B, $B%G!<%?$rMQ$$$F(B, $B@bL@JQ?t$HL\E*JQ?t$N<0(B($B2s5"<0(B)$B$r@8@.$9$k(B. 
-$B@8@.$7$?8e(B, $B2>@b$K$D$$$F$N38A3@-$N9b$5$r3N$+$a$k$?$a$N;XI8$G$"$k7hDj78?t$r;29M$K$9$k(B. $B$3$NCM$,Dc$$>l9g(B, $B2>@b$N38A3@-$,Dc$$$H$$$&$3$H$G2>@b$r9=@.$7$J$*$9I,MW$,$"$k(B. 
-$B0J>e$NN.$l$NCf$G(B, $B2>@b8!>Z$NJd=u$KI,MW$J5!G=$K$D$$$F=R$Y$k(B. 
-$B2>@b$NJQ?t35G0$,AGAa$/8+$D$1$k$3$H$,$G$-$k$h$&$K(B, 2$B$D$N8=>]L>$H0lCW$9$k%G!<%?(B, $B$b$7$/$OBe$o$j$K$J$l$k2DG=@-$,9b$$%G!<%?$rJ,$+$j$d$9$/I=<($9$kI,MW$,$"$k(B. 
-$B$3$N$?$a$K$O(B, 2$B$D$N8=>]L>$H$I$l$@$1;w$F$$$k$+$rJ,$+$j$d$9$/I=<($7$D$D%G!<%?$rI=<($9$kI,MW$,$"$k(B. 
-$B$^$?(B, $B2s5"<0!&7hDj78?t$r;29M$K$72>@b8!>Z$r9T$&$?$a(B, $B2s5"<0!&7hDj78?t$rJ,$+$j$d$9$/I=<($7$F$*$/I,MW$,$"$k(B. 
-$B$3$N$?$a$K>/$J$$A`:n%9%F%C%W$G(B, $B2s5"<0(B, $B7hDj78?t$rI=<($9$kI,MW$,$"$k(B. 
+まずは, 2つの現象の関係性についての仮説を立てる. その後, インターネット上で公表されているデータベースから所望のデータを検索する.
+2つの現象名と一致するデータが取得できない場合は, 2つの現象名をデータから検証が可能となりやすい名前に構成しなおす必要がある.
+2つの現象名と一致するデータを手に入れた場合, データを用いて, 説明変数と目的変数の式(回帰式)を生成する.
+生成した後, 仮説についての蓋然性の高さを確かめるための指標である決定係数を参考にする. この値が低い場合, 仮説の蓋然性が低いということで仮説を構成しなおす必要がある.
+以上の流れの中で, 仮説検証の補助に必要な機能について述べる.
+仮説の変数概念が素早く見つけることができるように, 2つの現象名と一致するデータ, もしくは代わりになれる可能性が高いデータを分かりやすく表示する必要がある.
+このためには, 2つの現象名とどれだけ似ているかを分かりやすく表示しつつデータを表示する必要がある.
+また, 回帰式・決定係数を参考にし仮説検証を行うため, 回帰式・決定係数を分かりやすく表示しておく必要がある.
+このために少ない操作ステップで, 回帰式, 決定係数を表示する必要がある.
 
-\subsection{$B%R%"%j%s%0D4::(B}
-$B%G!<%?3hMQ$K$D$$$F$N5!G=$rB?$/;}$D(BMicrosoft Excel(Excel)$B$rMQ$$$F2>@b8!>Z$r9T$?:]$K(B, $BMxMQ<T$X%R%"%j%s%0$r9T$C$?(B. $B0J2<$K$=$N7k2L$r$^$H$a$?(B. 
+\subsection{ヒアリング調査}
+データ活用についての機能を多く持つMicrosoft Excel(Excel)を用いて仮説検証を行た際に, 利用者へヒアリングを行った. 以下にその結果をまとめた.
 
 \begin{itemize}
- \item $B5!G=$,B?$9$.$F<+J,$N5a$a$k5!G=$r8+$D$1$E$i$+$C$?(B
- \item $B$"$^$j(BExcel$B$r;H$C$?$3$H$N$J$$MxMQ<T$K$H$C$F;6I[?^$N%G!<%?JQ99(B, $B2s5"J,@O$J$I$,J#;($@$C$?(B
+ \item 機能が多すぎて自分の求める機能を見つけづらかった
+ \item あまりExcelを使ったことのない利用者にとって散布図のデータ変更, 回帰分析などが複雑だった
 \end{itemize}
 
-$B$3$l$h$j(B, $BI,MW:GDc8B$N5!G=?t$+$D(B, $B>/$J$$A`:n%9%F%C%W$G07$($k5!G=$,I,MW$@$HJ,$+$C$?(B. 
+これより, 必要最低限の機能数かつ, 少ない操作ステップで扱える機能が必要だと分かった.
 
 
-\subsection{$B%7%9%F%`MW7o(B}
-$B$3$3$^$G$N;HMQ;vNc(B, $BMxMQ<T$X$N%R%"%j%s%0$r$U$^$($F!$Ds0F%7%9%F%`$X$NMW7o$r0J2<$N$h$&$KA[Dj$7$?!%(B
+\subsection{システム要件}
+ここまでの使用事例, 利用者へのヒアリングをふまえて，提案システムへの要件を以下のように想定した．
 
 \begin{itemize}
- \item $B8!:w%-!<%o!<%I$H$N0UL#E*N`;wEY$,J,$+$k$h$&$J%G!<%?0lMwI=<((B
- \item $BA*Br%G!<%?$H$N7hDj78?t$,J,$+$k$h$&$J%G!<%?0lMwI=<((B
- \item $B2s5"<0(B, $B7hDj78?t$NI=<((B
- \item $B>/$J$$A`:n%9%F%C%W(B
+ \item 検索キーワードとの意味的類似度が分かるようなデータ一覧表示
+ \item 選択データとの決定係数が分かるようなデータ一覧表示
+ \item 回帰式, 決定係数の表示
+ \item 少ない操作ステップ
 \end{itemize}
 
 %3.2
-\section{$B%7%9%F%`@_7W(B}
+\section{システム設計}
 
-%$BK\@a$G$O!$A0@a$GDj5A$7$?MW7o$rK~$?$9$h$&$K3+H/$7$?Ds0F%7%9%F%`$N@_7W$K$D$$$F@bL@$9$k!%(B
-%3.2.1$B9`$G$ODs0F%7%9%F%`$NA4BN9=@.$N35MW$r@bL@$9$k(B. 3.2.2$B9`$G$O3F9=@.MWAG$K$D$$$F>\:Y$r@bL@$9$k(B. 3.2.3$B9`$G$ODs0F%7%9%F%`$rMQ$$$?=hM}<j=g$K$D$$$F=R$Y$k(B. 
+%本節では，前節で定義した要件を満たすように開発した提案システムの設計について説明する．
+%3.2.1項では提案システムの全体構成の概要を説明する. 3.2.2項では各構成要素について詳細を説明する. 3.2.3項では提案システムを用いた処理手順について述べる.
 
 %3.2.1
-\subsection{$B%7%9%F%`35MW(B}
+\subsection{システム概要}
 
-$BA0@a$G$^$H$a$?%7%9%F%`$NMW5aMW7o$r$b$H$K!$K\8&5f$GDs0F$9$k%7%9%F%`$N35MW$r@bL@$9$k!%(B
-$BDs0F$9$k%7%9%F%`$O0J2<$N5!G=$+$i9=@.$5$l$F$$$k(B. 
-$B3F5!G=$N>\:Y$O8e=R$9$k(B. 
+前節でまとめたシステムの要求要件をもとに，本研究で提案するシステムの概要を説明する．
+提案するシステムは以下の機能から構成されている.
+各機能の詳細は後述する.
 
 \begin{itemize}
- \item $BMxMQ<T$N8!:w%-!<%o!<%I$KBP$9$k%G!<%?$N0UL#E*N`;wEY;;=P(B
- \item $B;;=P$5$l$?N`;wEY$K1~$8%U%)%s%H%5%$%:$r7hDj$7(B, Tag Cloud$B$GI=<((B
- \item $BMxMQ<T$N%G!<%?A*Br$KBP$9$kB>%G!<%?$N7hDj78?t<hF@(B
- \item $B<hF@$7$?7hDj78?t$K1~$8%?%0$N?'$r7hDj$7(B, Tag Cloud$B$GI=<((B
- \item $BMxMQ<T$NA*Br$7$?Fs$D$N%G!<%?$N;6I[?^(B, $B2s5"D>@~I=<((B
- \item $B>/$J$$A`:n%9%F%C%W(B
+ \item 利用者の検索キーワードに対するデータの意味的類似度算出
+ \item 算出された類似度に応じフォントサイズを決定し, Tag Cloudで表示
+ \item 利用者のデータ選択に対する他データの決定係数取得
+ \item 取得した決定係数に応じタグの色を決定し, Tag Cloudで表示
+ \item 利用者の選択した二つのデータの散布図, 回帰直線表示
+ \item 少ない操作ステップ
 \end{itemize}
 
-$B?^(B~\ref{4-1}$B$O$3$l$i$N5!G=$N4X78$r<($7$F$$$k!%(B
-$B0J2<$G$O?^(B~\ref{4-1}$B$NN.$l$K1h$C$FDs0F%7%9%F%`MxMQ$NN.$l$r35@b$9$k!%(B
+図~\ref{4-1}はこれらの機能の関係を示している．
+以下では図~\ref{4-1}の流れに沿って提案システム利用の流れを概説する．
 
-$B$^$:%7%9%F%`$r5/F0$9$k$H(B
-$B?^(B~\ref{4-2}$B$N$h$&$J2hLL$,=PNO$5$l$k(B. $BMxMQ<T$O5a$a$F$$$k%G!<%?L>$K$D$$$F$N%-!<%o!<%I$r8!:wMs$KF~NO$9$k(B. 
-$B8!:w$r;O$a$k$H(B, $B8!:w%-!<%o!<%I$H%?%0$N0UL#N`;wEY$r;;=P$7(B, $B$=$NCM$K4p$E$-(BTag Cloud$B$N%U%)%s%H%5%$%:$r7hDj$9$k(B.  
-$B?^(B~\ref{4-3}$B$N$h$&$K0UL#N`;wEY$,9b$$%?%0$N%U%)%s%H%5%$%:$rBg$-$/I=<($5$l$k(B($B?^(B~\ref{4-3}$B$G$O!VHH:a!W$G8!:w$r9T$C$?(B). 
-$B<!$KI=<($5$l$?Cf$+$i%?%0$r0l$D(B($B;6I[?^(BX$B<4MQ(B)$BA*Br$9$k(B. $BA*Br$r$9$k$H(B
-$B?^(B~\ref{4-4}$B$N$h$&$KA4$F$N%?%0$OA*Br$5$l$?%?%0$N;}$D%G!<%?$KBP$9$k7hDj78?t$r<hF@$7(B, $B$=$NCM$K4p$E$-(BTag Cloud$B$N%?%0$N?'$r7hDj$9$k(B. 
-$B7hDj78?t$,9b$$%?%0$O@D?'(B, $BDc$$%?%0$O@V?'$GI=<($5$l$k(B($B?^(B~\ref{4-4}$B$G$O!V7:K!HH!W$rA*Br$7(B, $B3F%?%0$O!V7:K!HH!W$H$N7hDj78?t$K4p$E$-?'IU$1$5$l$?(B). 
-$B$=$l$HF1;~$KA*Br$5$l$?%?%0$,;}$D(B47$BETF;I\8)Kh$N%G!<%?$rF|K\CO?^$K%^%C%T%s%0$9$k(B($B?^(B~\ref{4-4}$B$G$O!V7:K!HH!W$K$D$$$F$N%G!<%?$,F|K\CO?^$K%^%C%T%s%0$5$l$?(B). 
-$B99$K0l$D%G!<%?(B($B;6I[?^$N(BY$B<4MQ(B)$B$rA*$V$H(B
-$B?^(B~\ref{4-5}$B$N$h$&$K(B, $B?7$?$K0l$DF|K\CO?^$K%^%C%T%s%0$7(B, $BA*Br$7$?Fs$D$N%G!<%?$r;6I[?^$K2s5"D>@~(B, $B7hDj78?t$r2C$($??^$rIA<L$9$k(B
-($B?^(B~\ref{4-5}$B$G$O!V7:K!HH!W$H!V@`Ep!W$K$D$$$F$N;6I[?^(B, $B2s5"D>@~$rI=$7$?(B). 
-X$B<4(B, Y$B<4$I$A$i$+$N%G!<%?$rJQ99$9$k>l9g$O<4JQ99%\%?%s$r2!$7JQ99$7$?$$<4$rA*Br$7$?8e(B($B?^(B~\ref{4-6}), $BJQ99$7$?$$%?%0$rA*Br$9$k$3$H$G(B
-$B%G!<%?$rF~$lBX$($k$3$H$,=PMh$k(B. $B$^$?(B, $B$3$N:](BTag Cloud$B$N%?%0?'$OJQ99$5$l$J$$<4$N%G!<%?$H$N7hDj78?t$K1~$8$F7hDj$5$l(B, $BI=<($5$l$k(B. 
-X$B<4(B, Y$B<46&$K%?%0$,A*Br$5$l$F$$$k;~E@$G?7$7$$%?%0$rA*Br$9$k$3$H$G(B, $B%?%0$,JQ99$5$l$?<4$K$D$$$F$NF|K\CO?^$O>e=q$-$5$l$k(B. 
+まずシステムを起動すると
+図~\ref{4-2}のような画面が出力される. 利用者は求めているデータ名についてのキーワードを検索欄に入力する.
+検索を始めると, 検索キーワードとタグの意味類似度を算出し, その値に基づきTag Cloudのフォントサイズを決定する.
+図~\ref{4-3}のように意味類似度が高いタグのフォントサイズを大きく表示される(図~\ref{4-3}では「犯罪」で検索を行った).
+次に表示された中からタグを一つ(散布図X軸用)選択する. 選択をすると
+図~\ref{4-4}のように全てのタグは選択されたタグの持つデータに対する決定係数を取得し, その値に基づきTag Cloudのタグの色を決定する.
+決定係数が高いタグは青色, 低いタグは赤色で表示される(図~\ref{4-4}では「刑法犯」を選択し, 各タグは「刑法犯」との決定係数に基づき色付けされた).
+それと同時に選択されたタグが持つ47都道府県毎のデータを日本地図にマッピングする(図~\ref{4-4}では「刑法犯」についてのデータが日本地図にマッピングされた).
+更に一つデータ(散布図のY軸用)を選ぶと
+図~\ref{4-5}のように, 新たに一つ日本地図にマッピングし, 選択した二つのデータを散布図に回帰直線, 決定係数を加えた図を描写する
+(図~\ref{4-5}では「刑法犯」と「窃盗」についての散布図, 回帰直線を表した).
+X軸, Y軸どちらかのデータを変更する場合は軸変更ボタンを押し変更したい軸を選択した後(図~\ref{4-6}), 変更したいタグを選択することで
+データを入れ替えることが出来る. また, この際Tag Cloudのタグ色は変更されない軸のデータとの決定係数に応じて決定され, 表示される.
+X軸, Y軸共にタグが選択されている時点で新しいタグを選択することで, タグが変更された軸についての日本地図は上書きされる.
 
-\subsubsection{$B%7%9%F%`3+H/(B}
-$BK\%7%9%F%`$O<g$K(BJavaScript$B$rMxMQ$7$F3+H/$7$?(B. $B$^$?N`;wEY$r7W;;$9$k:]$KF|K\8l(BWordNet, $B1Q8l(BWordNet, $B$^$?(BPython, PHP$B$rMxMQ$7$?(B. 
-WordNet $B$H$OC18l$N>e0L(B / $B2<0L4X78(B, $BItJ,(B / $BA4BN4X78(B, $BF15A4X78(B, $BN`5A4X78$J$I$K$h$C$FC18l$r35G0(B(synset)$B$KJ,N`$7BN7O$E$1$?35G0<-=q(B
-\cite{3.1-1}$B$G(B, 
-$BF|K\8l(BWordNet$B$OF|K\8l$N(B, $B1Q8l(BWordNet$B$O1Q8l$N35G0<-=q$G$"$k(B. 
-$B1Q8l(BWordNet$B$K$O(Bsynset$B4V$N:GC;5wN%$rB,Dj$9$k(BAPI$B$,$"$j(B, $B$3$l$r4p$KDs0F%7%9%F%`$G$ON`;wEY$r;;=P$9$k(B. 
-$B$=$3$GDs0F%7%9%F%`$G$O(B, $B8!:w%-!<%o!<%I$N(Bsynset$B$N(BID$B$r<hF@$9$k$?$a$KF|K\8l(BWordNet$B$r(B, synset$B4V$N:GC;5wN%$rB,Dj$9$k$?$a$K1Q8l(BWordNet$B$rMxMQ$7$?(B. 
+\subsubsection{システム開発}
+本システムは主にJavaScriptを利用して開発した. また類似度を計算する際に日本語WordNet, 英語WordNet, またPython, PHPを利用した.
+WordNet とは単語の上位 / 下位関係, 部分 / 全体関係, 同義関係, 類義関係などによって単語を概念(synset)に分類し体系づけた概念辞書
+\cite{3.1-1}で,
+日本語WordNetは日本語の, 英語WordNetは英語の概念辞書である.
+英語WordNetにはsynset間の最短距離を測定するAPIがあり, これを基に提案システムでは類似度を算出する.
+そこで提案システムでは, 検索キーワードのsynsetのIDを取得するために日本語WordNetを, synset間の最短距離を測定するために英語WordNetを利用した.
 
-\subsubsection{$B;HMQ%G!<%?%Y!<%9(B}
-$B:#2s$N<B83$G$O@/I\E}7W$NAm9gAk8}(B(e-Stat)$BFb$KEPO?$5$l$F$$$k%G!<%?$+$i%G!<%?%Y!<%9$r:n@.$7$?(B. e-Stat $B$H$O3FI\>JEy$,;}$DE}7W%G!<%?$r=8Ls$5$;$?@/I\E}7W%]!<%?%k%5%$%H$G$"$k(B. 
-$B:#2s;HMQ$7$?%G!<%?$O(B, $B<oN`$,B?$+$C$?(B2010 $BG/$N(B47 $BETF;I\8)%G!<%?(B90$B8D$rA*Br$7$?(B. 
-e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k$,(B, $B%7%9%F%`$GMxMQ$G$-$k$h$&$K(B
-$B?^(B~\ref{4-7}$B$N$h$&$J(Bjson$B%U%!%$%k$KJQ99$7(B, $B%7%9%F%`$K;HMQ$7$?(B. 
+\subsubsection{使用データベース}
+今回の実験では政府統計の総合窓口(e-Stat)内に登録されているデータからデータベースを作成した. e-Stat とは各府省等が持つ統計データを集約させた政府統計ポータルサイトである.
+今回使用したデータは, 種類が多かった2010 年の47 都道府県データ90個を選択した.
+e-Statから取得したファイルのフォーマットはMicrosoft Excel用のものであるが, システムで利用できるように
+図~\ref{4-7}のようなjsonファイルに変更し, システムに使用した.
 
-$B$3$3$G07$o$l$k%G!<%?$K$O?^(B~\ref{4-13}$B$N$h$&$K3F<+(B, $B%G!<%?L>!V(Btable\_name$B!W(B, $B%G!<%?$N%?%0!V(Btags$B!W(B, 
-47$BETF;I\8)$N%G!<%?CM$N=89g!V(Bdata$B!W(B, $B3F%G!<%?$H$N7hDj78?t!V(Bcorrelation$B!W$,4^$^$l$F$*$j(B, 
-$B%G!<%?$N=89g$r%G!<%?%j%9%H$H8F$V(B.$B$^$?%?%0$O0l$D$N%G!<%?Kh$K0l$D(B, $B$=$l$>$l0[$J$k%?%0$r;}$C$F$*$j(B, $B$3$l$O%7%9%F%`@_7W<T$,:n@.$7$?(B. 
+ここで扱われるデータには図~\ref{4-13}のように各自, データ名「table\_name」, データのタグ「tags」,
+47都道府県のデータ値の集合「data」, 各データとの決定係数「correlation」が含まれており,
+データの集合をデータリストと呼ぶ.またタグは一つのデータ毎に一つ, それぞれ異なるタグを持っており, これはシステム設計者が作成した.
 
 
 \begin{figure}
@@ -327,7 +327,7 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-1.eps}
   \end{center}
-  \caption{$B%7%9%F%`MxMQ$NN.$l(B}
+  \caption{システム利用の流れ}
   \label{4-1}
 \end{figure}
 
@@ -336,7 +336,7 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-2.eps}
   \end{center}
-  \caption{$BDs0F%7%9%F%`$N<B9TNc(B1}
+  \caption{提案システムの実行例1}
   \label{4-2}
 \end{figure}
 
@@ -345,7 +345,7 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-3.eps}
   \end{center}
-  \caption{$BDs0F%7%9%F%`$N<B9TNc(B2}
+  \caption{提案システムの実行例2}
   \label{4-3}
 \end{figure}
 
@@ -354,7 +354,7 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-4.eps}
   \end{center}
-  \caption{$BDs0F%7%9%F%`$N<B9TNc(B3}
+  \caption{提案システムの実行例3}
   \label{4-4}
 \end{figure}
 
@@ -363,7 +363,7 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-5.eps}
   \end{center}
-  \caption{$BDs0F%7%9%F%`$N<B9TNc(B4}
+  \caption{提案システムの実行例4}
   \label{4-5}
 \end{figure}
 
@@ -372,7 +372,7 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-6.eps}
   \end{center}
-  \caption{$BDs0F%7%9%F%`$N<B9TNc(B5}
+  \caption{提案システムの実行例5}
   \label{4-6}
 \end{figure}
 
@@ -381,7 +381,7 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-7.eps}
   \end{center}
-  \caption{$B;HMQ%G!<%?(B(json)}
+  \caption{使用データ(json)}
   \label{4-7}
 \end{figure}
 
@@ -390,72 +390,72 @@ e-Stat$B$+$i<hF@$7$?%U%!%$%k$N%U%)!<%^%C%H$O(BMicrosoft Excel$BMQ$N$b$N$G$"$k
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-13.eps}
   \end{center}
-  \caption{$B%G!<%?9=B$@bL@(B}
+  \caption{データ構造説明}
   \label{4-13}
 \end{figure}
 
 
 %3.2.2
-\subsection{$B5!G=>\:Y(B}
+\subsection{機能詳細}
 
-%$BK\@a$G$O%7%9%F%`3+H/$K$D$$$F=R$Y$k(B. 
-%3.2.1$B9`$G$O(BWordNet $B$rMQ$$$?N`;wEY;;=P$K$D$$$F(B, 
-%3.2.2$B9`$G$ON`;wEY$K$h$k%U%)%s%H%5%$%:7hDj$K$D$$$F(B, 
-%3.2.3$B9`$G$OAj4X4X78$K$h$k%G!<%?C5:w$K$D$$$F(B, 
-%3.2.4$B9`$G$O%G!<%?$N;6I[?^I=<((B, $B2s5"J,@O$K$D$$$F=R$Y$k(B. 
+%本節ではシステム開発について述べる.
+%3.2.1項ではWordNet を用いた類似度算出について,
+%3.2.2項では類似度によるフォントサイズ決定について,
+%3.2.3項では相関関係によるデータ探索について,
+%3.2.4項ではデータの散布図表示, 回帰分析について述べる.
 
 
-\subsubsection{WordNet$B$rMQ$$$?N`;wEY;;=P(B}
+\subsubsection{WordNetを用いた類似度算出}
 
-$BMxMQ<T$NF~NO$7$?%-!<%o!<%I$H3F%?%0$H$NN`;wEY$r(BWordNet$B$rMQ$$$F;;=P$7(B, $BN`;wEY$r4p$K%U%)%s%H%5%$%:$r7hDj$9$k(B. 
-$BFs$D$NC18l(Bw1,w2 $B$NC18l4V$N4X78$NN,?^$r(B
-$B?^(B~\ref{4-8}$B$K<($9(B. 
-WordNet$B$N;}$D3,AX9=B$$rMQ$$$F8l$H8l$N:GC;5wN%(B$d$$B$rB,Dj$7(B, $BN`;wEY$r7W;;$9$k(B. 
-$BN`;wEY$O0J2<$N$h$&$K$7$F5a$a$k(B. 
+利用者の入力したキーワードと各タグとの類似度をWordNetを用いて算出し, 類似度を基にフォントサイズを決定する.
+二つの単語w1,w2 の単語間の関係の略図を
+図~\ref{4-8}に示す.
+WordNetの持つ階層構造を用いて語と語の最短距離$d$を測定し, 類似度を計算する.
+類似度は以下のようにして求める.
 
 \begin{equation}
 (Similarity) = \frac{1}{1 + d}
 \end{equation}
 
-$BC18l$,J#?t$N(Bsynset$B$KB0$9$k>l9g(B, $B$9$Y$F$N(Bsynset$B$G$N:GC;5wN%$rB,Dj$7(B, $B$=$NCf$GC18l4V5wN%$,0lHVC;$/$J$kCM$r:GC;5wN%$H$9$k(B. 
-$B$^$?(B, $BN`;wEY<-=q$KB8:_$7$J$$%G!<%?$H$NN`;wEY$O(B0$B$H$7$?(B. 
+単語が複数のsynsetに属する場合, すべてのsynsetでの最短距離を測定し, その中で単語間距離が一番短くなる値を最短距離とする.
+また, 類似度辞書に存在しないデータとの類似度は0とした.
 
 \begin{figure}
   \begin{center}
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-8.eps}
   \end{center}
-  \caption{WORDNET$B$N%D%j!<9=B$(B}
+  \caption{WORDNETのツリー構造}
   \label{4-8}
 \end{figure}
 
 %3.2.2
-\subsubsection{$BN`;wEY$K$h$k%U%)%s%H%5%$%:7hDj(B}
+\subsubsection{類似度によるフォントサイズ決定}
 
-$BA09`$G$NN`;wEY;;=P$rA4$F$N%?%0$KBP$7$F9T$$(B, $B;;=P$5$l$?N`;wEY$K1~$8$F%?%0$N%U%)%s%H%5%$%:$r7hDj$7(B, Tag Cloud$B$GI=<($9$k(B. 
-$BMxMQ<T$NF~NO$7$?%-!<%o!<%I$KN`;w$9$k%?%0$N%U%)%s%H%5%$%:$rBg$-$/$9$k$3$H$GMxMQ<T$N5a$a$k%G!<%?$NH/8+$rMF0W$K$9$k(B. 
-$B%U%)%s%H%5%$%:$NHO0O$OM=$a8GDj$7(B, $BN`;wEY$NFs>h$NCM$r@~7A%9%1!<%k$7$F7hDj$9$k(B. 
-$BN`;wEY$rFs>h$7$F%U%)%s%H%5%$%:$r7hDj$9$k$3$H$GN`;wEY$N9b$$%G!<%?$,$h$j6/D4$5$l$k(B. 
+前項での類似度算出を全てのタグに対して行い, 算出された類似度に応じてタグのフォントサイズを決定し, Tag Cloudで表示する.
+利用者の入力したキーワードに類似するタグのフォントサイズを大きくすることで利用者の求めるデータの発見を容易にする.
+フォントサイズの範囲は予め固定し, 類似度の二乗の値を線形スケールして決定する.
+類似度を二乗してフォントサイズを決定することで類似度の高いデータがより強調される.
 
 %3.2.3
-\subsubsection{$B7hDj78?t$K$h$k%?%0$N?'7hDj(B}
+\subsubsection{決定係数によるタグの色決定}
 
-Tag Cloud$BFb$N%?%0$r0l$DA*Br$9$k$H(B, $BB>$N%?%0$,A*Br%?%0$N;}$D%G!<%?$H$N7hDj78?t$r<hF@$7(B, $B$=$l$K1~$8$F%?%0$N?'$rJQ99$5$;$k(B. 
-$B%G!<%?4V$N7hDj78?t$OM=$a%G!<%?Fb$KEPO?$5$l$F$$$k(B. $B$^$?(B, $B<hF@$7$?7hDj78?t$K1~$8$F%?%0$N?'$r7hDj$9$k(B. 
-$BMxMQ<T$NA*Br$7$?%?%0$H4X78$N6/$5$K4p$E$-%?%0$N?'$r7hDj$9$k$3$H$GMxMQ<T$,%G!<%?J,@O$r9T$&:]$K%G!<%?4V$N4X78$r$D$+$_$d$9$/$9$k(B. 
-$B%?%0?'$NHO0O$OM=$a8GDj$7(B, $B7hDj78?t$r@~7A%9%1!<%k$7$F7hDj$7(B, Tag Cloud$B$GI=<($9$k(B. 
+Tag Cloud内のタグを一つ選択すると, 他のタグが選択タグの持つデータとの決定係数を取得し, それに応じてタグの色を変更させる.
+データ間の決定係数は予めデータ内に登録されている. また, 取得した決定係数に応じてタグの色を決定する.
+利用者の選択したタグと関係の強さに基づきタグの色を決定することで利用者がデータ分析を行う際にデータ間の関係をつかみやすくする.
+タグ色の範囲は予め固定し, 決定係数を線形スケールして決定し, Tag Cloudで表示する.
 
 %3.2.4
-\subsubsection{$BA*Br%G!<%?$K$D$$$F$N;6I[?^(B, $B2s5"D>@~(B, $B7hDj78?t(B}
+\subsubsection{選択データについての散布図, 回帰直線, 決定係数}
 
-$BFs$D$N%G!<%?$rA*Br$9$k$3$H$G(B, $BFs$D$N%G!<%?$N;6I[?^$rIA<L$7(B, $BF1;~$K2s5"D>@~$rIA<L$9$k(B. 
-$B;6I[?^Fb$K$OFs$D$N%G!<%?$K$h$kC12s5"J,@O$r9T$C$?:]$N7hDj78?t$rI=<($7(B, $B;6I[?^$NE@$K%^%&%9%*!<%P!<$9$k$3$H$GE@$N;}$D(BX$B<4(B, Y$B<4$NCM$rI=<($9$k5!G=$rIU$1$?(B. 
-$B$^$?(B, $B2s5"D>@~$K$h$C$F(B, 
-$B=>B0JQ?t(B$Y$$B$,(B
-$B@bL@JQ?t(B$X$$B$K$h$C$F$I$l$/$i$$@bL@$G$-$k$N$+$rDjNLE*$KJ,@O$9$k$3$H$,$G$-$k(B. $B2s5"D>@~$O<!<0$GI=$9(B. 
+二つのデータを選択することで, 二つのデータの散布図を描写し, 同時に回帰直線を描写する.
+散布図内には二つのデータによる単回帰分析を行った際の決定係数を表示し, 散布図の点にマウスオーバーすることで点の持つX軸, Y軸の値を表示する機能を付けた.
+また, 回帰直線によって,
+従属変数$Y$が
+説明変数$X$によってどれくらい説明できるのかを定量的に分析することができる. 回帰直線は次式で表す.
 $Y = aX + b$
-$B$^$?78?t(B$a$, $b$$B$O0J2<$N$h$&$K:G>.Fs>hK!$rMQ$$$FDj5A$5$l$k(B. 
-   
+また係数$a$, $b$は以下のように最小二乗法を用いて定義される.
+
    \begin{equation}
 	b = \frac{\sum (x_{i} - \overline{x})(y_{i} - \overline{y})}{\sum (x_{i} - \overline{x})^2}
    \end{equation}
@@ -464,48 +464,48 @@ $Y = aX + b$
 	a = \overline{y} - b\overline{x}
    \end{equation}
 
-$x_{i}$, $y_{i}$$B$O3FETF;I\8)$N(BX$B<4(B, Y$B<4$KBP$9$kCM(B($1 $B!e(B i $B!e(B 47$), 
-$\overline{x}$, $\overline{y}$$B$O$=$l$>$lJQ?t(B$x_{i}$, $y_{i}$$B$NJ?6QCM$G$"$k(B. 
+$x_{i}$, $y_{i}$は各都道府県のX軸, Y軸に対する値($1 ≦ i ≦ 47$),
+$\overline{x}$, $\overline{y}$はそれぞれ変数$x_{i}$, $y_{i}$の平均値である.
 
 
 %3.2.3
-\subsection{$B=hM}<j=g(B}
+\subsection{処理手順}
 
-$B%7%9%F%`$,N)$A>e$,$j(B, Tag Cloud$B$r@8@.$9$k$^$G$N=hM}$O(BJavaScript$B$rMQ$$$F9T$o$l$F$$$k(B. $B$3$l0J9_$N=hM}<j=g$r@bL@$9$k(B. 
+システムが立ち上がり, Tag Cloudを生成するまでの処理はJavaScriptを用いて行われている. これ以降の処理手順を説明する.
 
-\subsubsection{$B%-!<%o!<%I8!:w$r9T$C$F$+$i(BTag Cloud$B$r@8@.$9$k$^$G$NN.$l(B($B?^(B~\ref{4-9})}
+\subsubsection{キーワード検索を行ってからTag Cloudを生成するまでの流れ(図~\ref{4-9})}
 
-$B8!:w%-!<%o!<%I$r(BWeb$B%5!<%P$KAw?.$9$k(B. $B$3$N%-!<%o!<%I$H;HMQ%G!<%?%Y!<%9Fb$N%G!<%?L>$r(BPHP$B7PM3$G(BPython$B$KAw?.$9$k(B. 
-Python$B$N;}$D(BAPI$B$rMxMQ$7(B, $BF|K\8l(BWordNet$BFb$G$N%-!<%o!<%I$H%G!<%?L>$N35G0(BID$B$r<hF@$9$k(B. 
-$B$3$N35G0(BID$B$rMQ$$$F%-!<%o!<%I$H;HMQ%G!<%?%Y!<%9$N%G!<%?L>$N1Q8l(BWordNet$BFb$G$N:GC;5wN%$r<hF@$7(B, $B:GC;5wN%$+$iN`;wEY$r;;=P$9$k(B. 
-$B$=$N8e(B, $BN`;wEY$r(BWeb$B%V%i%&%6$,<u?.$7(B, JavaScript$B$rMQ$$$FN`;wEY$+$i%U%)%s%H%5%$%:$r7hDj$7(B, Tag Cloud$B$r@8@.$9$k(B. 
+検索キーワードをWebサーバに送信する. このキーワードと使用データベース内のデータ名をPHP経由でPythonに送信する.
+Pythonの持つAPIを利用し, 日本語WordNet内でのキーワードとデータ名の概念IDを取得する.
+この概念IDを用いてキーワードと使用データベースのデータ名の英語WordNet内での最短距離を取得し, 最短距離から類似度を算出する.
+その後, 類似度をWebブラウザが受信し, JavaScriptを用いて類似度からフォントサイズを決定し, Tag Cloudを生成する.
 
-\subsubsection{$B%?%0A*Br$+$i%?%0$N?'$,JQ99$9$k$^$G$NN.$l(B($B?^(B~\ref{4-10})}
+\subsubsection{タグ選択からタグの色が変更するまでの流れ(図~\ref{4-10})}
 
-Tag Cloud$BFb$N%?%0$rA*Br$9$k$3$H$G(B, $B%?%0$NJ8;zNs$r(BWeb$B%5!<%P$KAw?.$9$k(B. Web$B%5!<%PFb$N;HMQ%G!<%?%Y!<%9$+$i%?%0$NJ8;zNs$r(Btags$B$K;}$DG[Ns$rA*Br$9$k(B. 
-$B$3$NG[Ns$+$i7hDj78?t$r<hF@$7(B, $B$3$N7hDj78?t$r(BWeb$B%V%i%&%6$,<u?.$7(B, JavaScript$B$rMQ$$$F7hDj78?t$+$i%?%0$N?'$r7hDj$7(B, Tag Cloud$BFb$N%?%0$N?'$rJQ99$9$k(B. 
+Tag Cloud内のタグを選択することで, タグの文字列をWebサーバに送信する. Webサーバ内の使用データベースからタグの文字列をtagsに持つ配列を選択する.
+この配列から決定係数を取得し, この決定係数をWebブラウザが受信し, JavaScriptを用いて決定係数からタグの色を決定し, Tag Cloud内のタグの色を変更する.
 
-\subsubsection{$B%?%0A*Br$+$iF|K\CO?^(B, $B;6I[?^(B, $B2s5"D>@~(B, $B7hDj78?tI=<($^$G$NN.$l(B($B?^(B~\ref{4-11})}
+\subsubsection{タグ選択から日本地図, 散布図, 回帰直線, 決定係数表示までの流れ(図~\ref{4-11})}
 
-Tag Cloud$BFb$N%?%0$rA*Br$9$k$3$H$G(B, $B%?%0L>$r(BWeb$B%5!<%P$KAw?.$9$k(B. 
-Web$B%5!<%PFb$N;HMQ%G!<%?%Y!<%9$+$i%?%0$NJ8;zNs$r(Btags$B$K;}$DG[Ns$rA*Br$9$k(B. 
-$B$3$NG[Ns$+$i(B47$BETF;I\8)JL$N%G!<%?CM$r<hF@$7(B, $B$3$N%G!<%?CM$r(BWeb$B%V%i%&%6$KAw?.$9$k(B. 
-$B$3$N%G!<%?CM$r4p$K(BJavaScript$B$rMQ$$$FF|K\CO?^$K%^%C%T%s%0$9$k(B. $B$^$?(B, Web$B%V%i%&%6$,%G!<%?CM$r<hF@$7$?D>8e$K(BX$B<4(B, Y$B<4$,%G!<%?CM$r;}$C$F$$$k>l9g$O(B, 
-$B$=$N%G!<%?CM$r4p$K(BJavaScript$B$rMQ$$$F;6I[?^$r@8@.$9$k(B. 
-$BF1;~$K(BJavaScript$B$GCM$r4p$K2s5"<0$r7W;;$7(B, $B2s5"D>@~$r;6I[?^$K@8@.$9$k(B. $B$^$?(B, $B<hF@:Q$_$N7hDj78?t$+$i(BX$B<4(B, Y$B<4$N%G!<%?$K$D$$$F$N7hDj78?t$rA*$S(B, $B$=$l$r;6I[?^Fb$K=PNO$9$k(B. 
+Tag Cloud内のタグを選択することで, タグ名をWebサーバに送信する.
+Webサーバ内の使用データベースからタグの文字列をtagsに持つ配列を選択する.
+この配列から47都道府県別のデータ値を取得し, このデータ値をWebブラウザに送信する.
+このデータ値を基にJavaScriptを用いて日本地図にマッピングする. また, Webブラウザがデータ値を取得した直後にX軸, Y軸がデータ値を持っている場合は,
+そのデータ値を基にJavaScriptを用いて散布図を生成する.
+同時にJavaScriptで値を基に回帰式を計算し, 回帰直線を散布図に生成する. また, 取得済みの決定係数からX軸, Y軸のデータについての決定係数を選び, それを散布図内に出力する.
 
-\subsubsection{$B<4JQ99$+$i%?%0$N?'$,JQ99$9$k$^$G$NN.$l(B($B?^(B~\ref{4-12})}
+\subsubsection{軸変更からタグの色が変更するまでの流れ(図~\ref{4-12})}
 
-$B<4JQ99%\%?%s$r2!$9$3$H$G(B, $B%G!<%?JQ99$5$l$J$$J}$N<4$KBP$9$k7hDj78?t$,(B, 
-$B<4JQ99%\%?%s$r2!$90JA0$G<hF@:Q$_$J$N$G(B, $B$3$NCM$r4p$K(BJavaScript$B$rMQ$$$F7hDj78?t$+$i%?%0$N?'$r7hDj$7(B, 
-Tag Cloud$BFb$N%?%0$N?'$rJQ99$9$k(B. 
+軸変更ボタンを押すことで, データ変更されない方の軸に対する決定係数が,
+軸変更ボタンを押す以前で取得済みなので, この値を基にJavaScriptを用いて決定係数からタグの色を決定し,
+Tag Cloud内のタグの色を変更する.
 
 \begin{figure}
   \begin{center}
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-9.eps}
   \end{center}
-  \caption{$B%-!<%o!<%I8!:w$r9T$C$F$+$i(BTag Cloud$B$r@8@.$9$k$^$G$NN.$l(B}
+  \caption{キーワード検索を行ってからTag Cloudを生成するまでの流れ}
   \label{4-9}
 \end{figure}
 
@@ -514,7 +514,7 @@ Tag Cloud$BFb$N%?%0$N?'$rJQ99$9$k(B.
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-10.eps}
   \end{center}
-  \caption{$B%?%0A*Br$+$i%?%0$N?'$,JQ99$9$k$^$G$NN.$l(B}
+  \caption{タグ選択からタグの色が変更するまでの流れ}
   \label{4-10}
 \end{figure}
 
@@ -523,7 +523,7 @@ Tag Cloud$BFb$N%?%0$N?'$rJQ99$9$k(B.
     \unitlength=1mm
    \includegraphics[width=120mm]{fig4-11.eps}
   \end{center}
-  \caption{$B%?%0A*Br$+$iF|K\CO?^(B, $B;6I[?^(B, $B2s5"D>@~(B, $B7hDj78?tI=<($^$G$NN.$l(B}
+  \caption{タグ選択から日本地図, 散布図, 回帰直線, 決定係数表示までの流れ}
   \label{4-11}
 \end{figure}
 
@@ -532,7 +532,7 @@ Tag Cloud$BFb$N%?%0$N?'$rJQ99$9$k(B.
     \unitlength=1mm
    \includegraphics[width=60mm]{fig4-12.eps}
   \end{center}
-  \caption{$B<4JQ99$+$i%?%0$N?'$,JQ99$9$k$^$G$NN.$l(B}
+  \caption{軸変更からタグの色が変更するまでの流れ}
   \label{4-12}
 \end{figure}
 
@@ -542,131 +542,131 @@ Tag Cloud$BFb$N%?%0$N?'$rJQ99$9$k(B.
 
 
 %======================================================================
-%		4$B>O(B
+%		4章
 %======================================================================
-\chapter{$B<B83$H9M;!(B}
+\chapter{実験と考察}
 
-%$BK\>O$G$O(B,$BDs0F%7%9%F%`$NM-MQ@-$r<($9$?$a$K9T$C$?8!>Z<B83$H<B83$N7k2L!&9M;!$r9T$&(B. 4.1$B@a$G$O;0$D$N8!>Z<B83$K$D$$$F$N@bL@$9$k(B. 
-%4.2$B@a$G$O$=$l$>$l$N8!>Z<B83$N7k2L(B, $B$=$l$rF'$^$($?9M;!$r9T$&(B. 4.3$B@a$G$O%7%9%F%`$N2]Bj!&2~A1E@$r=R$Y$k(B. 
+%本章では,提案システムの有用性を示すために行った検証実験と実験の結果・考察を行う. 4.1節では三つの検証実験についての説明する.
+%4.2節ではそれぞれの検証実験の結果, それを踏まえた考察を行う. 4.3節ではシステムの課題・改善点を述べる.
 
 %4.1
-\section{$B8!>Z<B83$*$h$S7k2L(B}
+\section{検証実験および結果}
 
-$BK\@a$G$O(B,$BDs0F%7%9%F%`$NM-8z@-$r8!>Z$9$k$?$a$K9T$C$?<B83$N@bL@$r9T$&(B.
+本節では,提案システムの有効性を検証するために行った実験の説明を行う.
 
 %4.1.1
-\subsection{NEM($BA`:n@-G=B,Dj(B)}
+\subsection{NEM(操作性能測定)}
 
-$BK\9`$G$O(B, $BDs0F%7%9%F%`$NA`:n@-$rI>2A$9$k$?$a$K9T$C$?(BNEM$B$K$D$$$F@bL@$9$k(B. 
-$B%7%9%F%`$NA`:n@-$O(B, $BC1$K:n6H;~4V$NC;=L$r2DG=$K$9$k$@$1$G$J$/(B, $B0U?^DL$j$KA`:n$G$-$J$$$3$H$G$N;W9M$NCG@d(B, $B%9%H%l%9$rKI$0$?$a$K$b=EMW$H$J$k(B. 
-$B:#2s9T$C$?(BNEM$B$O(B Novice Expert ratio Method$B$NN,>N$G(B, $B%7%9%F%`$r;HMQ$9$k$H$-$N(BExpert($B=ON}<T!&@_7W<T(B)$B$H(B, 
-Novice($B=i?4<T!&0lHLMxMQ<T(B)$B$NA`:n;~4V$rHf3S$9$k$3$H$GDjNLE*$K%7%9%F%`$NLdBjE@$rH/8+$9$kA`:n@-I>2A<jK!$G$"$k(B.$B$^$?(B, NEM$B$O(B2009 $BG/$KH/9T$5$l$?EE;R@/I\%f!<%6%S%j%F%#%,%$%I%i%$%s(B
-\cite{5.1.1-1}$B$G(B, Web $B%5%$%H$NMxMQIJ<A(B($B%f!<%6%S%j%F%#(B)$B$NDjNLE*$JL\I8CM$N0l$D$H$7$F<h$j>e$2$F$$$k$h$&$K(B, $B$"$k%7%9%F%`$N%f!<%6%S%j%F%#$N;XI8$H$7$FM-8z$G$"$k(B. 
-NEM $B$G$O=ON}<T!&@_7W<T$H=i?4<T!&0lHLMxMQ<T$NA`:n;~4V$r(B, $B$=$l$>$l(B $t_{e}$ , $t_{n}$ $B$H$7$F(B, NE $BHf(B$R$$B$r0J2<$N$h$&$KDj5A$9$k(B. 
+本項では, 提案システムの操作性を評価するために行ったNEMについて説明する.
+システムの操作性は, 単に作業時間の短縮を可能にするだけでなく, 意図通りに操作できないことでの思考の断絶, ストレスを防ぐためにも重要となる.
+今回行ったNEMは Novice Expert ratio Methodの略称で, システムを使用するときのExpert(熟練者・設計者)と,
+Novice(初心者・一般利用者)の操作時間を比較することで定量的にシステムの問題点を発見する操作性評価手法である.また, NEMは2009 年に発行された電子政府ユーザビリティガイドライン
+\cite{5.1.1-1}で, Web サイトの利用品質(ユーザビリティ)の定量的な目標値の一つとして取り上げているように, あるシステムのユーザビリティの指標として有効である.
+NEM では熟練者・設計者と初心者・一般利用者の操作時間を, それぞれ $t_{e}$ , $t_{n}$ として, NE 比$R$を以下のように定義する.
 
 
 \begin{equation}
 R = \frac{t_{n}}{t_{e}}
 \end{equation}
 
-NE $BHf(B $R$ $B$O(B, $BDL>o(B1$B0J>e$NCM$H$J$j(B, $R$ $B$,(B 4.5 $B0J>e$H$J$k>l9g$O(B, $B2?$i$+$NA`:n@->e$NLdBj$,4^$^$l$F$$$k$HH=CG$5$l$F$$$k(B
-\cite{5.1.1-3}.  $B$^$?(B $R$ $B$,(B 4.5 $B0J>e$H$J$k>l9g$O(B, $BN><T$NA`:n%b%G%k$,0lCW$7$F$*$j(B,$BA`:n@-$KLdBj$,$J$$$HH=CG$G$-$k(B.
+NE 比 $R$ は, 通常1以上の値となり, $R$ が 4.5 以上となる場合は, 何らかの操作性上の問題が含まれていると判断されている
+\cite{5.1.1-3}.  また $R$ が 4.5 以上となる場合は, 両者の操作モデルが一致しており,操作性に問題がないと判断できる.
 
-\subsubsection{$BB,DjJ}K!(B}
+\subsubsection{測定方法}
 
-$BK\<B83$G$O(B, $BHo83<T$H$7$FBg3X@8(B5$BL>$,%7%9%F%`$rMxMQ$7$?(B. 
-$BHo83<T$K$ODs0F%7%9%F%`$rMQ$$$F%?%9%/$r9T$C$F$b$i$$(B, $B%?%9%/!&%?%9%/Fb$NA`:n%9%F%C%W$KMW$7$?;~4V$rB,Dj$7(B, $BCx<T$bF1MM$N%?%9%/$r9T$&$3$H$G(BNE$BHf$rB,Dj$7$?(B. 
-$BDs0F%7%9%F%`$G$O<g$K2>@b8!>Z$r9T$&$,(B, $BFs$D$K%G!<%?$NC5:w$d(B, $B$"$k0l$D%G!<%?$HC12s5"J,@O$r9T$C$?:]$N7hDj78?t$N9b$$%G!<%?$NC5:w$J$IJ#?t$N>pJs8!:w$N%k!<%H$,B8:_$9$k(B. 
-$B$3$l$h$jK\<B83$G$O(B, $B0J2<$NFs$D%?%9%/$r<B9T$7$?(B. 
+本実験では, 被験者として大学生5名がシステムを利用した.
+被験者には提案システムを用いてタスクを行ってもらい, タスク・タスク内の操作ステップに要した時間を測定し, 著者も同様のタスクを行うことでNE比を測定した.
+提案システムでは主に仮説検証を行うが, 二つにデータの探索や, ある一つデータと単回帰分析を行った際の決定係数の高いデータの探索など複数の情報検索のルートが存在する.
+これより本実験では, 以下の二つタスクを実行した.
 
-\subsubsection{$B%?%9%/(B1$B!'Fs$D$N%G!<%?$N4X78@-$NB,Dj(B}
+\subsubsection{タスク1：二つのデータの関係性の測定}
 
-$BMxMQ<T$,;}$C$F$$$k2>@b(B($BNc!'309q?M?M8}$,A}$($k$[$IHH:aN($,9b$$(B)$B$r8!>Z$9$k$?$a(B, $BFs$D$N%G!<%?$r8!:w$7(B, $B8!:w7k2L$r$b$H$K%G!<%?$rFs$DA*Br$7(B, $B4X78@-$r8!>Z$9$k(B. 
-$BB,Dj;~4V$K$D$$$F(B, $B%7%9%F%`$,5/F0$7$F$+$iFs$DL\$N%G!<%?$rA*Br$9$k$^$G$N;~4V$r7WB,$7$?(B. 
+利用者が持っている仮説(例：外国人人口が増えるほど犯罪率が高い)を検証するため, 二つのデータを検索し, 検索結果をもとにデータを二つ選択し, 関係性を検証する.
+測定時間について, システムが起動してから二つ目のデータを選択するまでの時間を計測した.
 
-\subsubsection{$B%?%9%/(B2$B!'0l$D$N%G!<%?$H4XO"$N9b$$%G!<%?$NC5:w(B}
+\subsubsection{タスク2：一つのデータと関連の高いデータの探索}
 
-$BMxMQ<T$,$"$k%G!<%?$H4X78$,9b$$$b$N$rD4$Y$k(B($BNc!'Cf3X9;$N?t$H4XO"$,$"$k%G!<%?$rD4$Y$k(B)$B$?$a(B, $B0l$D$N%G!<%?$r8!:w$7A*Br$7(B, $B$=$N8e$K4XO"EY$N9b$$%G!<%?$rA*Br$9$k(B. 
-$BK\<B83$G$O%7%9%F%`$,5/F0$7$F$+$i(B, $BA*Br$7$?%G!<%?$HC12s5"J,@O$r9T$C$?:]$N7hDj78?t$,(B0.8$B0J>e$N%G!<%?$rA*Br$9$k$^$G$N;~4V$r7WB,$7$?(B. 
+利用者があるデータと関係が高いものを調べる(例：中学校の数と関連があるデータを調べる)ため, 一つのデータを検索し選択し, その後に関連度の高いデータを選択する.
+本実験ではシステムが起動してから, 選択したデータと単回帰分析を行った際の決定係数が0.8以上のデータを選択するまでの時間を計測した.
 
-$B$^$?(B, $B%?%9%/Fb$G$O0J2<$N;0$D$NA`:n%9%F%C%W$GMW$9$k;~4V$r7WB,$7$?(B. 	
+また, タスク内では以下の三つの操作ステップで要する時間を計測した.
 
 \begin{description}
- \item[$B%9%F%C%W(B1] $BN`;wEY8!:w$r9T$&(B. 
- 
-  $B%7%9%F%`$r5/F0$7$F$+$i8!:wMs$K%/%j%C%/$9$k$^$G$N;~4V(B
- \item[$B%9%F%C%W(B2] $B<4$rJQ99$9$k(B. 
- 
- Tag Cloud $BFb$N%?%0$r%/%j%C%/$7$F$+$i<4JQ99%\%?%s$r%/%j%C%/$9$k$^$G$KMW$9$k;~4V(B
- \item[$B%9%F%C%W(B3] $B<4$rJQ99$9$k(B. 
- 
- Tag Cloud $BFb$N%?%0$r%/%j%C%/$7$F$+$i<4JQ99%\%?%s$r%/%j%C%/$9$k$^$G$KMW$9$k;~4V(B
+ \item[ステップ1] 類似度検索を行う.
+
+  システムを起動してから検索欄にクリックするまでの時間
+ \item[ステップ2] 軸を変更する.
+
+ Tag Cloud 内のタグをクリックしてから軸変更ボタンをクリックするまでに要する時間
+ \item[ステップ3] 軸を変更する.
+
+ Tag Cloud 内のタグをクリックしてから軸変更ボタンをクリックするまでに要する時間
 \end{description}
 
-$B$3$l$i$NA`:n%9%F%C%W$O<!$N$h$&$K%?%9%/$K4^$^$l$k(B.
+これらの操作ステップは次のようにタスクに含まれる.
 
-$B%?%9%/(B1$B!'%9%F%C%W(B1, $B%9%F%C%W(B2, $B%9%F%C%W(B1, $B%9%F%C%W(B2
+タスク1：ステップ1, ステップ2, ステップ1, ステップ2
 
-$B%?%9%/(B2$B!'%9%F%C%W(B1, $B%9%F%C%W(B2, ($B%9%F%C%W(B2$B!D(B)
+タスク2：ステップ1, ステップ2, (ステップ2…)
 
-$B%9%F%C%W(B3$B$K$D$$$F$O%?%9%/(B1$B$NA`:n8e<4$rJQ99$7(B, X$B<4$N%G!<%?$rJQ99$9$k$H$$$&A`:n$r9T$o$;B,Dj$7$?(B. 
-$B:#2s$NA`:n%9%F%C%W$N;~4VB,Dj$G$O8!:w%-!<%o!<%I(B, $BN`;wEY7W;;Cf$N;~4V$rDL?.;~4V$N8m:9$N1F6A$r<h$j=|$/$?$a$K>JN,$7$?(B. 
-$B<B83$K$O(BOS$B$,(BWindows7$B$N(BLet's note S9 CF-S9KYFEDR (Core i5, 520M, 2.4GHz/2$B%3%"(B)$B$r;HMQ$7(B, $BA`:n;~4V$N7WB,%=%U%H%&%'%"$H$7$F(BBB FlashBack Express$B%l%3!<%@$r;HMQ$7$?(B. 
+ステップ3についてはタスク1の操作後軸を変更し, X軸のデータを変更するという操作を行わせ測定した.
+今回の操作ステップの時間測定では検索キーワード, 類似度計算中の時間を通信時間の誤差の影響を取り除くために省略した.
+実験にはOSがWindows7のLet's note S9 CF-S9KYFEDR (Core i5, 520M, 2.4GHz/2コア)を使用し, 操作時間の計測ソフトウェアとしてBB FlashBack Expressレコーダを使用した.
 
-$B<B837k2L$r?^(B~\ref{5.2-1}$B$KI=$9(B. NE$BHf$K$D$$$F%?%9%/(B1, $B%?%9%/(B2$B$G$O(B4.5$B$r2<2s$C$?(B. 
-$B$^$?(B, $B%?%9%/(B2$B$K$D$$$FA4MxMQ<T$,7hDj78?t(B0.8$B0J>e$N%G!<%?$r0l2s$G<hF@$9$k$3$H$,$G$-$?(B. 
-$B3FA`:n%9%F%C%W$K$D$$$F(B, $BA`:n%9%F%C%W(B1, $BA`:n%9%F%C%W(B2$B$O(B4.5$B$r2<2s$C$?$,(B, $BA`:n%9%F%C%W(B3$B$O(B4.5$B$r>e2s$C$?(B. 
+実験結果を図~\ref{5.2-1}に表す. NE比についてタスク1, タスク2では4.5を下回った.
+また, タスク2について全利用者が決定係数0.8以上のデータを一回で取得することができた.
+各操作ステップについて, 操作ステップ1, 操作ステップ2は4.5を下回ったが, 操作ステップ3は4.5を上回った.
 
 
 %4.1.2
-\subsection{$BBPHf<B83(B}
+\subsection{対比実験}
 
-$BK\9`$G$O(BExcel$B$H$NHf3S<B83$N@bL@$r$9$k(B. Excel$B$OI=7W;;%=%U%H$G$"$j(B, $B2s5"J,@O$r;O$a(B, $BB?$/$NJ,@O5!G=$rHw$(;}$C$F$*$j(B, $B%G!<%?J,@O$r9T$($k%=%U%H$N(B1$B$D$G$"$k(B. 
-$BK\<B83$G$ODs0F%7%9%F%`(B, Excel$B$rMQ$$$F2>@b8!>Z$r9T$$(B, $B<B838e$K%"%s%1!<%H$r<B;\$7(B, $B2>@b8!>Z$KMW$9$k;~4V(B, $B%7%9%F%`$NA`:n@-(B, $B%G!<%?$NH/8+$N$7$d$9$5$rD4::$7$?(B. 
-$B$3$3$G$N2>@b8!>Z$H$O(B, $B$"$kFs$D$N;v>]$N0x2L4X78$r2>@b$H$7$FN)$F(B($BNc!'ET;T2=$,?J$`$[$IHH:aN($,9b$$(B), $B$=$N2>@b$,@5$7$$$+%G!<%?$rMQ$$$F8!>Z$9$k$3$H$G$"$k(B. 
+本項ではExcelとの比較実験の説明をする. Excelは表計算ソフトであり, 回帰分析を始め, 多くの分析機能を備え持っており, データ分析を行えるソフトの1つである.
+本実験では提案システム, Excelを用いて仮説検証を行い, 実験後にアンケートを実施し, 仮説検証に要する時間, システムの操作性, データの発見のしやすさを調査した.
+ここでの仮説検証とは, ある二つの事象の因果関係を仮説として立て(例：都市化が進むほど犯罪率が高い), その仮説が正しいかデータを用いて検証することである.
 
-$B<B837k2L$OI=(B~\ref{5-1}$B$K5-$7$?(B. $B%7%9%F%`$N;H$$$d$9$5(B, $BMxMQ<T$,5a$a$k%G!<%?$NH/8+$N$7$d$9$5(B, $B2>@b<B83$KMW$7$?;~4V$J$IA4$FDs0F%7%9%F%`$,>e2s$k7k2L$H$J$C$?(B. 
-$B$^$?(B, Excel$B$N5!G=$4$H$N;H$$$d$9$5$K$D$$$F$O(B, $B2s5"J,@O$,(B3.90, $B;6I[?^@8@.$,(B4.52, $B2s5"D>@~IA2h$,(B4.41, $B<4JQ99$,(B3.48$B$H$J$C$?(B. 
-$B$3$l$KBP$7Ds0F%7%9%F%`$K$D$$$F<4JQ99$N;H$$$d$9$5$O(B3.67$B$H$J$C$?(B. 
+実験結果は表~\ref{5-1}に記した. システムの使いやすさ, 利用者が求めるデータの発見のしやすさ, 仮説実験に要した時間など全て提案システムが上回る結果となった.
+また, Excelの機能ごとの使いやすさについては, 回帰分析が3.90, 散布図生成が4.52, 回帰直線描画が4.41, 軸変更が3.48となった.
+これに対し提案システムについて軸変更の使いやすさは3.67となった.
 
-\subsubsection{$BB,DjJ}K!(B}
+\subsubsection{測定方法}
 
-$BK\<B83$G$O(B, $BBg3X@8(B102$BL>$KBP$7$FBPHf<B83$r<B;\$7$?(B. $B>e5-$N$h$&$KHo83<T$O2>@b$r:n$j(B, $B$=$N0x2L4X78$N??56$r3N$+$a$k$3$H$G2>@b8!>Z$r9T$C$?(B. 
-$BHo83<T$N$&$A(B, 73$BL>$O2>@b8!>Z$KDs0F%7%9%F%`$rMQ$$$F9T$$(B, $B;D$j(B29$BL>$K$O(BExcel$B$rMQ$$$F9T$C$?(B. 
-$B<B83$r9T$&A0$KDs0F%7%9%F%`$N;H$$J}(B, Excel$B$N;}$D5!G=$N0lIt(B($B2s5"J,@O(B, $B;6I[?^(B, $B2s5"D>@~@8@.(B)$B$r@bL@$7$?8e$K(B, $BDs0F%7%9%F%`!&(BExcel$B$N;}$D5!G=$r<+M3$K;H$$2>@b8!>Z$r9T$C$?(B. 
-$B2>@b8!>Z$r9T$C$?8e(B, $B%7%9%F%`$KBP$9$k;H$$$d$9$5(B, $B%G!<%?H/8+$J$I$K$D$$$F(B5$BCJ3,(B(1$B$,0-$/(B5$B$,NI$$(B)$B$N%"%s%1!<%H$r<B;\$7$?(B. 
+本実験では, 大学生102名に対して対比実験を実施した. 上記のように被験者は仮説を作り, その因果関係の真偽を確かめることで仮説検証を行った.
+被験者のうち, 73名は仮説検証に提案システムを用いて行い, 残り29名にはExcelを用いて行った.
+実験を行う前に提案システムの使い方, Excelの持つ機能の一部(回帰分析, 散布図, 回帰直線生成)を説明した後に, 提案システム・Excelの持つ機能を自由に使い仮説検証を行った.
+仮説検証を行った後, システムに対する使いやすさ, データ発見などについて5段階(1が悪く5が良い)のアンケートを実施した.
 
 %4.1.3
-\subsection{$B%f!<%6!<%"%s%1!<%H(B}
+\subsection{ユーザーアンケート}
 
-$BDs0F%7%9%F%`$NI>2A$r9T$&$?$a$K!$(B4.1.1$B9`(B, 4.1.2$B9`$N<B83$GDs0F%7%9%F%`$r;H$C$?MxMQ<T$K<B838e$K!$%7%9%F%`$K$D$$$F$N%"%s%1!<%H(B, $B%U%#!<%I%P%C%/$r$b$i$C$?(B.
+提案システムの評価を行うために，4.1.1項, 4.1.2項の実験で提案システムを使った利用者に実験後に，システムについてのアンケート, フィードバックをもらった.
 
-$B%f!<%6!<%"%s%1!<%H7k2L$OI=(B~\ref{5-3}$B$N$h$&$K$J$C$?(B. 
-$B$9$Y$F$N9`L\$,Cf4VCM$N(B3$B$r>e2s$C$F$$$?$,(B, $BN`;wEY7W;;;~4V$dN`;wEY7W;;8lWC?t(B,$B<4JQ99$NJ,$+$j$d$9$5$,B>$N9`L\$HHf$Y$k$HDc$+$C$?(B. 
-$B$^$?(B, $BF|K\CO?^$O2s5"D>@~(B, $B7hDj78?t(B, $B;6I[?^$HHf$Y2>@b8!>Z$KLrN)$?$J$+$C$?(B. 
+ユーザーアンケート結果は表~\ref{5-3}のようになった.
+すべての項目が中間値の3を上回っていたが, 類似度計算時間や類似度計算語彙数,軸変更の分かりやすさが他の項目と比べると低かった.
+また, 日本地図は回帰直線, 決定係数, 散布図と比べ仮説検証に役立たなかった.
 
 %4.2
-\section{$B9M;!(B}
+\section{考察}
 
-$B<B837k2L$O0J2<$N$h$&$K$J$C$?(B. 
+実験結果は以下のようになった.
 
 %4.2.1
-\subsection{NEM($BA`:n@-G=B,Dj(B)}
+\subsection{NEM(操作性能測定)}
 
-$B$3$N<B83$h$j(B, $BDs0F%7%9%F%`$NMxMQ<T$OFs$D$N%G!<%?$N4X78@-$NB,Dj(B, $B%G!<%?$H4XO"$N9b$$%G!<%?$NC5:w$N%?%9%/$K$D$$$F$O(B, 
-$B@_7W<T$HA`:n;~4V$OBg:9$J$/(B, $B@_7W<T$N0U?^$K6a$$A`:n$r9T$&$3$H$,4QB,$5$l$?(B.  
-$B8D!9$NA`:n%9%F%C%W$r8+$k$H<4JQ99$N%9%F%C%W$NA`:n@-$KLdBj$,$"$k$3$H$,J,$+$C$?(B. 
-$B860x$H$7$F(B, $B<4JQ99$K$D$$$F$N@bL@$,=q$$$F$*$i$:(B, $B<4JQ99%\%?%s$NB8:_$bJ,$+$j$K$/$$$3$H$@$H9M$($i$l$k(B. 
-$B$^$?(B, $B<4JQ99$N%9%F%C%W$K$D$$$F$O(B, $BA`:n%9%F%C%W$4$H$KI=<($5$l$k7k2L$r8+$F$$$FA`:n$9$k$3$H$r?tICK:$l$F$$$kHo83<T$,8+<u$1$i$l$?(B. 
-$BB>$K$b(B, $BK\<B83$G$ODL?.;~4V(B, $B%?%$%T%s%0$K$h$k8m:9$r<h$j=|$/$?$a(B, $B8!:w%-!<%o!<%IF~NOCf(B, $BN`;wEY8!:wCf$J$I$N;~4V$rB,Dj;~4V$+$i>J$$$?$,(B, 
-$BN`;wEY8!:wCf$J$I$NB,Dj;~4V30$N4V$K<!$NA`:n%9%F%C%W(B($B%G!<%?C5:w(B)$B$KHw$(%^%&%9$N0\F0$r9T$C$F$$$k<T$,$*$j(B, $B$3$3$G$b8m:9$,@8$8$?2DG=@-$b$"$k(B. 
-$B3F%?%9%/(B, $BA`:n%9%F%C%W$K$D$$$F(B, $B;~4VB,Dj%?%$%_%s%0$K8m:9$,@8$8$?2DG=@-$,B8:_$9$k(B. 
-$B$3$N;~4V$r9MN8$9$l$P(BNE$BHf$OJQ2=$9$k$H9M$($i$l$k(B. 
-$B$^$?(B, $BMxMQ<T$N<B83Cf$NA`:n$r8+$k$3$H$G0J2<$N$h$&$J2]Bj$rH/8+$7$?(B. 
+この実験より, 提案システムの利用者は二つのデータの関係性の測定, データと関連の高いデータの探索のタスクについては,
+設計者と操作時間は大差なく, 設計者の意図に近い操作を行うことが観測された.
+個々の操作ステップを見ると軸変更のステップの操作性に問題があることが分かった.
+原因として, 軸変更についての説明が書いておらず, 軸変更ボタンの存在も分かりにくいことだと考えられる.
+また, 軸変更のステップについては, 操作ステップごとに表示される結果を見ていて操作することを数秒忘れている被験者が見受けられた.
+他にも, 本実験では通信時間, タイピングによる誤差を取り除くため, 検索キーワード入力中, 類似度検索中などの時間を測定時間から省いたが,
+類似度検索中などの測定時間外の間に次の操作ステップ(データ探索)に備えマウスの移動を行っている者がおり, ここでも誤差が生じた可能性もある.
+各タスク, 操作ステップについて, 時間測定タイミングに誤差が生じた可能性が存在する.
+この時間を考慮すればNE比は変化すると考えられる.
+また, 利用者の実験中の操作を見ることで以下のような課題を発見した.
 
 \begin{itemize}
- \item $B%?%0%/%j%C%/$N:]$K%?%0$H%?%0$N6-3&$,J,$+$j$K$/$/(B, $B$&$^$/%/%j%C%/$G$-$F$$$J$+$C$?(B. 
- \item $B%?%0$NG[?'$,0-$/7hDj78?t$,9b$$%G!<%?$rA*Br$9$k$N$K>/$7;~4V$,$+$+$C$?(B. 
+ \item タグクリックの際にタグとタグの境界が分かりにくく, うまくクリックできていなかった.
+ \item タグの配色が悪く決定係数が高いデータを選択するのに少し時間がかかった.
 \end{itemize}
 
 \begin{figure}
@@ -674,242 +674,242 @@ NE $BHf(B $R$ $B$O(B, $BDL>o(B1$B0J>e$NCM$H$J$j(B, $R$ $B$,(B 4.5 $B0
     \unitlength=1mm
    \includegraphics[width=120mm]{fig5-1.eps}
   \end{center}
-  \caption{NEM($BA`:n@-G=B,Dj(B)$B<B837k2L(B}
+  \caption{NEM(操作性能測定)実験結果}
   \label{5.2-1}
 \end{figure}
 
 %4.2.2
-\subsection{$BBPHf<B83(B}
+\subsection{対比実験}
 
-$B%"%s%1!<%H7k2L$K$D$$$FI>2A$N:9$,M-0U:9$G$"$k$3$H$r>ZL@$9$k$?$a$K%N%s%Q%i%a%H%j%C%/$JE}7W3XE*8!Dj$N0l$D$G$"$k(BMann-Whitney
-\cite{5.2.2-1}$B$N(BU$B8!Dj$r9T$C$?(B. 
-$BK\<B83$K$D$$$F!V%7%9%F%`A4BN$N8D!9$N%"%s%1!<%H9`L\$NI>2A$K$D$$$F(BExcel$B$HDs0F%7%9%F%`$OF1$8$G$"$k(B. $B!W$H$$$&5"L52>@b$r@_Dj$7(B, $B8!Dj$r9T$C$?=j(B, 
-$BI=(B~\ref{5-1}$B$N$h$&$K%7%9%F%`$N;H$$$d$9$5$K$D$$$F$N(BP$BCM$O(B0.013, $BMxMQ<T$,5a$a$k%G!<%?$NH/8+$N$7$d$9$5$K$D$$$F$O(B0.012$B$H4~5Q0h$N(B
+アンケート結果について評価の差が有意差であることを証明するためにノンパラメトリックな統計学的検定の一つであるMann-Whitney
+\cite{5.2.2-1}のU検定を行った.
+本実験について「システム全体の個々のアンケート項目の評価についてExcelと提案システムは同じである. 」という帰無仮説を設定し, 検定を行った所,
+表~\ref{5-1}のようにシステムの使いやすさについてのP値は0.013, 利用者が求めるデータの発見のしやすさについては0.012と棄却域の
 5\%
-$B$r2<2s$k$3$H$+$iM-0U:9$,$"$k$3$H$,>ZL@$5$l$?(B. $B$3$l$h$jDs0F%7%9%F%`$O(BExcel$B$h$j2>@b8!>Z$N:]$K;H$$$d$9$/(B, $B%G!<%?$NH/8+$K$bM%$l$F$$$k$3$H$,$o$+$C$?(B. 
-$B$^$??^(B~\ref{5.2-2}$B$N$h$&$K(B, $BK\<B83$r<u$1$k0JA0$+$i(BExcel$B$G2s5"J,@O(B, $B;6I[?^I=<($r$7$?$3$H$,$"$k3X@8$,(B7$B3d$G(B, $BDs0F%7%9%F%`$OHo83<TA40w$,=i$a$FMxMQ$7$?(B. 
-$B$3$l$h$j(BExcel$B$N;HMQ7P83$N$"$kMxMQ<T$K$H$C$F$bDs0F%7%9%F%`$N$[$&$,;H$$$d$9$$$3$H$,J,$+$C$?(B. 
-$B5!G=JL$G$NA`:n@-$K$D$$$F$OM-0U:9$rF@$k$3$H$,=PMh$J$+$C$?$N$G%7%9%F%`A4BN$NA`:n@-$N:9$,$G$?MW0x$OJ,$+$i$J$+$C$?(B. 
-$B$3$l$OA`:n%9%F%C%W?t$,(BExcel$B$h$jDs0F%7%9%F%`$O>/$J$/(B, $B$=$3$,;H$$$d$9$5$K1F6A$rM?$($?$H9M$($i$l$k(B. 
-$B2>@b8!>Z$KBP$9$kDs0F%7%9%F%`$NM-MQ@-$K$D$$$F$b(B, $BDs0F%7%9%F%`$rMQ$$$?Ho83<T$O(BExcel$B$HHf$Y2>@b8!>Z$KMW$7$?;~4V$OC;$/(B, $B;6I[?^@8@.$OB?$+$C$?(B. 
-$B$3$l$b(BMann-Whitney$B$N(BU$B8!Dj$h$jM-0U:9$,$"$k$H>ZL@$5$l$?(B. 
-$B$3$l$ODs0F%7%9%F%`$rMQ$$$k$3$H$GC;$$;~4V$G%G!<%?4V4X78$rD4$Y$k$3$H$,$G$-(B, $B$=$l$,2>@b8!>Z$N8zN(2=$K$D$J$,$C$F$$$k$H9M$($i$l$k(B. 
+を下回ることから有意差があることが証明された. これより提案システムはExcelより仮説検証の際に使いやすく, データの発見にも優れていることがわかった.
+また図~\ref{5.2-2}のように, 本実験を受ける以前からExcelで回帰分析, 散布図表示をしたことがある学生が7割で, 提案システムは被験者全員が初めて利用した.
+これよりExcelの使用経験のある利用者にとっても提案システムのほうが使いやすいことが分かった.
+機能別での操作性については有意差を得ることが出来なかったのでシステム全体の操作性の差がでた要因は分からなかった.
+これは操作ステップ数がExcelより提案システムは少なく, そこが使いやすさに影響を与えたと考えられる.
+仮説検証に対する提案システムの有用性についても, 提案システムを用いた被験者はExcelと比べ仮説検証に要した時間は短く, 散布図生成は多かった.
+これもMann-WhitneyのU検定より有意差があると証明された.
+これは提案システムを用いることで短い時間でデータ間関係を調べることができ, それが仮説検証の効率化につながっていると考えられる.
 
 \begin{figure}
   \begin{center}
     \unitlength=1mm
    \includegraphics[width=120mm]{fig5-2.eps}
   \end{center}
-  \caption{$BBPHf<B83<B837k2L(B}
+  \caption{対比実験実験結果}
   \label{5.2-2}
 \end{figure}
 
 %4.2.3
-\subsection{$B%f!<%6!<%"%s%1!<%H(B}
+\subsection{ユーザーアンケート}
 
-$BN`;wEY(B,$B7hDj78?t$r(BTag Cloud$B$GI=<($9$k$3$H$OE,@Z$@$C$?$,(B, $B7hDj78?t$K4p$E$$$?J8;zI=<($K$D$$$F$OG[?'$X$NI>2A$,B>$KHf$YDc$+$C$?(B. 
-$B860x$H$7$F7hDj78?t$K$h$k%?%0?'$NJQ2=$,>/$J$/(B, $B7hDj78?t$N:9$,>/$J$$%?%0F1;N$@$H$I$A$i$,9b$$7hDj78?t$r;}$D$N$+J,$+$j$K$/$/$J$k;v$,860x$@$H9M$($i$l$k(B. 
-$B$^$?(B, $BN`;wEY8!:w$K$D$$$FEY8!:w;~4V(B, $B8lWC?t$b2]Bj$,8+$D$+$C$?(B. $B%G!<%?J,@O5!G=$K$D$$$F(B, $BF|K\CO?^$OB>$N5!G=$KHf$YLr$KN)$?$J$+$C$?$H$$$&I>2A$rF@$?(B. 
-$B$3$l$K$D$$$F$OFs$D$N%G!<%?$rHf3S$9$k$3$H$,L\E*$K$b4X$o$i$:(B, $B0l$D$N%G!<%?$K$D$$$FI=<($9$k5!G=$O$"$^$jI,MW@-$,46$8$i$l$J$+$C$?(B. 
-$B%G!<%?$N<4JQ99$K$D$$$F$O(B, $B%?%0$r%/%j%C%/$9$k$3$H$G<4JQ99$,9T$o$l$k$3$H$,J,$+$j$E$i$+$C$?(B. 
-$B$3$l$K$D$$$F$O<4JQ99$K$D$$$F$N@bL@$,%7%9%F%`$K5-:\$5$l$F$$$J$+$C$?$3$H$KLdBj$,$"$k$H$($i$l$k(B. 
+類似度,決定係数をTag Cloudで表示することは適切だったが, 決定係数に基づいた文字表示については配色への評価が他に比べ低かった.
+原因として決定係数によるタグ色の変化が少なく, 決定係数の差が少ないタグ同士だとどちらが高い決定係数を持つのか分かりにくくなる事が原因だと考えられる.
+また, 類似度検索について度検索時間, 語彙数も課題が見つかった. データ分析機能について, 日本地図は他の機能に比べ役に立たなかったという評価を得た.
+これについては二つのデータを比較することが目的にも関わらず, 一つのデータについて表示する機能はあまり必要性が感じられなかった.
+データの軸変更については, タグをクリックすることで軸変更が行われることが分かりづらかった.
+これについては軸変更についての説明がシステムに記載されていなかったことに問題があるとえられる.
 
-$B$^$?%7%9%F%`$N;H$$$K$/$5$K$D$$$FF@$i$l$?%U%#!<%I%P%C%/$r0J2<$K<($9(B. 
+またシステムの使いにくさについて得られたフィードバックを以下に示す.
 
 \begin{itemize}
-\item $BN`;wEY8!:wCf$,MxMQ<T$KEA$o$j$K$/$$(B
- \item $B%7%9%F%`$NN)$A>e$j;~4V(B, $BN`;wEY8!:w;~4V$,D9$+$C$?(B
- \item $BG[?'$,HyL/$GJ,$+$j$K$/$$(B. 
- \item $B%?%0$NA*Br$,$7$E$i$$(B
- \item $BA*Br$7$?%G!<%?$,$I$l$J$N$+%?%0%/%i%&%IFb$GJ,$+$k$h$&$K$7$F$[$7$$(B
- \item $BF|K\CO?^(B, $B;6I[?^$K8+@Z$l$,@8$8$?(B
- \item $B30$lCM$r<h$j=|$/5!G=$,$[$7$+$C$?(B
- \item $B@x:_JQ?t$r9MN8$9$k$?$a(B, $B%G!<%?F1;N$r>h=|=PMh$k5!G=$,$[$7$+$C$?(B
- \item $BFCDj$NETF;I\8)$,;6I[?^$N$I$N$"$?$j$K0LCV$7$F$$$k$N$+$rC5$9$N$,:$Fq(B
- \item $B2s5"D>@~$NJ}Dx<0$d<!?t>e$2$b%*%W%7%g%s$,$"$C$F$b$h$$(B
- \item PC$B$K$h$C$FF0:n$7$J$$$b$N$,$"$C$?(B
+\item 類似度検索中が利用者に伝わりにくい
+ \item システムの立ち上り時間, 類似度検索時間が長かった
+ \item 配色が微妙で分かりにくい.
+ \item タグの選択がしづらい
+ \item 選択したデータがどれなのかタグクラウド内で分かるようにしてほしい
+ \item 日本地図, 散布図に見切れが生じた
+ \item 外れ値を取り除く機能がほしかった
+ \item 潜在変数を考慮するため, データ同士を乗除出来る機能がほしかった
+ \item 特定の都道府県が散布図のどのあたりに位置しているのかを探すのが困難
+ \item 回帰直線の方程式や次数上げもオプションがあってもよい
+ \item PCによって動作しないものがあった
 \end{itemize}
 
 %4.3
-\section{$B2]Bj!&2~A10F(B}
+\section{課題・改善案}
 
-$BDs0F%7%9%F%`$N2]Bj(B, $B2~A1E@$H$7$F0J2<$N8^E@5s$2$i$l$k(B. 
+提案システムの課題, 改善点として以下の五点挙げられる.
 
-\subsubsection{$BN`;wEY8!:w(B}
+\subsubsection{類似度検索}
 
-$B8=:_$NDs0F%7%9%F%`$G$NN`;wEY8!:w$G$O(BWORDNET$BFb$N8l6g$7$+N`;wEY8!:w$r9T$($J$$(B. 
-$B$3$N8!:wJ}K!$N8!:w%9%T!<%I(B, $B8!:w8lWC?t$NI>2A$,9b$/$J$+$C$?$3$H$h$j2~A1$,5a$a$i$l$k(B. 
-$BN`;wEY8!:w2DG=$J8l?t$rA}$d$9$K$O9qN)9q8l8&5f=jH/9T$NJ,N`8lWCI=$J$IB>$N%7%=!<%i%9$rMQ$$$k(B. 
-$B$^$?$O(B, $B8!:w%(%s%8%s$G8!:w$7$F(B, $BF@$i$l$?%9%K%Z%C%H$+$i8l$N=P8=IQEY>pJs$r4p$K3NN(8!:w%b%G%k(BTF-IDF$BK!$J$IB>$NJ}K!$rMQ$$$FN`;wEY$rB,$kJ}K!$,$"$k(B
-\cite{5.3-1}. $B$^$?N`;wEY7W;;$NB.EY$r>e$2$kJ}K!$H$7$F%-%c%C%7%e$9$k$3$H$G7W;;$9$k;~4V$r>JN,$9$kJ}K!$,9M$($i$l$k(B. 
-$B$^$?N`;wEY8!:wCf$H$$$&$N$,MxMQ<T$KBP$7$FEA$o$i$J$$2DG=@-$,$"$k$N$G8!:wCf$O%m!<%I%"%$%3%s$rF~$l$k$J$I$7$FEA$o$k$h$&$K$9$k$Y$-$G$"$k(B. 
+現在の提案システムでの類似度検索ではWORDNET内の語句しか類似度検索を行えない.
+この検索方法の検索スピード, 検索語彙数の評価が高くなかったことより改善が求められる.
+類似度検索可能な語数を増やすには国立国語研究所発行の分類語彙表など他のシソーラスを用いる.
+または, 検索エンジンで検索して, 得られたスニペットから語の出現頻度情報を基に確率検索モデルTF-IDF法など他の方法を用いて類似度を測る方法がある
+\cite{5.3-1}. また類似度計算の速度を上げる方法としてキャッシュすることで計算する時間を省略する方法が考えられる.
+また類似度検索中というのが利用者に対して伝わらない可能性があるので検索中はロードアイコンを入れるなどして伝わるようにするべきである.
 
-\subsubsection{$B%?%0%/%i%&%II=<((B}
+\subsubsection{タグクラウド表示}
 
-$B<B83;~$K$O(B, $B7hDj78?t$rE,@Z$K@~7A%9%1!<%k$7%?%0$N?'$r7hDj$7(BTag Cloud$B$GI=<($7$F$$$?(B. 
-$B$7$+$7$3$N7hDjK!$G$O7hDj78?t(B0.7$B$+$i(B1.0$B$N%G!<%?$N8+J,$1$,Fq$7$$$h$&$K(B, $B7hDj78?t$,6a$$%?%0$NHf3S$,$d$j$E$i$$$H$$$&H?1~$,$"$C$?(B. 
-$B$3$N2~A10F$H$7$F7hDj78?t$r(B10$BCJ3,$KJ,$1(B, $BCJ3,$4$H$G?'$rJQ2=$5$;$k$J$I$,9M$($i$l$k(B. 
-$B$^$?G[?'$K$D$$$F(B, $B7hDj78?t$J$I0lHLE*$J2D;k2=$G$OCM$,9b$$$b$N$,@V$G(B, $BDc$$$b$N$,@D?'$G$"$k$N$,0lHLE*$G$"$k$H$$$&H?1~$,$"$C$?(B. 
-$B$^$?A*BrCf$N%?%0$,J,$+$j$K$/$$$H$$$&$3$H$+$iA*BrCf$N%?%0$N?'(B, $B%U%)%s%H%5%$%:$rJQ2=$5$;$k$J$I:#8e$N2~A10F$H$7$F9M$($i$l$k(B. 
+実験時には, 決定係数を適切に線形スケールしタグの色を決定しTag Cloudで表示していた.
+しかしこの決定法では決定係数0.7から1.0のデータの見分けが難しいように, 決定係数が近いタグの比較がやりづらいという反応があった.
+この改善案として決定係数を10段階に分け, 段階ごとで色を変化させるなどが考えられる.
+また配色について, 決定係数など一般的な可視化では値が高いものが赤で, 低いものが青色であるのが一般的であるという反応があった.
+また選択中のタグが分かりにくいということから選択中のタグの色, フォントサイズを変化させるなど今後の改善案として考えられる.
 
-\subsubsection{$B<4$NJQ99<4JQ99(B}
+\subsubsection{軸の変更軸変更}
 
-$B<4JQ99%\%?%s$,J,$+$j$K$/$$$H$$$&$3$H$GJ,$+$j$d$9$$<4JQ99%\%?%s$N:n@.$,I,MW$H$J$k(B.
+軸変更ボタンが分かりにくいということで分かりやすい軸変更ボタンの作成が必要となる.
 
-\subsubsection{$BF|K\CO?^(B, $B;6I[?^(B}
+\subsubsection{日本地図, 散布図}
 
-$B<B838e$KF|K\CO?^(B, $B;6I[?^$K8+@Z$l$,@8$8$?LdBj$K$D$$$F$O2~A1:v$r9T$C$?(B. 
-$B$^$?FCDj$NETF;I\8)$,;6I[?^$N$I$N$"$?$j$K0LCV$7$F$$$k$N$+$rC5$9$N$,:$Fq$@$C$?$3$H$D$$$F$b2~A1$7$?(B. 
-$B$^$?(B, $B:#8e$N2]Bj$H$7$F30$lCMBP:v$H$7$F(B, $BCM$N=|5n$r$9$k5!G=(B, $B$^$?@x:_JQ?t$N1F6A$r<h$j=|$1$k$h$&$K%G!<%?F1;N$r>h=|$G$-(B, $B$=$l$r(BX$B<4(B, Y$B<4$KA*Br$G$-$k$h$&$J5!G=$bI,MW$G$"$k(B. 
+実験後に日本地図, 散布図に見切れが生じた問題については改善策を行った.
+また特定の都道府県が散布図のどのあたりに位置しているのかを探すのが困難だったことついても改善した.
+また, 今後の課題として外れ値対策として, 値の除去をする機能, また潜在変数の影響を取り除けるようにデータ同士を乗除でき, それをX軸, Y軸に選択できるような機能も必要である.
 
-\subsubsection{PC$B$K$h$C$FF0:n$7$J$$(B}
+\subsubsection{PCによって動作しない}
 
-$B8E$$%O!<%I%&%'%"!&(BOS, $B%a%b%j$,>/$J$$>l9g$J$I$KDs0F%7%9%F%`$,F0:n$7$J$$$H$$$&LdBj$,@8$8$?(B. 
-$B$7$+$7>\:Y$JF0:n4D6-$,D4::$G$-$F$$$J$$$N$G:#8e$N2]Bj$H$9$k(B. 
-
-%======================================================================
-%		5$B>O(B
-%======================================================================
-\chapter{$B7kO@(B}
-$BK\8&5f$G$O!"%*!<%W%s%G!<%?$rMQ$$$?2>@b8!>Z$r;Y1g$9$k$?$a$K!$(BTag Cloud $B$rMQ$$$?%G!<%?%?%08!:w%7%9%F%`$r;n:n$7(B, $B$=$NM-8z@-$r%f!<%6I>2A$K$h$j8!>Z$7$?(B.
-$BDs0F%7%9%F%`$G$O(B47$BETF;I\8)JL$NE}7W%G!<%?%Y!<%9$r(BTag Cloud$B$GI=<($7(B, 
-Tag Cloud$BFb$N%?%0$N%U%)%s%H%5%$%:$O8!:w%-!<%o!<%I$H$NN`;wEY$K$h$j7hDj$5$l$k(B. 
-$B$^$?(B, $B%G!<%?8!:wJ,@O$r%7%9%F%`Fb$N4JC1$JA`:n%9%F%C%W$G9T$($k$h$&$K$9$k$3$H$G2J3XE*;W9M$NCfCG$rKI$0$h$&$K$7$?!%(B 
-$B$=$7$F%G!<%?J,@O$K$D$$$F(B, $B%G!<%?4V$N4X78$rB,Dj$9$k$3$H$KE,$7$F$$$k;6I[?^(B, $B2s5"D>@~(B, $B7hDj78?t$rI=<($7(B, 
-$B4X78$N$"$k%G!<%?$NH/8+$r$7$d$9$/$9$k$?$a$K(BTag Cloud$BFb$N%?%0$N?'$OMxMQ<T$,A*Br$7$?%G!<%?$H$HC12s5"J,@O$r9T$C$?:]$N7hDj78?t$N9b$5$K4p$E$-7hDj$5$l$k(B. 
-
-$B$3$N%7%9%F%`$K$*$1$k%G!<%?%?%0$NH/8+MF0W@-$r3NG'$9$k$?$a$K!$K\8&5f$G$OA`:n@-G=B,Dj(B, Excel $B$H$NHf3S<B83(B, $B%f!<%6!<%"%s%1!<%H$r9T$C$?!%(B 
-$BA`:n@-G=B,Dj$K$h$j(B, $BDs0F%7%9%F%`$rMxMQ$7$F2>@b8!>Z$r9T$&:]$K(B, $B=i?4<T$G$b@_7W<T$NF0$-$H6a$$A`:n$r$9$k$3$H$,J,$+$C$?(B. 
-$BHf3S<B83$h$jDs0F%7%9%F%`$G$ON`;wEY(B, $B7hDj78?t$r(BTag Cloud$B$G2D;k2=$9$k$3$H$K$h$jMxMQ<T$N=jK>$9$k%G!<%?H/8+$7$d$9$/$J$j(B, 
-$B2>@b8!>Z$,9T$$$d$9$/$J$C$?(B. $B$^$?(B, $B%f!<%6!<%"%s%1!<%H$+$iDs0F%7%9%F%`$N2~A10F$rJ,@O$7$?(B. 
-
-$B$^$?:#8e$NL\I8$H$7$F%G!<%?NL(B, $B<oN`$NA}2C$,9M$($i$l$k(B. 
-$BDs0F%7%9%F%`$G$O%G!<%??t$O(B90$B8D(B. $B$^$?(B, 2010$BG/EY$K$*$1$k(B47$BETF;I\8)JL$N%G!<%?$N$_$r07$C$?$,(B, $B:#8e$O(Be-Stat$BFb$NA4%G!<%?$r;HMQ$r8!F$$7$F$$$-$?$$(B. 
-$B$3$N$?$aBgNL$N%G!<%?$rDs0F%7%9%F%`$G;HMQ$G$-$k$h$&!"@lMQ$N%G!<%?%Y!<%9$r:n@.$9$kI,MW$,$"$k$H9M$($i$l$k(B. 
-$BF1;~$K(B, $B%G!<%?$,;}$D%?%0L>(B, $B7hDj78?t$K$D$$$F$b2~A1$9$kI,MW$,$"$k(B. 
-$BDs0F%7%9%F%`$G$O35G0<-=q(BWORDNET$B$KB8:_$9$kC18l$r%G!<%?%?%0$K:NBr$7$?$,(B, 
-$B%G!<%?NL(B, $B<oN`$,A}$($k$3$H$G!"%?%0$N:NBr$KIiC4$,$+$+$k$HM=A[$5$l$k$?$a!":#8e$OIiC4$N>/$J$$:NBrJ}K!$r3NN)$9$kM=Dj$G$"$k(B. 
-$B7hDj78?t$K$D$$$F$O(B, $B;vA0$K%G!<%?F1;N$GC12s5"J,@O$r9T$C$?:]$N7hDj78?t$r7W;;$7$F$$$?$,(B, $B%G!<%?NLA}2C$K$D$l$F7W;;NL$,A}2C$7(B, 
-$B%G!<%?7W;;$NIiC4$OBg$-$/$J$k$HM=A[$5$l$k$N$G!"%7%9%F%`5/F0Cf$K7W;;$r9T$&5!G=$NF3F~(B, 
-$B$b$7$/$O7hDj78?t0J30$N?7$7$$;XI8$r:NBr$9$k$J$IBP:v$r8!F$$7$F$$$-$?$$(B. 
-$B$^$?(B, $B%G!<%?NL$,A}2C$K8~$1$F(BTag Cloud$B$NI=<(J}K!$b8!F$$9$kI,MW$,$"$k(B. 
-$BG[CV$K5,B'@-$r;}$?$;$J$1$l$P$$$1$J$$(B. $B%?%0F1;N$NN`;wEY$K$h$C$F0zNO$rF/$+$;$k(B, 
-$B$b$7$/$O?7$7$$;XI8$K4p$E$-G[CV$r7hDj$9$kEy%G!<%?H/8+$KLrN)$D$h$&$JG[CV$r9M$($kI,MW$,$"$k(B. 
-$B$^$?(B, e-Stat$B$K$O(B47$BETF;I\8)0J30$K$b;~7ONs%G!<%?(B, $B;TD.B<JL%G!<%?$J$I%G!<%?<oN`$NA}2C$K8~$1$?BP:v$H$7$F(B, 
-$BF0E*$J%0%i%U$d;TD.B<MQ$NCO?^$J$I!"%G!<%?$N<oN`$KBP1~$7$?CO?^!"%0%i%U$N@8@.5!G=$rDI2C$9$kI,MW$,$"$k(B. 
-$B%G!<%?J,@O$K$D$$$F$O(B, $B8=:_$OC12s5"$K$h$kJ,@O$N$_$@$C$?$,!"J,;66&J,;69=B$2r@O$N$h$&$J%G!<%?4V$N0x2L4X78$rJ,@O$G$-$k$h$&$J5!G=$rDI2C$9$kM=Dj$G$"$k(B.
-$B$^$?(B, H. Rosling~\cite{6-1}$B$NDs0F$9$k(B Gapminder$B$N$h$&$K;~7ONs$NB?<!85%G!<%?$r2D;k2=J,@O5!G=$r<BAu$7!"(B
-$B$5$i$K(B3$B<!856u4V$rM-8z$K;H$C$?2D;k2=5;=Q$rMx3hMQ$9$k$3$H$G!"?7$7$$H/8+$K$D$J$,$kCNE*4pHW$X$N5!G=3HD%$r8!F$$7$F$$$-$?$$(B. 
-
+古いハードウェア・OS, メモリが少ない場合などに提案システムが動作しないという問題が生じた.
+しかし詳細な動作環境が調査できていないので今後の課題とする.
 
 %======================================================================
-%		$B<U<-(B
+%		5章
+%======================================================================
+\chapter{結論}
+本研究では、オープンデータを用いた仮説検証を支援するために，Tag Cloud を用いたデータタグ検索システムを試作し, その有効性をユーザ評価により検証した.
+提案システムでは47都道府県別の統計データベースをTag Cloudで表示し,
+Tag Cloud内のタグのフォントサイズは検索キーワードとの類似度により決定される.
+また, データ検索分析をシステム内の簡単な操作ステップで行えるようにすることで科学的思考の中断を防ぐようにした．
+そしてデータ分析について, データ間の関係を測定することに適している散布図, 回帰直線, 決定係数を表示し,
+関係のあるデータの発見をしやすくするためにTag Cloud内のタグの色は利用者が選択したデータとと単回帰分析を行った際の決定係数の高さに基づき決定される.
+
+このシステムにおけるデータタグの発見容易性を確認するために，本研究では操作性能測定, Excel との比較実験, ユーザーアンケートを行った．
+操作性能測定により, 提案システムを利用して仮説検証を行う際に, 初心者でも設計者の動きと近い操作をすることが分かった.
+比較実験より提案システムでは類似度, 決定係数をTag Cloudで可視化することにより利用者の所望するデータ発見しやすくなり,
+仮説検証が行いやすくなった. また, ユーザーアンケートから提案システムの改善案を分析した.
+
+また今後の目標としてデータ量, 種類の増加が考えられる.
+提案システムではデータ数は90個. また, 2010年度における47都道府県別のデータのみを扱ったが, 今後はe-Stat内の全データを使用を検討していきたい.
+このため大量のデータを提案システムで使用できるよう、専用のデータベースを作成する必要があると考えられる.
+同時に, データが持つタグ名, 決定係数についても改善する必要がある.
+提案システムでは概念辞書WORDNETに存在する単語をデータタグに採択したが,
+データ量, 種類が増えることで、タグの採択に負担がかかると予想されるため、今後は負担の少ない採択方法を確立する予定である.
+決定係数については, 事前にデータ同士で単回帰分析を行った際の決定係数を計算していたが, データ量増加につれて計算量が増加し,
+データ計算の負担は大きくなると予想されるので、システム起動中に計算を行う機能の導入,
+もしくは決定係数以外の新しい指標を採択するなど対策を検討していきたい.
+また, データ量が増加に向けてTag Cloudの表示方法も検討する必要がある.
+配置に規則性を持たせなければいけない. タグ同士の類似度によって引力を働かせる,
+もしくは新しい指標に基づき配置を決定する等データ発見に役立つような配置を考える必要がある.
+また, e-Statには47都道府県以外にも時系列データ, 市町村別データなどデータ種類の増加に向けた対策として,
+動的なグラフや市町村用の地図など、データの種類に対応した地図、グラフの生成機能を追加する必要がある.
+データ分析については, 現在は単回帰による分析のみだったが、分散共分散構造解析のようなデータ間の因果関係を分析できるような機能を追加する予定である.
+また, H. Rosling~\cite{6-1}の提案する Gapminderのように時系列の多次元データを可視化分析機能を実装し、
+さらに3次元空間を有効に使った可視化技術を利活用することで、新しい発見につながる知的基盤への機能拡張を検討していきたい.
+
+
+%======================================================================
+%		謝辞
 %======================================================================
 \begin{acknowledgements}
-$BK\8&5f$r?J$a$k$K$"$?$j!$M-1W$J8f;XF3!$8f=u8@$rD:$-$^$7$?5~ETBg3X9bEy650i8&5f3+H/?d?J%;%s%?!<>.;3ED9LFs65<x$K?<$/46<UCW$7$^$9!%(B
+本研究を進めるにあたり，有益な御指導，御助言を頂きました京都大学高等教育研究開発推進センター小山田耕二教授に深く感謝致します．
 
-$BK\8&5f$r?J$a$k$K$"$?$j!$K-IY$J%"%$%G%"$d3hH/$J5DO@$K$h$j!$M-1W$J8f;XF3!$8f=u8@$rD:$-$^$7$?:dK\>05W=u65$K46<UCW$7$^$9!%(B
+本研究を進めるにあたり，豊富なアイデアや活発な議論により，有益な御指導，御助言を頂きました坂本尚久助教に感謝致します．
 
-$BF|:"$+$i$N8&5f$N?J$aJ}!$%W%m%0%i%_%s%05;=Q$d8&5f@83h$KI,MW$J$5$^$6$^$JCN<1$K$D$$$F65$($FD:$-$^$7$?5WLZ85?-G!@h@8$K?4$h$j46<UCW$7$^$9!%(B
+日頃からの研究の進め方，プログラミング技術や研究生活に必要なさまざまな知識について教えて頂きました久木元伸如先生に心より感謝致します．
 
-$BK\8&5f$r?J$a$k$K$"$?$j!$%W%m%0%i%_%s%05;=Q(B, $B%7%9%F%`:n@.EyM-1W$J$4=u8@$rD:$-!$B?Bg$J$k;~4V$r3d$$$FD:$-$^$7$?Gn;N2]Dx(B1 $B2s@8$NHx>eMN2p;a$K?4$h$j46<U$7$^$9!%(B
+本研究を進めるにあたり，プログラミング技術, システム作成等有益なご助言を頂き，多大なる時間を割いて頂きました博士課程1 回生の尾上洋介氏に心より感謝します．
 
-$BK\O@J8:n@.$K$"$?$jB?$/$N8f=u8@!$8f6(NO$rD:$-$^$7$?=$;N(B2$B2s@8$N6{ED>-;K;a(B, $B86BgCR;a$K?<$/46<U$7$^$9!%(B
+本論文作成にあたり多くの御助言，御協力を頂きました修士2回生の櫛田将史氏, 原大智氏に深く感謝します．
 
-$BF|!9$N8&5f<<$N@83h$N%5%]!<%H$r$7$F$$$?$@$-(B, $BK\O@J8$N?dZJ$K$bB?Bg$J$k;~4V$r3d$$$FD:$-$^$7$?=$;N(B1 $B2s@8$N9b8+1_?N;a(B, $BAP8+632p;a$K?4$h$j46<U$7$^$9!%(B
+日々の研究室の生活のサポートをしていただき, 本論文の推敲にも多大なる時間を割いて頂きました修士1 回生の高見円仁氏, 双見恭介氏に心より感謝します．
 
-$B8&5f@83h$N$J$+$GB?$/$N=u8@$H5$8/$$$rD:$-!$$^$?K\O@J8:n@.$K$"$?$j8f;XF3!$8f6(NO$rD:$$$?>.;3ED8&5f<<$N3'MM$K?4$h$j46<U$N0U$rI=$7$^$9!%(B
+研究生活のなかで多くの助言と気遣いを頂き，また本論文作成にあたり御指導，御協力を頂いた小山田研究室の皆様に心より感謝の意を表します．
 
 \end{acknowledgements}
 
 
 
 %======================================================================
-%		$B;29MJ88%(B
+%		参考文献
 %======================================================================
 
 \begin{thebibliography}{20}
-\bibitem{1-1}$B2J3X5;=Q%$%N%Y!<%7%g%s@/:v$N$?$a$N2J3X?d?J0Q0w2q(B, $B@/:v$N$?$a$N2J3X(B, http://scirex.mext.go.jp/about/index.html (2014)
-\bibitem{1-2} $B>.;3ED9LFs(B, $BF|CV?R5W(B, $B8E2l?r(B, $B;}859>DE;R(B, $B8&5f%Y!<%93X=,(B ($B%3%m%J<R(B, 2011) 1-73.
-%\bibitem{1-3}$BJ8It2J3X>J(B, $B650i$N>pJs2=%S%8%g%s(B~ 21 $B@$5*$K$U$5$o$7$$3X$S$H3X9;$NAOB$$rL\;X$7$F(B~ (2011) 7.
-\bibitem{2.1-1} E. Clarkson, K. Desai, and J. Foley, Resultmaps: Visualization for search interfaces, IEEE Transactions on Visualization and Computer Graphics, 15(6) (2009) 1057-1064. 
+\bibitem{1-1}科学技術イノベーション政策のための科学推進委員会, 政策のための科学, http://scirex.mext.go.jp/about/index.html (2014)
+\bibitem{1-2} 小山田耕二, 日置尋久, 古賀崇, 持元江津子, 研究ベース学習 (コロナ社, 2011) 1-73.
+%\bibitem{1-3}文部科学省, 教育の情報化ビジョン~ 21 世紀にふさわしい学びと学校の創造を目指して~ (2011) 7.
+\bibitem{2.1-1} E. Clarkson, K. Desai, and J. Foley, Resultmaps: Visualization for search interfaces, IEEE Transactions on Visualization and Computer Graphics, 15(6) (2009) 1057-1064.
 \bibitem{2.1-2}M. Bruls, K. Huizing and J. van Wijk, Squarified treemaps, Data Visualization 2000 (2000) 33-42.
 %\bibitem{2.1-3}F. V. Paulovich, R. Pinho, C. P. Botha, A. Heijs and R. Minghim, PEx-WEB: Content-based visualization of Web search results, Information Visualisation, 2008. IV'08. 12th International Conference (2008) 208-214.
-\bibitem{2.2-2}W. Chen, H. Wynne and L. L. Mong, Tagcloud-based explanation with feedback for recommender systems, Proceedings of the 36th international ACM SIGIR conference on Research and development in information retrieval (2013) 945-948. 
+\bibitem{2.2-2}W. Chen, H. Wynne and L. L. Mong, Tagcloud-based explanation with feedback for recommender systems, Proceedings of the 36th international ACM SIGIR conference on Research and development in information retrieval (2013) 945-948.
 \bibitem{2.2-3} J. Steele, L Noah, Beautiful visualization (O'Reilly Media Inc, 2010) 40-60.
-\bibitem{2.2-4} S. Molnar, M. Robert and B. Maria, Trending Words in Digital Library for Term Cloud-based Navigation, In SMAP$B!G(B13: Proc. of the 8th Int. Workshop on Semantic and Social Media Adaptation and Personalization (2013) 1-4.
+\bibitem{2.2-4} S. Molnar, M. Robert and B. Maria, Trending Words in Digital Library for Term Cloud-based Navigation, In SMAP’13: Proc. of the 8th Int. Workshop on Semantic and Social Media Adaptation and Personalization (2013) 1-4.
 \bibitem{2.3-1}B. Tessem, J. Bjarte and V. Csaba, Mobile Location-Driven Associative Search in DBpedia with Tag Clouds, I-SEMANTICS 2013 Posters and Demos (2013) 6-10.
 \bibitem{2.3-2}J. Wang, J. Zhao, S. Guo, C. North, Clustered Layout Word Cloud for User Generated Review (2012) 1-10.
 \bibitem{2.3-3}S. Auer, C. Bizer, G. Kobilarov, J. Lehmann, R. Cyganiak, Z. Ives, DBpedia: A Nucleus for a Web of Open Data, The Semantic Web (2007) 722-735.
 \bibitem{3.1-1}HMS. Wen, GH. Eshley and F. Bond, Using WordNet to predict numeral classifiers in Chinese and Japanese, GWC 2012 6th International Global Wordnet Conference (2012) 211.
-\bibitem{5.1.1-1}$B!V%f!<%6%S%j%F%#%O%s%I%V%C%/JT=80Q0w2q!W(B, $B%f!<%6%S%j%F%#%O%s%I%V%C%/(B ($B6&N)=PHG(B, 2007). 
-\bibitem{5.1.1-3}$BFb3U41K<#I#TC4Ev<<(B, $BEE;R@/I\%f!<%6%S%j%F%#%,%$%I%i%$%s(B (2009). 
-\bibitem{5.2.2-1} H. B. Mann and D. R. Whitney, On a test of whether one of two random variables is stochastically larger than the other, The annals of mathematical statistics, 18 (1947) 50-60. 
+\bibitem{5.1.1-1}「ユーザビリティハンドブック編集委員会」, ユーザビリティハンドブック (共立出版, 2007).
+\bibitem{5.1.1-3}内閣官房ＩＴ担当室, 電子政府ユーザビリティガイドライン (2009).
+\bibitem{5.2.2-1} H. B. Mann and D. R. Whitney, On a test of whether one of two random variables is stochastically larger than the other, The annals of mathematical statistics, 18 (1947) 50-60.
 \bibitem{5.3-1} G. Salton and M. J. McGill, Introduction to modern information retrieval (1986).
 \bibitem{6-1} H. Rosling, Gapminder: http://www.gapminder.org (2009).
 \end{thebibliography}
 
 %======================================================================
-%		$B?^(B, $BIUO?(B
+%		図, 付録
 %======================================================================
 \appendix
-%\chapter{$B%l%$%"%&%H!&%Q%i%a!<%?(B}\label{chap:layout}
+%\chapter{レイアウト・パラメータ}\label{chap:layout}
 
 \begin{table}
-  \caption{$BBPHf<B837k2L(B}\label{5-1}
+  \caption{対比実験結果}\label{5-1}
   \begin{center}
     \begin{tabular}{|l|r|r|r|} \hline
-       & $BDs0F%7%9%F%`$NJ?6Q(B & Excel$B$NJ?6Q(B & P$BCM(B \\  \hline
-     $B%7%9%F%`$N;H$$$d$9$5(B & 4.27 & 3.82 & 0.013 \\  \hline
-     $B%G!<%?$NH/8+$7$d$9$5(B & 3.67 & 2.93 & 0.012 \\  \hline
-%     $B;6I[?^@8@.2s?t(B($B8D(B) & 5.82 & 4.98 & 0.708 \\  \hline
-     $B<B83$KMW$7$?;~4V(B(min) & 16.95 & 19.91 & 0.050 \\  \hline
-     $B;6I[?^@8@.(B/$B;~4V(B($B8D(B/min) & 0.42& 0.29 & 0.022 \\  \hline
+       & 提案システムの平均 & Excelの平均 & P値 \\  \hline
+     システムの使いやすさ & 4.27 & 3.82 & 0.013 \\  \hline
+     データの発見しやすさ & 3.67 & 2.93 & 0.012 \\  \hline
+%     散布図生成回数(個) & 5.82 & 4.98 & 0.708 \\  \hline
+     実験に要した時間(min) & 16.95 & 19.91 & 0.050 \\  \hline
+     散布図生成/時間(個/min) & 0.42& 0.29 & 0.022 \\  \hline
     \end{tabular}
   \end{center}
 \end{table}
 
 \begin{table}
-  \caption{$B%f!<%6!<%"%s%1!<%H7k2L(B}\label{5-3}
+  \caption{ユーザーアンケート結果}\label{5-3}
   \begin{center}
     \begin{tabular}{|l|r|} \hline
-      $BN`;wEY8!:w$O2>@b8!>Z$KLr$@$C$?$+(B & 3.890 \\  \hline
-      $BN`;wEY$r%U%)%s%H%5%$%:$GI=<($7$?$N$OJ,$+$j$d$9$$$+(B & 4.103 \\  \hline
-      $BN`;wEY7W;;$K$+$+$k;~4V(B & 3.363 \\  \hline
-      $BN`;wEY7W;;$,$G$-$J$$C18l$O$I$l$/$i$$$G$^$7$?$+(B & 3.246 \\  \hline
-      $BAj4X$rJ8;z$N?'$GI=<($7$?$N$O$o$+$j$d$9$+$C$?$+(B & 4.129 \\ \hline
-      $B%G!<%?%?%0(B($BJ8;z(B)$B$NG[?'$OE,@Z$G$7$?$+(B & 3.623 \\ \hline
-      $B2s5"D>@~$O2>@b8!>Z$KLr$@$C$?$+(B & 4.342 \\ \hline
-      $B7hDj78?t$O2>@b8!>Z$KLr$@$C$?$+(B & 4.150 \\ \hline
-      $B;6I[?^$O2>@b8!>Z$KLr$@$C$?$+(B & 4.136 \\ \hline
-      $BF|K\CO?^$O2>@b8!>Z$KLr$@$C$?$+(B & 3.520 \\ \hline
-      $B%?%0%/%j%C%/$G$N<4JQ99$O$9$0$o$+$j$^$7$?$+(B & 3.082 \\ \hline
-      $B<4JQ99%\%?%s$NG[CV$OE,@Z$@$H;W$$$^$9$+(B & 3.714 \\ \hline
+      類似度検索は仮説検証に役だったか & 3.890 \\  \hline
+      類似度をフォントサイズで表示したのは分かりやすいか & 4.103 \\  \hline
+      類似度計算にかかる時間 & 3.363 \\  \hline
+      類似度計算ができない単語はどれくらいでましたか & 3.246 \\  \hline
+      相関を文字の色で表示したのはわかりやすかったか & 4.129 \\ \hline
+      データタグ(文字)の配色は適切でしたか & 3.623 \\ \hline
+      回帰直線は仮説検証に役だったか & 4.342 \\ \hline
+      決定係数は仮説検証に役だったか & 4.150 \\ \hline
+      散布図は仮説検証に役だったか & 4.136 \\ \hline
+      日本地図は仮説検証に役だったか & 3.520 \\ \hline
+      タグクリックでの軸変更はすぐわかりましたか & 3.082 \\ \hline
+      軸変更ボタンの配置は適切だと思いますか & 3.714 \\ \hline
     \end{tabular}
   \end{center}
 \end{table}
 
 
 
-\chapter{$BIUO?(BA $B4pAC5;=Q(B(WORDNET)}\label{chap:layout}
-$B$3$3$G$OF~NO%-!<%o!<%I$H%?%0$N0UL#E*N`;wEY$rB,Dj$9$k:]$KMQ$$$k35G0<-=q(BWordNet$B$K$D$$$F=R$Y$k(B. 
-Wordnet $B$OC18l$N>e0L(B / $B2<0L4X78(B, $BItJ,(B / $BA4BN4X78(B, $BF15A4X78(B, $BN`5A4X78$J$I$K(B
-$B$h$C$FC18l$rJ,N`$7BN7O$E$1$?(B, $B1Q8l$N35G0<-=q$G$"$k(B\cite{3.1-1}.
-WordNet $B$G$O1QC18l$,(Bsynset $B$H8F$P$l$kF1(B
-$B5A8l$N%0%k!<%W$KJ,N`$5$l(B, $B4JC1$JDj5A$d(B, $BB>$NF15A8l$N%0%k!<%W$H$N4X78$,5-=R(B
-$B$5$l$F$$$k(B. WordNet $B$NL\E*$OD>46E*$K;H$&$3$H$N$G$-$k<-=q$H%7%=!<%i%9$,AH(B
-$B$_9g$o$5$l$?@.2LJ*$r:n$k$3$H(B, $B$*$h$S<+F0E*J8=q2r@O$d?M9)CNG=$N%"%W%j%1!<(B
-$B%7%g%s$N<B8=$r;Y1g$9$k$3$H$K$"$k(B. $B$3$N(BWordNet $B$+$iCeA[$rF@$F3+H/$5$l$?$b(B
-$B$N$GF|K\8l(BWordNet $B$,$"$k(B. $BFHN)9T@/K!?M>pJsDL?.8&5f5!9=!J(BNICT$B!K$,3+H/$7(B
-$B$?$b$N$G(B, $BBg5,LO$+$DC/$G$bMxMQ$G$-$kF|K\8l$N0UL#<-=q$G$"$k(B. $BF|K\8l(BWordNet
-$B$O(B, $B8l$r(Bsynset $B$G%0%k!<%W2=$7$F$$$kE@$KFCD'$,$"$j(B, $B0l$D$N(Bsynset $B$,0l$D$N35(B
-$BG0$KBP1~$7$F$$$k(B. $B$^$?(B, $B3F(Bsynset $B$O>e0L2<0L4X78$J$I$NB?MM$J4X78$G7k$P$l$F$$(B
-$B$k(B. $BF|K\8l%o!<%I%M%C%H$K<}O?$5$l$?(Bsynset $B?t$dC18l?t(B, $B8l5A?t$O0J2<$N$H$*$j$G(B
-$B$"$k(B.
+\chapter{付録A 基礎技術(WORDNET)}\label{chap:layout}
+ここでは入力キーワードとタグの意味的類似度を測定する際に用いる概念辞書WordNetについて述べる.
+Wordnet は単語の上位 / 下位関係, 部分 / 全体関係, 同義関係, 類義関係などに
+よって単語を分類し体系づけた, 英語の概念辞書である\cite{3.1-1}.
+WordNet では英単語がsynset と呼ばれる同
+義語のグループに分類され, 簡単な定義や, 他の同義語のグループとの関係が記述
+されている. WordNet の目的は直感的に使うことのできる辞書とシソーラスが組
+み合わされた成果物を作ること, および自動的文書解析や人工知能のアプリケー
+ションの実現を支援することにある. このWordNet から着想を得て開発されたも
+ので日本語WordNet がある. 独立行政法人情報通信研究機構（NICT）が開発し
+たもので, 大規模かつ誰でも利用できる日本語の意味辞書である. 日本語WordNet
+は, 語をsynset でグループ化している点に特徴があり, 一つのsynset が一つの概
+念に対応している. また, 各synset は上位下位関係などの多様な関係で結ばれてい
+る. 日本語ワードネットに収録されたsynset 数や単語数, 語義数は以下のとおりで
+ある.
 
-57,238 $B35G0(B (synset$B?t(B),93,834 $B8l(B,158058 $B8l5A(B (synset$B$HC18l$N%Z%"(B),135,692 $BDj5AJ8(B,48,276 $BNcJ8(B
+57,238 概念 (synset数),93,834 語,158058 語義 (synsetと単語のペア),135,692 定義文,48,276 例文
 
-$BF|K\8l<-=q%G!<%?%Y!<%9$NCf$G(B,$BF|K\8l(BWordNet$B$OL5NA$G;HMQ$G$-(B,$BC/$G$b3+H/2DG=$G$"$k$H$$$&$3$H$+$iDs0F%7%9%F%`$G$O(BWordNet$B$r:NMQ$7$?(B.
+日本語辞書データベースの中で,日本語WordNetは無料で使用でき,誰でも開発可能であるということから提案システムではWordNetを採用した.
 
 \end{document}
 % Local Variables:
