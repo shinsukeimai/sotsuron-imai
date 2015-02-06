@@ -1,0 +1,38 @@
+\begin{table*}
+
+  \caption{本文ページのデフォルト・レイアウト}\label{tab:text}
+  \begin{center}
+    \begin{tabular}{|l|r|}
+      \hline
+      \verb+\textwidth+ & 424pt \\ \hline
+      \verb+\textheight+ & 604pt \\ \hline
+      \verb+\oddsidemargin+ & 0.5cm \\ \hline
+      \verb+\evensidemargin+ & 0.5cm \\ \hline
+      \verb+\topmargin+ & 0pt \\ \hline
+      \verb+\headheight+ &12pt \\ \hline
+      \verb+\headsep+ & 25pt \\ \hline
+      \verb+\footskip+ & 30pt \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table*}
+\kueeseparator
+ 
+\begin{table*}
+
+  \caption{図・表ページのデフォルト・レイアウト}\label{tab:fig}
+  \begin{center}
+    \begin{tabular}{|l|r|}
+      \hline
+      \verb+\textwidth+ & 424pt + 1cm \\ \hline
+      \verb+\textheight+ & 604pt + 67pt \\ \hline
+      \verb+\oddsidemargin+ & 0pt \\ \hline
+      \verb+\evensidemargin+ & 0pt \\ \hline
+      \verb+\topmargin+ & 0pt \\ \hline
+      \verb+\headheight+ & 0pt \\ \hline
+      \verb+\headsep+ & 0pt \\ \hline
+      \verb+\footskip+ & 0pt \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table*}
+\kueeseparator
+ 
