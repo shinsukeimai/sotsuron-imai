@@ -1,17 +1,239 @@
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig2-1.eps}
+  \end{center}
+  \caption{ResultMaps}
+  \label{2-1}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig2-2.eps}
+  \end{center}
+  \caption{W. Chenの提案システム}
+  \label{2-2}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig2-3.eps}
+  \end{center}
+  \caption{Wordle}
+  \label{2-3}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig2-5.eps}
+  \end{center}
+  \caption{B. Tessemの提案システム}
+  \label{2-5}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig2-6.eps}
+  \end{center}
+  \caption{Ji. Wangの提案システム}
+  \label{2-6}
+\end{figure*}
+\kueeseparator
+ 
+\clearpage
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-1.eps}
+  \end{center}
+  \caption{システム利用の流れ}
+  \label{4-1}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-2.eps}
+  \end{center}
+  \caption{提案システムの実行例1}
+  \label{4-2}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-3.eps}
+  \end{center}
+  \caption{提案システムの実行例2}
+  \label{4-3}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-4.eps}
+  \end{center}
+  \caption{提案システムの実行例3}
+  \label{4-4}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-5.eps}
+  \end{center}
+  \caption{提案システムの実行例4}
+  \label{4-5}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-6.eps}
+  \end{center}
+  \caption{提案システムの実行例5}
+  \label{4-6}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-7.eps}
+  \end{center}
+  \caption{使用データ(json)}
+  \label{4-7}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-13.eps}
+  \end{center}
+  \caption{データ構造説明}
+  \label{4-13}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-8.eps}
+  \end{center}
+  \caption{WORDNETのツリー構造}
+  \label{4-8}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-9.eps}
+  \end{center}
+  \caption{キーワード検索を行ってからTag Cloudを生成するまでの流れ}
+  \label{4-9}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-10.eps}
+  \end{center}
+  \caption{タグ選択からタグの色が変更するまでの流れ}
+  \label{4-10}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig4-11.eps}
+  \end{center}
+  \caption{タグ選択から日本地図, 散布図, 回帰直線, 決定係数表示までの流れ}
+  \label{4-11}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=60mm]{fig4-12.eps}
+  \end{center}
+  \caption{軸変更からタグの色が変更するまでの流れ}
+  \label{4-12}
+\end{figure*}
+\kueeseparator
+ 
+\clearpage
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig5-1.eps}
+  \end{center}
+  \caption{NEM(操作性能測定)実験結果}
+  \label{5.2-1}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+  \begin{center}
+    \unitlength=1mm
+   \includegraphics[width=120mm]{fig5-2.eps}
+  \end{center}
+  \caption{対比実験実験結果}
+  \label{5.2-2}
+\end{figure*}
+\kueeseparator
+ 
+\clearpage
+\clearpage
+\clearpage
 \begin{table*}
 
-  \caption{本文ページのデフォルト・レイアウト}\label{tab:text}
+  \caption{対比実験結果}\label{5-1}
   \begin{center}
-    \begin{tabular}{|l|r|}
-      \hline
-      \verb+\textwidth+ & 424pt \\ \hline
-      \verb+\textheight+ & 604pt \\ \hline
-      \verb+\oddsidemargin+ & 0.5cm \\ \hline
-      \verb+\evensidemargin+ & 0.5cm \\ \hline
-      \verb+\topmargin+ & 0pt \\ \hline
-      \verb+\headheight+ &12pt \\ \hline
-      \verb+\headsep+ & 25pt \\ \hline
-      \verb+\footskip+ & 30pt \\ \hline
+    \begin{tabular}{|l|r|r|r|} \hline
+       & 提案システムの平均 & Excelの平均 & P値 \\  \hline
+     システムの使いやすさ & 4.27 & 3.82 & 0.013 \\  \hline
+     データの発見しやすさ & 3.67 & 2.93 & 0.012 \\  \hline
+%     散布図生成回数(個) & 5.82 & 4.98 & 0.708 \\  \hline
+     実験に要した時間(min) & 16.95 & 19.91 & 0.050 \\  \hline
+     散布図生成/時間(個/min) & 0.42& 0.29 & 0.022 \\  \hline
     \end{tabular}
   \end{center}
 \end{table*}
@@ -19,20 +241,24 @@
  
 \begin{table*}
 
-  \caption{図・表ページのデフォルト・レイアウト}\label{tab:fig}
+  \caption{ユーザーアンケート結果}\label{5-3}
   \begin{center}
-    \begin{tabular}{|l|r|}
-      \hline
-      \verb+\textwidth+ & 424pt + 1cm \\ \hline
-      \verb+\textheight+ & 604pt + 67pt \\ \hline
-      \verb+\oddsidemargin+ & 0pt \\ \hline
-      \verb+\evensidemargin+ & 0pt \\ \hline
-      \verb+\topmargin+ & 0pt \\ \hline
-      \verb+\headheight+ & 0pt \\ \hline
-      \verb+\headsep+ & 0pt \\ \hline
-      \verb+\footskip+ & 0pt \\ \hline
+    \begin{tabular}{|l|r|} \hline
+      類似度検索は仮説検証に役だったか & 3.890 \\  \hline
+      類似度をフォントサイズで表示したのは分かりやすいか & 4.103 \\  \hline
+      類似度計算にかかる時間 & 3.363 \\  \hline
+      類似度計算ができない単語はどれくらいでましたか & 3.246 \\  \hline
+      相関を文字の色で表示したのはわかりやすかったか & 4.129 \\ \hline
+      データタグ(文字)の配色は適切でしたか & 3.623 \\ \hline
+      回帰直線は仮説検証に役だったか & 4.342 \\ \hline
+      決定係数は仮説検証に役だったか & 4.150 \\ \hline
+      散布図は仮説検証に役だったか & 4.136 \\ \hline
+      日本地図は仮説検証に役だったか & 3.520 \\ \hline
+      タグクリックでの軸変更はすぐわかりましたか & 3.082 \\ \hline
+      軸変更ボタンの配置は適切だと思いますか & 3.714 \\ \hline
     \end{tabular}
   \end{center}
 \end{table*}
 \kueeseparator
  
+\clearpage
