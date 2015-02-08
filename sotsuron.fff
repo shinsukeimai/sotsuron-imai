@@ -1,20 +1,10 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[angle=90,width=20cm]{egrid.eps}
+\includegraphics[width=10cm,angle=90]{egrid.eps}
 \end{center}
 \caption{評価構造図}
    \label{fig:egrid}
-\end{figure*}
-\kueeseparator
- 
-\begin{figure*}
-
-\begin{center}
-\includegraphics[width=\linewidth]{selection.eps}
-\end{center}
-\caption{選択画面}
-   \label{fig:select}
 \end{figure*}
 \kueeseparator
  
@@ -99,5 +89,8 @@
 \end{figure*}
 \kueeseparator
  
+\clearpage
+\clearpage
+\clearpage
 \clearpage
 \clearpage
