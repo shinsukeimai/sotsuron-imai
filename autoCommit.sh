@@ -6,7 +6,7 @@ do
 	echo $option
 	if [ "$option" = "convertOnly" ]
 		then
-		platex sotsuron.tex && bibtex sotsuron && platex sotsuron.tex && platex sotsuron.tex && dvipdfmx sotsuron.dvi
+		platex sotsuron.tex && pbibtex sotsuron && platex sotsuron.tex && platex sotsuron.tex && dvipdfmx sotsuron.dvi
 		break
 	elif [ "$option" = "convertAndPush" ]
 		then
@@ -22,7 +22,7 @@ do
 				break
 			fi
 		done
-			platex sotsuron.tex && dvipdfmx sotsuron.dvi && git add -A && git commit -m "$meg" && git push 
+			platex sotsuron.tex && pbibtex sotsuron && platex sotsuron.tex && platex sotsuron.tex && dvipdfmx sotsuron.dvi && git add -A && git commit -m "$meg" && git push 
 			echo "end tex push-----"
 			break
 	else

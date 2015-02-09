@@ -1,3 +1,17 @@
+\setcounter{chapter}{1}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
+\clearpage
+\setcounter{chapter}{2}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
+\clearpage
+\setcounter{chapter}{3}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
 \begin{figure*}
 
 \begin{center}
@@ -49,6 +63,10 @@
 \kueeseparator
  
 \clearpage
+\setcounter{chapter}{4}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
 \begin{figure*}
 
 \begin{center}
@@ -140,6 +158,29 @@
 \kueeseparator
  
 \clearpage
+\setcounter{chapter}{5}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
 \clearpage
+\setcounter{chapter}{5}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
 \clearpage
+\setcounter{chapter}{5}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
+\kueefigureappendix
+ 
 \clearpage
+\setcounter{chapter}{1}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 
+\clearpage
+\setcounter{chapter}{2}
+\addtocounter{chapter}{-1}
+\stepcounter{chapter}
+ 

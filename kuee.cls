@@ -1,4 +1,5 @@
-\ProvidesClass{kuee}[2004/01/21]
+%\ProvidesClass{kuee}[2005/01/31]
+\ProvidesClass{kuee}[2005/02/04] % Modified by Tsutomu Hoshino
 \newif\if@NTT
 \ifx\pfmtname\undefined
   \@NTTtrue
@@ -8,26 +9,28 @@
   \NeedsTeXFormat{pLaTeX2e}
 \fi
 \newif\if@sotsuron
+\newif\if@figuretitle
 \DeclareOption{sotsuron}{\@sotsurontrue}
 \DeclareOption{shuuron}{\@sotsuronfalse}
+\DeclareOption{figuretitle}{\@figuretitletrue}%             by G. Morita
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{jreport}}
 \ProcessOptions\relax
 \LoadClass[12pt]{jreport}
 
 \if@sotsuron
-  \gdef\@maintitle{学\hfil 士\hfil 論\hfil 文}
-  \gdef\@course{京都大学工学部}
-  \gdef\@department{電気電子工学科}
+  \gdef\@maintitle{学\hfil 士\hfil 論\hfil 文}
+  \gdef\@course{京都大学工学部}
+  \gdef\@department{電気電子工学科}
 \else
-  \gdef\@maintitle{修\hfil 士\hfil 論\hfil 文}
-  \gdef\@course{京都大学大学院工学研究科}
-  \gdef\@department{電気工学専攻}
+  \gdef\@maintitle{修\hfil 士\hfil 論\hfil 文}
+  \gdef\@course{京都大学大学院工学研究科}
+  \gdef\@department{電気工学専攻}
 \fi
 
 %%%%%%%%%%%%%%
 %%% Layout %%%
 %%%%%%%%%%%%%%
-% レイアウト．
+% レイアウト．
 \oddsidemargin  = 0.5cm
 \evensidemargin = 0.5cm
 \marginparwidth = 68pt
@@ -42,8 +45,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Chars in Line and Lines in Page %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% １行の文字数と１ページの行数から
-% \jintercharskip, \baselineskip を自動設定する．
+% １行の文字数と１ページの行数から
+% \jintercharskip, \baselineskip を自動設定する．
 
 % default values.
 \gdef\@charsinline{36}
@@ -88,7 +91,7 @@
 %%%%%%%%%%%%%%%%%
 %%% Maketitle %%%
 %%%%%%%%%%%%%%%%%
-% 表紙．
+% 表紙．
 \def\professor#1{\gdef\@professor{#1}}
 \def\course#1{\gdef\@course{#1}}
 \def\department#1{\gdef\@department{#1}}
@@ -105,14 +108,14 @@
       \hspace*{0mm}\\
       \begin{picture}(0,0)(\offset,0)
         \put(2.5,8){\makebox(0,0)[b]{\makebox[8cm]{\Huge \@maintitle}}}%
-        \put(-2.5,5.5){\makebox(0,0)[r]{\makebox[2cm]{題\hfil 目}}}%
+        \put(-2.5,5.5){\makebox(0,0)[r]{\makebox[2cm]{題\hfil 目}}}%
         \put(2.5,5.5){\makebox(0,0){\parbox{10cm}{\center \LARGE \@title}}}%
         \ifx\@professor\undefined\else
-          \put(-2.5,3){\makebox(0,0)[r]{\makebox[2cm]{指\hfil 導\hfil 教\hfil 官}}}%
+          \put(-2.5,3){\makebox(0,0)[r]{\makebox[2cm]{指\hfil 導\hfil 教\hfil 員}}}% Modified by Tsutomu Hoshino 050204
           \put(2.5,3){\makebox(0,0){\parbox{8cm}{\center \LARGE \@professor}}}%
         \fi
         \put(2.5,-6.5){\makebox(0,0)[t]{\@course\ \@department}}%
-        \put(-0.5,-8.5){\makebox(0,0)[rb]{\makebox[1.5cm]{氏\hfil 名}}}%
+        \put(-0.5,-8.5){\makebox(0,0)[rb]{\makebox[1.5cm]{氏\hfil 名}}}%
         \put(2.5,-8.7){\makebox(0,0)[b]{\LARGE \underline{\@author}}}%
         \put(2.5,-10){\makebox(0,0)[t]{\large \@date}}%
       \end{picture}
@@ -127,8 +130,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Table of Contents %%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
-% 目次．
-% 目次ページの pagestyle は roman．
+% 目次．
+% 目次ページの pagestyle は roman．
 \def\tableofcontents{%
   \setcounter{page}{0}
   \bgroup
@@ -142,7 +145,7 @@
   \egroup
   \global\c@page = \@ne}
 
-\def\contentsname{目 次}
+\def\contentsname{目 次}
 
 \def\ptex@l@chapter#1#2{%
   \pagebreak[3]
@@ -180,9 +183,9 @@
 %%%%%%%%%%%%%%%
 %%% Chapter %%%
 %%%%%%%%%%%%%%%
-% 章．
-% 章題は `第１章 序論' のように．
-% 目次の章題も同様に．
+% 章．
+% 章題は `第１章 序論' のように．
+% 目次の章題も同様に．
 \def\ptex@makechapterhead#1{%
   \vspace*{20pt}%
   { \parindent 0pt \raggedright
@@ -312,9 +315,9 @@
 %%%%%%%%%%%%%%%%
 %%% Footnote %%%
 %%%%%%%%%%%%%%%%
-% 脚注．
-% ２行以上になっても左にはみ出さない．
-% マークは \newfnsymbol で．
+% 脚注．
+% ２行以上になっても左にはみ出さない．
+% マークは \newfnsymbol で．
 %\def\newfnsymbol#1{\@newfnsymbol{\@nameuse{c@#1}}}
 %\def\@newfnsymbol#1{%
 %  \ifcase #1
@@ -341,7 +344,7 @@
 %%%%%%%%%%%%
 %%% List %%%
 %%%%%%%%%%%%
-% リスト・パラメタ．
+% リスト・パラメタ．
 \def\@listI{%
   \leftmargin \leftmargini
   \topsep .5\baselineskip plus .2\baselineskip minus .3\baselineskip
@@ -375,8 +378,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 %%% Acknowledgements %%%
 %%%%%%%%%%%%%%%%%%%%%%%%
-% 謝辞．
-% 目次に載せる．
+% 謝辞．
+% 目次に載せる．
 \def\acknowledgements{%
   \bgroup
     \c@secnumdepth = \m@ne
@@ -385,15 +388,15 @@
   \relax
 }
 
-\def\ackname{謝 辞}
+\def\ackname{謝 辞}
 
 %%%%%%%%%%%%%%%%%%%%
 %%% Bibliography %%%
 %%%%%%%%%%%%%%%%%%%%
-% 参考文献．
-% 目次に載せる．
-% \bibitem のラベルは `1)' のように．
-% \cite の出力は上付き `1)' のように．
+% 参考文献．
+% 目次に載せる．
+% \bibitem のラベルは `1)' のように．
+% \cite の出力は上付き `1)' のように．
 \def\thebibliography#1{%
   \bgroup
     \c@secnumdepth = \m@ne
@@ -414,17 +417,24 @@
   \nobreak$^{\mbox{\scriptsize #1\if@tempswa , #2\fi})}$%
 }
 
-\def\refname{参 考 文 献}
+\def\refname{参 考 文 献}
 
 %%%%%%%%%%%%%%%%
 %%% Appendix %%%
 %%%%%%%%%%%%%%%%
-\newcount\@kuee@appseq
+%\newcount\@kuee@appseq
+%  commented by G. Morita
 \let\kuee@appendix\appendix
 \def\appendix{%
-    \@kuee@appseq=\@kuee@seq
-    \global\advance\@kuee@appseq 1\relax
-    \kuee@appendix}
+%    \@kuee@appseq=\@kuee@seq
+%    \global\advance\@kuee@appseq 1\relax
+%  commented by G. Morita
+  \kuee@iwrite{\string\kueefigureappendix}%  by G. Morita
+  \kuee@iwrite{ }%                           by G. Morita
+  \kuee@appendix%
+}
+
+\def\kueefigureappendix{\global\let\thechapter\kuee@theappendix}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -457,31 +467,46 @@
 \let\kuee@table\table
 \let\kuee@float\relax
 
-\newcount\@kuee@seq
-\def\kuee@savevalue#1{%
-    \expandafter\newcount\csname @kuee\number\@kuee@seq#1\endcsname
-    \expandafter\global\csname @kuee\number\@kuee@seq#1\endcsname=\value{#1}\relax}
-\def\kuee@store#1{%
-    \global\advance\@kuee@seq 1\relax
-    \kuee@savevalue{chapter}
-    \kuee@savevalue{#1}}
+%\newcount\@kuee@seq
+%\def\kuee@savevalue#1{%
+%    \expandafter\newcount\csname @kuee\number\@kuee@seq#1\endcsname
+%    \expandafter\global\csname @kuee\number\@kuee@seq#1\endcsname=\value{#1}\relax}
+%  comment by G. Morita
+%\def\kuee@store#1{%
+%    \global\advance\@kuee@seq 1\relax%
+%    \kuee@savevalue{chapter}
+%    \kuee@savevalue{#1}}
+%  comment by G. Morita
+
+\let\kuee@chapter\@chapter%  by G. Morita
+\def\@chapter[#1]#2{%        by G. Morita
+  \kuee@chapter[#1]{#2}%
+  \kuee@condopen%
+  \kuee@iwrite{\string\setcounter{chapter}{\@arabic\value{chapter}}}%
+  \kuee@iwrite{\string\addtocounter{chapter}{-1}}%
+  \kuee@iwrite{\string\stepcounter{chapter}}%
+  \kuee@iwrite{ }%
+}
 
 \let\kuee@thechapter\thechapter
 \let\kuee@theappendix\relax
-\def\kuee@restorevalue#1{%
-    \setcounter{#1}{\csname @kuee\number\@kuee@seq#1\endcsname}}
-\def\kuee@restore#1{%
-    \global\advance\@kuee@seq 1\relax
-    \@tempcnta=\c@chapter
-    \kuee@restorevalue{chapter}
-    \kuee@restorevalue{#1}
-    \ifnum\@kuee@seq=\@kuee@appseq
-      \global\let\thechapter\kuee@theappendix
-    \fi}
+%\def\kuee@restorevalue#1{%
+%    \setcounter{#1}{\csname @kuee\number\@kuee@seq#1\endcsname}}
+%  commented by G. Morita
+%\def\kuee@restore#1{%
+%    \global\advance\@kuee@seq 1\relax
+%    \@tempcnta=\c@chapter
+%    \kuee@restorevalue{chapter}
+%    \kuee@restorevalue{#1}
+%    \ifnum\@kuee@seq=\@kuee@appseq
+%      \global\let\thechapter\kuee@theappendix
+%    \fi}
+%  commented by G. Morita
 
 \def\figure{%
-    \kuee@store{figure}
-    \refstepcounter{figure}
+%    \kuee@store{figure}
+%    \refstepcounter{figure}
+%  commented by G. Morita
     \edef\kuee@envname{\@currenvir}%
     \def\kuee@externalenvname{figure*}%
     \kuee@condopen%
@@ -494,8 +519,9 @@
     \kuee@setup
     \kuee@xfloat}%
 \def\table{%
-    \kuee@store{table}
-    \refstepcounter{table}
+%    \kuee@store{table}
+%    \refstepcounter{table}
+%  commented by G. Morita
     \edef\kuee@envname{\@currenvir}%
     \def\kuee@externalenvname{table*}%
     \kuee@condopen%
@@ -548,11 +574,21 @@
 \newcommand{\processdelayedfloats}{{%
   \let\kuee@theappendix\thechapter
   \def\baselinestretch{1}\normalsize
-   \global\@kuee@seq=0
+%   \global\@kuee@seq=0
+%  commented by G. Morita
    \global\let\thechapter\kuee@thechapter
-   \def\figure{\kuee@restore{figure}\kuee@figure}
-   \def\table{\kuee@restore{table}\kuee@table}
+   \def\figure{\kuee@figure}
+   \def\table{\kuee@table}
    \kuee@figureandtable
+   \if@figuretitle%   by G. Morita
+     \clearpage
+     \thispagestyle{empty}
+     \vbox to \textheight{%
+     \vfil%
+     \hbox to \textwidth{\Huge\bf\hfil 図 表 \hfil}%
+     \vfil}
+     \clearpage
+   \fi
    \processdelayedfloats@hook
    \ifnum\@kuee@open>0
      \immediate\closeout\kuee@post
@@ -566,7 +602,7 @@
    \processdelayedfloats }
 
 
-%%% 従来の kueethesis.sty との後方互換性を保つためのコマンド
+%%% 従来の kueethesis.sty との後方互換性を保つためのコマンド
 \def\figureandtable{%
   \@warning{This command `figureandtable' is obsolete.  Don't use it.}
   \def\figure{\kuee@figure}
