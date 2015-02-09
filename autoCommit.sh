@@ -6,7 +6,7 @@ do
 	echo $option
 	if [ "$option" = "convertOnly" ]
 		then
-		platex sotsuron.tex && dvipdfmx sotsuron.dvi
+		platex sotsuron.tex && bibtex sotsuron && platex sotsuron.tex && platex sotsuron.tex && dvipdfmx sotsuron.dvi
 		break
 	elif [ "$option" = "convertAndPush" ]
 		then

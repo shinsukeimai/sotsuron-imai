@@ -1,14 +1,64 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=10cm,angle=90]{egrid.eps}
+\includegraphics[width=\linewidth,angle=90]{egrid.eps}
 \end{center}
 \caption{評価構造図}
    \label{fig:egrid}
 \end{figure*}
 \kueeseparator
  
+\begin{figure*}
+
+\begin{center}
+\includegraphics[width=10cm]{gb.eps}
+\end{center}
+\caption{グラウンドボール}
+   \label{fig:gb}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\includegraphics[width=10cm]{shots.eps}
+\end{center}
+\caption{ショット}
+   \label{fig:shots}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\includegraphics[width=10cm]{score.eps}
+\end{center}
+\caption{スコア}
+   \label{fig:score}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\includegraphics[width=10cm]{ballmove.eps}
+\end{center}
+\caption{ボールムーブ}
+   \label{fig:basllmove}
+\end{figure*}
+\kueeseparator
+ 
 \clearpage
+\begin{figure*}
+
+\begin{center}
+\includegraphics[width=\linewidth]{experience.eps}
+\end{center}
+\caption{評価実験風景}
+   \label{fig:experi}
+\end{figure*}
+\kueeseparator
+ 
 \begin{figure*}
 
 \begin{center}
@@ -34,7 +84,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{result03.eps}
 \end{center}
-\caption{本提案システムと、表計算アプリケーションの操作時間}
+\caption{本提案システムと,表計算アプリケーションの操作時間}
    \label{fig:result03}
 \end{figure*}
 \kueeseparator
@@ -44,7 +94,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{result04.eps}
 \end{center}
-\caption{本提案システムと、表計算アプリケーションのそれぞれのステップごとの平均処理時間}
+\caption{本提案システムと,表計算アプリケーションのそれぞれのステップごとの平均処理時間}
    \label{fig:result04}
 \end{figure*}
 \kueeseparator
@@ -89,7 +139,6 @@
 \end{figure*}
 \kueeseparator
  
-\clearpage
 \clearpage
 \clearpage
 \clearpage
