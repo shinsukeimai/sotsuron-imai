@@ -22,7 +22,7 @@ do
 				break
 			fi
 		done
-			platex sotsuron.tex && pbibtex sotsuron && platex sotsuron.tex && platex sotsuron.tex && dvipdfmx sotsuron.dvi && git add -A && git commit -m "$meg" && git push 
+			platex sotsuron.tex && pbibtex sotsuron && platex sotsuron.tex && platex sotsuron.tex && dvipdfmx sotsuron.dvi && git add -A && git commit -m "$meg" && git push origin master
 			echo "end tex push-----"
 			break
 	else
