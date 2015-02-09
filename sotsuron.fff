@@ -15,7 +15,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{egrid.eps}
+\includegraphics[width=\linewidth,angle=90]{./eps/egrid.eps}
 \end{center}
 \caption{評価構造図}
    \label{fig:egrid}
@@ -25,7 +25,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=10cm]{gb.eps}
+\includegraphics[width=10cm]{./eps/gb.eps}
 \end{center}
 \caption{グラウンドボール}
    \label{fig:gb}
@@ -35,7 +35,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=10cm]{shots.eps}
+\includegraphics[width=10cm]{./eps/shots.eps}
 \end{center}
 \caption{ショット}
    \label{fig:shots}
@@ -45,7 +45,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=10cm]{score.eps}
+\includegraphics[width=10cm]{./eps/score.eps}
 \end{center}
 \caption{スコア}
    \label{fig:score}
@@ -55,7 +55,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=10cm]{ballmove.eps}
+\includegraphics[width=10cm]{./eps/ballmove.eps}
 \end{center}
 \caption{ボールムーブ}
    \label{fig:basllmove}
@@ -70,7 +70,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{experience.eps}
+\includegraphics[width=\linewidth]{./eps/experience.eps}
 \end{center}
 \caption{評価実験風景}
    \label{fig:experi}
@@ -80,7 +80,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result01.eps}
+\includegraphics[width=\linewidth]{./eps/result01.eps}
 \end{center}
 \caption{本提案システムの操作時間}
    \label{fig:result01}
@@ -90,7 +90,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result02.eps}
+\includegraphics[width=\linewidth]{./eps/result02.eps}
 \end{center}
 \caption{NE比}
    \label{fig:result02}
@@ -100,7 +100,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result03.eps}
+\includegraphics[width=\linewidth]{./eps/result03.eps}
 \end{center}
 \caption{本提案システムと,表計算アプリケーションの操作時間}
    \label{fig:result03}
@@ -110,7 +110,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result04.eps}
+\includegraphics[width=\linewidth]{./eps/result04.eps}
 \end{center}
 \caption{本提案システムと,表計算アプリケーションのそれぞれのステップごとの平均処理時間}
    \label{fig:result04}
@@ -120,7 +120,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result05.eps}
+\includegraphics[width=\linewidth]{./eps/result05.eps}
 \end{center}
 \caption{表計算アプリケーションでの操作時間と被験者の表計算アプリケーションへの慣れの関係性について}
    \label{fig:result05}
@@ -130,7 +130,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result06.eps}
+\includegraphics[width=\linewidth]{./eps/result06.eps}
 \end{center}
 \caption{実用性について}
    \label{fig:result06}
@@ -140,7 +140,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result07.eps}
+\includegraphics[width=\linewidth]{./eps/result07.eps}
 \end{center}
 \caption{利用用途について}
    \label{fig:result07}
@@ -150,7 +150,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth]{result08.eps}
+\includegraphics[width=\linewidth]{./eps/result08.eps}
 \end{center}
 \caption{提案システムについて}
    \label{fig:result08}
