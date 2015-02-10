@@ -15,7 +15,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/egrid.png}
+\includegraphics[width=\linewidth，angle=90]{./png/egrid.png}
 \end{center}
 \caption{評価構造図}
    \label{fig:egrid}
@@ -102,7 +102,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{./png/result03.png}
 \end{center}
-\caption{本提案システムと,表計算アプリケーションの操作時間}
+\caption{本提案システムと，表計算アプリケーションの操作時間}
    \label{fig:result03}
 \end{figure*}
 \kueeseparator
@@ -112,7 +112,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{./png/result04.png}
 \end{center}
-\caption{本提案システムと,表計算アプリケーションのそれぞれのステップごとの平均処理時間}
+\caption{本提案システムと，表計算アプリケーションのそれぞれのステップごとの平均処理時間}
    \label{fig:result04}
 \end{figure*}
 \kueeseparator
