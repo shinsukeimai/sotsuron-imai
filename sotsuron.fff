@@ -222,7 +222,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{./png/result03.png}
 \end{center}
-\caption{本提案システムと，表計算アプリケーションの操作時間}
+\caption{本提案システムと，表計算ソフトの操作時間}
    \label{fig:result03}
 \end{figure*}
 \kueeseparator
@@ -232,7 +232,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{./png/result04.png}
 \end{center}
-\caption{本提案システムと，表計算アプリケーションのそれぞれのステップごとの平均処理時間}
+\caption{本提案システムと，表計算ソフトのそれぞれのステップごとの平均処理時間}
    \label{fig:result04}
 \end{figure*}
 \kueeseparator
@@ -242,7 +242,7 @@
 \begin{center}
 \includegraphics[width=\linewidth]{./png/result05.png}
 \end{center}
-\caption{表計算アプリケーションでの操作時間と被験者の表計算アプリケーションへの慣れの関係性について}
+\caption{表計算ソフトでの操作時間と被験者の表計算ソフトへの慣れの関係性について}
    \label{fig:result05}
 \end{figure*}
 \kueeseparator
