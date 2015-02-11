@@ -25,7 +25,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/dashboard.png}
+\includegraphics[width=\linewidth]{./png/dashboard.png}
 \end{center}
 \caption{ダッシュボード}
    \label{fig:dashboard}
@@ -35,7 +35,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/nav.png}
+\includegraphics[width=\linewidth]{./png/nav.png}
 \end{center}
 \caption{ナビゲーションバー}
    \label{fig:nav}
@@ -45,7 +45,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/panel1.png}
+\includegraphics[width=\linewidth]{./png/panel1.png}
 \end{center}
 \caption{パネル(メイン)}
    \label{fig:panel1}
@@ -55,7 +55,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/panel2.png}
+\includegraphics[width=\linewidth]{./png/panel2.png}
 \end{center}
 \caption{パネル(詳細)}
    \label{fig:panel2}
@@ -105,7 +105,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/selection_games.png}
+\includegraphics[width=\linewidth]{./png/selection_games.png}
 \end{center}
 \caption{セレクションモーダル(games)}
    \label{fig:selection_games}
@@ -115,7 +115,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/selection_teams.png}
+\includegraphics[width=\linewidth]{./png/selection_teams.png}
 \end{center}
 \caption{セレクションモーダル(teams)}
    \label{fig:selection_teams}
@@ -125,7 +125,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/selection_graphs.png}
+\includegraphics[width=\linewidth]{./png/selection_graphs.png}
 \end{center}
 \caption{セレクションモーダル(graphs)}
    \label{fig:selection_graphs}
@@ -135,7 +135,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/rate_config.png}
+\includegraphics[width=\linewidth]{./png/rate_config.png}
 \end{center}
 \caption{レイティング機能}
    \label{fig:rate_config}
@@ -145,7 +145,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/rated.png}
+\includegraphics[width=\linewidth]{./png/rated.png}
 \end{center}
 \caption{レイティング結果}
    \label{fig:rated}
@@ -155,7 +155,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/sort.png}
+\includegraphics[width=\linewidth]{./png/sort.png}
 \end{center}
 \caption{ソート機能}
    \label{fig:sort}
@@ -165,7 +165,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/memo.png}
+\includegraphics[width=\linewidth]{./png/memo.png}
 \end{center}
 \caption{メモ機能}
    \label{fig:memo}
@@ -175,7 +175,7 @@
 \begin{figure*}
 
 \begin{center}
-\includegraphics[width=\linewidth,angle=90]{./png/collapsed.png}
+\includegraphics[width=\linewidth]{./png/collapsed.png}
 \end{center}
 \caption{最小化機能}
    \label{fig:collapse}
