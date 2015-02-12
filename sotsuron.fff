@@ -2,6 +2,66 @@
 \addtocounter{chapter}{-1}
 \stepcounter{chapter}
  
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth,angle=90]{./png/lax001.jpg}
+}
+\end{center}
+\caption{ラクロス1}
+   \label{fig:lax001}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth,angle=90]{./png/lax002.jpg}
+}
+\end{center}
+\caption{ラクロス2}
+   \label{fig:lax002}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth,angle=90]{./png/lax003.jpg}
+}
+\end{center}
+\caption{ラクロス3}
+   \label{fig:lax003}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth,angle=90]{./png/lax004.jpg}
+}
+\end{center}
+\caption{ラクロス4}
+   \label{fig:lax004}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth,angle=90]{./png/lax004.jpg}
+}
+\end{center}
+\caption{ラクロス5}
+   \label{fig:lax005}
+\end{figure*}
+\kueeseparator
+ 
 \clearpage
 \setcounter{chapter}{2}
 \addtocounter{chapter}{-1}
