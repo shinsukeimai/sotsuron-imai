@@ -6,7 +6,7 @@
 
 \begin{center}
 \fbox{
-\includegraphics[width=\linewidth,angle=90]{./png/lax001.jpg}
+\includegraphics[width=\linewidth]{./png/lax001.jpg}
 }
 \end{center}
 \caption{ラクロス1}
@@ -18,7 +18,7 @@
 
 \begin{center}
 \fbox{
-\includegraphics[width=\linewidth,angle=90]{./png/lax002.jpg}
+\includegraphics[width=\linewidth]{./png/lax002.jpg}
 }
 \end{center}
 \caption{ラクロス2}
@@ -30,7 +30,7 @@
 
 \begin{center}
 \fbox{
-\includegraphics[width=\linewidth,angle=90]{./png/lax003.jpg}
+\includegraphics[width=\linewidth]{./png/lax003.jpg}
 }
 \end{center}
 \caption{ラクロス3}
@@ -42,23 +42,11 @@
 
 \begin{center}
 \fbox{
-\includegraphics[width=\linewidth,angle=90]{./png/lax004.jpg}
+\includegraphics[width=\linewidth]{./png/lax004.jpg}
 }
 \end{center}
 \caption{ラクロス4}
    \label{fig:lax004}
-\end{figure*}
-\kueeseparator
- 
-\begin{figure*}
-
-\begin{center}
-\fbox{
-\includegraphics[width=\linewidth,angle=90]{./png/lax004.jpg}
-}
-\end{center}
-\caption{ラクロス5}
-   \label{fig:lax005}
 \end{figure*}
 \kueeseparator
  
