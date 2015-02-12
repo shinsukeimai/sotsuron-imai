@@ -15,7 +15,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth,angle=90]{./png/egrid.png}
+}
 \end{center}
 \caption{評価構造図}
    \label{fig:egrid}
@@ -25,7 +27,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/dashboard.png}
+}
 \end{center}
 \caption{ダッシュボード}
    \label{fig:dashboard}
@@ -35,7 +39,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/nav.png}
+}
 \end{center}
 \caption{ナビゲーションバー}
    \label{fig:nav}
@@ -45,7 +51,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/panel1.png}
+}
 \end{center}
 \caption{パネル(メイン)}
    \label{fig:panel1}
@@ -55,7 +63,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/panel2.png}
+}
 \end{center}
 \caption{パネル(詳細)}
    \label{fig:panel2}
@@ -65,7 +75,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=10cm]{./png/gb.png}
+}
 \end{center}
 \caption{グラウンドボール}
    \label{fig:gb}
@@ -75,7 +87,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=10cm]{./png/shots.png}
+}
 \end{center}
 \caption{ショット}
    \label{fig:shots}
@@ -85,7 +99,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=10cm]{./png/score.png}
+}
 \end{center}
 \caption{スコア}
    \label{fig:score}
@@ -95,7 +111,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=10cm]{./png/ballmove.png}
+}
 \end{center}
 \caption{ボールムーブ}
    \label{fig:ballmove}
@@ -105,7 +123,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/selection_games.png}
+}
 \end{center}
 \caption{セレクションモーダル(games)}
    \label{fig:selection_games}
@@ -115,7 +135,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/selection_teams.png}
+}
 \end{center}
 \caption{セレクションモーダル(teams)}
    \label{fig:selection_teams}
@@ -125,7 +147,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/selection_graphs.png}
+}
 \end{center}
 \caption{セレクションモーダル(graphs)}
    \label{fig:selection_graphs}
@@ -135,7 +159,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/rate_config.png}
+}
 \end{center}
 \caption{レイティング機能}
    \label{fig:rate_config}
@@ -145,7 +171,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/rated.png}
+}
 \end{center}
 \caption{レイティング結果}
    \label{fig:rated}
@@ -155,7 +183,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/sort.png}
+}
 \end{center}
 \caption{ソート機能}
    \label{fig:sort}
@@ -165,7 +195,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/memo.png}
+}
 \end{center}
 \caption{メモ機能}
    \label{fig:memo}
@@ -175,7 +207,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/collapsed.png}
+}
 \end{center}
 \caption{最小化機能}
    \label{fig:collapse}
@@ -190,7 +224,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/experience.png}
+}
 \end{center}
 \caption{評価実験風景}
    \label{fig:experi}
@@ -200,7 +236,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result01.png}
+}
 \end{center}
 \caption{本提案システムの操作時間}
    \label{fig:result01}
@@ -210,7 +248,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result02.png}
+}
 \end{center}
 \caption{NE比}
    \label{fig:result02}
@@ -220,7 +260,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result03.png}
+}
 \end{center}
 \caption{本提案システムと，表計算ソフトの操作時間}
    \label{fig:result03}
@@ -230,7 +272,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result04.png}
+}
 \end{center}
 \caption{本提案システムと，表計算ソフトのそれぞれのステップごとの平均処理時間}
    \label{fig:result04}
@@ -240,7 +284,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result05.png}
+}
 \end{center}
 \caption{表計算ソフトでの操作時間と被験者の表計算ソフトへの慣れの関係性について}
    \label{fig:result05}
@@ -250,7 +296,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result06.png}
+}
 \end{center}
 \caption{実用性について}
    \label{fig:result06}
@@ -260,7 +308,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result07.png}
+}
 \end{center}
 \caption{利用用途について}
    \label{fig:result07}
@@ -270,7 +320,9 @@
 \begin{figure*}
 
 \begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/result08.png}
+}
 \end{center}
 \caption{提案システムについて}
    \label{fig:result08}

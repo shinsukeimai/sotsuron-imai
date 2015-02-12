@@ -36,7 +36,7 @@
 	本提案システムへの要望調査では，評価グリッド法~\cite{EGM}とアンケート手法を用いて，選手たちの視覚的分析システムに対する要求を明確にし，実装を行った．
 	本提案システムはアンケート調査の結果から，既存のダッシュボードフレームワーク~\cite{dashboard}が適すると考え，選手の利用のため改良した．
 	以降，本提案システム概要の紹介に際して，分析ツールのメイン画面をダッシュボードと呼称する．
-	本提案システムでは，ダッシュボード上に複数のパネルを配置でき，各パネルにそれぞれゲームに関する情報を視覚化したグラフとともに表示するようにした．
+	本提案システムでは，ダッシュボード上に複数のパネルを配置でき，各パネルにそれぞれゲームに関するデータを視覚化したグラフとともに表示するようにした．
 	また，ダッシュボードに下記の機能を加えることで，選手たちは容易に利用でき，戦術改善に有益な情報を得ることができた．
 		\begin{itemize}
 			\item 試合を俯瞰する機能．
@@ -67,7 +67,7 @@
 	Tomらは，これまでに研究されているテニスの可視化技術は，プロ選手の試合放送の質を高め，コーチが選手をコーチングするために，ボールや選手のトラッキングデータを用いることに終始している事に注目した．
 	Tomらはデータの収集はコストがかかることを考慮し，データを手入力できるためアマチュアでも低コストで分析可能なシステムを考案した~\cite{TenniVis}．
 	本提案システムでも，手入力可能なデータを可視化している．
-	スコアや，ラリーの長さや，サーブの情報や，試合のビデオなどをコンシューマ向けビデオカメラから取り入れることで，簡単に試合データを収集し，Tomらの開発したtenniVisシステムにより3種の手法を用いている．
+	スコアや，ラリーの長さや，サーブのデータや，試合のビデオなどをコンシューマ向けビデオカメラから取り入れることで，簡単に試合データを収集し，Tomらの開発したtenniVisシステムにより3種の手法を用いている．
 	TennisVisシステムを用いることでテニスのコーチ，プレーヤーは試合のパフォーマンスを素早く振り返ることができると主張している．
 	しかしながら，サッカーストーリーと同様，試合間のデータの比較には不便さが存在する．
 	
@@ -116,7 +116,9 @@
 				調査で得られたネットワーク図を図~\ref{fig:egrid}に示す．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=\linewidth,angle=90]{./png/egrid.png}
+							}
 						\end{center}
 						\caption{評価構造図}
 				  		\label{fig:egrid}
@@ -130,7 +132,7 @@
 					選手が共通して強く望んでいた一つが，視覚的分析システムの容易性であった．
 					選手たちの述べる容易性とは「視覚的分析システムの扱いやすさ」「グラフのイメージしやすさ」「分析時間を短縮できる視覚的分析システムの優れた情報探索能力」などのことである．
 					彼らスポーツ選手は，練習，トレーニングに加え，ビデオによる戦術分析に多くの時間を割いており，負担を感じていた．
-					戦術分析は必要な要素ではあるので欠かせないが，表計算ソフトを用いた試合情報の集計では戦術分析に活かせておらず，試合のすべてのビデオを見直すことで戦術分析を行っていると述べていた．
+					戦術分析は必要な要素ではあるので欠かせないが，表計算ソフトを用いた試合データの集計では戦術分析に活かせておらず，試合のすべてのビデオを見直すことで戦術分析を行っていると述べていた．
 					そこで，表計算ソフトより容易に利用可能な，可視化技術を用いた分析補助システムの実用化が望まれていた．
 					したがって本調査により，序論で述べた，本提案システムのニーズを男子ラクロスの選手から確認した．
 		\subsection{アンケート調査}
@@ -228,14 +230,18 @@
 			ダッシュボードにてユーザーが主に行う操作は対象試合を選びパネルを配置することと，配置されたパネル間を比較することであり，複雑なズーミングやわかりにくいフィルタリングは行わずに扱えるようにした．
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/dashboard.png}
+					}
 				\end{center}
 				\caption{ダッシュボード}
 		  		\label{fig:dashboard}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/nav.png}
+					}
 				\end{center}
 				\caption{ナビゲーションバー}
 		  		\label{fig:nav}
@@ -247,14 +253,18 @@
 			要素の種類としては4種類の実装を行った．グラフ生成にはJavaScript，D3jsライブラリ~\cite{D3}を用いた．
 				\begin{figure}
 					\begin{center}
+						\fbox{
 						\includegraphics[width=\linewidth]{./png/panel1.png}
+						}
 					\end{center}
 					\caption{パネル(メイン)}
 			  		\label{fig:panel1}
 				\end{figure}
 				\begin{figure}
 					\begin{center}
+						\fbox{
 						\includegraphics[width=\linewidth]{./png/panel2.png}
+						}
 					\end{center}
 					\caption{パネル(詳細)}
 			  		\label{fig:panel2}
@@ -264,7 +274,9 @@
 				プロットした選手をブラウザにてタッチすると，その時間の動画再生できるようにした．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=10cm]{./png/gb.png}
+							}
 						\end{center}
 						\caption{グラウンドボール}
 				  		\label{fig:gb}
@@ -275,7 +287,9 @@
 				ゴール図では，対象チームのショットの分布をプロットした．フィールド図と同様にショットの結果を色分けプロットした．この分布プロットから対象チームのショットに関する傾向と成功率を解釈できるとともに，相手ゴーリーの得手不得手を分析することを可能にした．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=10cm]{./png/shots.png}
+							}
 						\end{center}
 						\caption{ショット}
 				  		\label{fig:shots}
@@ -285,7 +299,9 @@
 				この棒グラフと円グラフは相互に対応し，棒グラフには対象チームの選手の総ショット数を表示し，ある選手を選択すると，その選手のショットの内訳が円グラフに表示されるようにした．また，円グラフには対象チームの総ショット内訳を表示し，一つのショット要素を選択すると，そのショット要素の内訳選手が棒グラフに表示されるされるようにした．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=10cm]{./png/score.png}
+							}
 						\end{center}
 						\caption{スコア}
 				  		\label{fig:score}
@@ -300,7 +316,9 @@
 				このグラフにより，「1on1」「選手の動き」「クリア」「パス」を分析することができる．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=10cm]{./png/ballmove.png}
+							}
 						\end{center}
 						\caption{ボールムーブ}
 				  		\label{fig:ballmove}
@@ -316,21 +334,27 @@
 			グラフタブでは試合ではなく，パネルを直接選択する．複数のパネルを選択することができ，またフィルタリング機能を備えているため，試合間でのデータ比較が容易に行えるようにした(図~\ref{fig:selection_graphs})．
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/selection_games.png}
+					}
 				\end{center}
 				\caption{セレクションモーダル(games)}
 		  		\label{fig:selection_games}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/selection_teams.png}
+					}
 				\end{center}
 				\caption{セレクションモーダル(teams)}
 		  		\label{fig:selection_teams}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/selection_graphs.png}
+					}
 				\end{center}
 				\caption{セレクションモーダル(graphs)}
 		  		\label{fig:selection_graphs}
@@ -345,14 +369,18 @@
 				あるチームのあるプレーの時系列変化を知りたい場合にも，この機能を利用することで経過を視ることができるようにした．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=\linewidth]{./png/rate_config.png}
+							}
 						\end{center}
 						\caption{レイティング機能}
 				  		\label{fig:rate_config}
 					\end{figure}
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=\linewidth]{./png/rated.png}
+							}
 						\end{center}
 						\caption{レイティング結果}
 				  		\label{fig:rated}
@@ -363,7 +391,9 @@
 				日時によるソートや，相手チームと比較したプレーの質を定量的に数式化することによりソートを行えるようにした．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=\linewidth]{./png/sort.png}
+							}
 						\end{center}
 						\caption{ソート機能}
 				  		\label{fig:sort}
@@ -373,7 +403,9 @@
 				ユーザーがメモを加えられることにより，分析の補助を狙った(図~\ref{fig:memo})．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=\linewidth]{./png/memo.png}
+							}
 						\end{center}
 						\caption{メモ機能}
 				  		\label{fig:memo}
@@ -383,7 +415,9 @@
 				パネル数が多くなる場合，スクロールして見るには見づらくなるため，この最小化可能な機能を加えた．
 					\begin{figure}
 						\begin{center}
+							\fbox{
 							\includegraphics[width=\linewidth]{./png/collapsed.png}
+							}
 						\end{center}
 						\caption{最小化機能}
 				  		\label{fig:collapse}
@@ -401,7 +435,9 @@
 	以上の有効性を検証するために，同部15名に対して本提案システム評価実験を行った(図~\ref{fig:experi})．
 		\begin{figure}
 			\begin{center}
+				\fbox{
 				\includegraphics[width=\linewidth]{./png/experience.png}
+				}
 			\end{center}
 			\caption{評価実験風景}
 	  		\label{fig:experi}
@@ -457,14 +493,18 @@
 			図~\ref{fig:result02}ではステップに要したノービスの平均時間とエキスパートの時間，それぞれのステップのNE比を表している．
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result01.png}
+					}
 				\end{center}
 				\caption{本提案システムの操作時間}
 		  		\label{fig:result01}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result02.png}
+					}
 				\end{center}
 				\caption{NE比}
 		  		\label{fig:result02}
@@ -485,21 +525,27 @@
 			図~\ref{fig:result05}では同部での各々の表計算ソフト利用状況と，表計算ソフトでの分析に要する処理時間について記している．
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result03.png}
+					}
 				\end{center}
 				\caption{本提案システムと，表計算ソフトの操作時間}
 		  		\label{fig:result03}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result04.png}
+					}
 				\end{center}
 				\caption{本提案システムと，表計算ソフトのそれぞれのステップごとの平均処理時間}
 		  		\label{fig:result04}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result05.png}
+					}
 				\end{center}
 				\caption{表計算ソフトでの操作時間と被験者の表計算ソフトへの慣れの関係性について}
 		  		\label{fig:result05}
@@ -533,21 +579,27 @@
 			選手たちからは利用感想として，「従来のエクセルを使ったシステムに比べ，視覚的にイメージしやすくなっていて，使いやすいと思った．」「可視化することで必要な要素に絞ってデータを得ることができたので，効率的で分かりやすかったです．」「従来のエクセルよりはるかに評価が分かりやすいものにになっていると思う． ただshotの項目でシューターのショット傾向はわかると思うが，ゴーリーのスカウティングという面では少し情報が足りないので，可能であれば項目をショットの距離や，ラン，ミドル毎の分布など拡張させて欲しい．」「見やすい．グラフィックがおもろい．」などの回答が得られた．
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result06.png}
+					}
 				\end{center}
 				\caption{実用性について}
 		  		\label{fig:result06}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result07.png}
+					}
 				\end{center}
 				\caption{利用用途について}
 		  		\label{fig:result07}
 			\end{figure}
 			\begin{figure}
 				\begin{center}
+					\fbox{
 					\includegraphics[width=\linewidth]{./png/result08.png}
+					}
 				\end{center}
 				\caption{提案システムについて}
 		  		\label{fig:result08}
