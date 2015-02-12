@@ -50,6 +50,18 @@
 \end{figure*}
 \kueeseparator
  
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth]{./png/lax005.jpg}
+}
+\end{center}
+\caption{ラクロス5}
+   \label{fig:lax005}
+\end{figure*}
+\kueeseparator
+ 
 \clearpage
 \setcounter{chapter}{2}
 \addtocounter{chapter}{-1}
