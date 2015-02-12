@@ -52,6 +52,42 @@
 
 \begin{center}
 \fbox{
+\includegraphics[width=\linewidth]{./png/selection_games.png}
+}
+\end{center}
+\caption{セレクションモーダル(games)}
+   \label{fig:selection_games}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth]{./png/selection_teams.png}
+}
+\end{center}
+\caption{セレクションモーダル(teams)}
+   \label{fig:selection_teams}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\fbox{
+\includegraphics[width=\linewidth]{./png/selection_graphs.png}
+}
+\end{center}
+\caption{セレクションモーダル(graphs)}
+   \label{fig:selection_graphs}
+\end{figure*}
+\kueeseparator
+ 
+\begin{figure*}
+
+\begin{center}
+\fbox{
 \includegraphics[width=\linewidth]{./png/panel1.png}
 }
 \end{center}
@@ -117,42 +153,6 @@
 \end{center}
 \caption{ボールムーブ}
    \label{fig:ballmove}
-\end{figure*}
-\kueeseparator
- 
-\begin{figure*}
-
-\begin{center}
-\fbox{
-\includegraphics[width=\linewidth]{./png/selection_games.png}
-}
-\end{center}
-\caption{セレクションモーダル(games)}
-   \label{fig:selection_games}
-\end{figure*}
-\kueeseparator
- 
-\begin{figure*}
-
-\begin{center}
-\fbox{
-\includegraphics[width=\linewidth]{./png/selection_teams.png}
-}
-\end{center}
-\caption{セレクションモーダル(teams)}
-   \label{fig:selection_teams}
-\end{figure*}
-\kueeseparator
- 
-\begin{figure*}
-
-\begin{center}
-\fbox{
-\includegraphics[width=\linewidth]{./png/selection_graphs.png}
-}
-\end{center}
-\caption{セレクションモーダル(graphs)}
-   \label{fig:selection_graphs}
 \end{figure*}
 \kueeseparator
  
